@@ -1,7 +1,10 @@
 #include "./wavelet.hpp"
 #include <vector>
+#include <dlib/optimization.h>
+using namespace dlib;
 using namespace std;
 #pragma once
+typedef matrix<double,0,1> column_vector;
 struct wavelon
 {
   double a;
@@ -14,13 +17,13 @@ class Net
  public:
   Net(Wavelet *wt, int ncount, double xmax, double xmin, double ymin, double a0);
   ~Net();
-  vector<double> sim(vector<double> t);
+  column_vector sim(const column_vector&  t);
  private:
   int nc;
-  double* weight;
+  column_vector weight;
   Wavelet* wt;
   wavelon* wn;
-  vector <double> gradient(vector <double> t);
+  column_vector gradient(const column_vector&  t);
 
 };
 
