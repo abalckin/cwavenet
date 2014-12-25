@@ -8,7 +8,7 @@ main.o: core.o
 	g++ $(CFLAGS) -c ../newn.cpp 
 
 core.o:
-	g++ $(CFLAGS) -c ../../wavenet/core.cpp -o core.o
+	g++ $(CFLAGS) -c ../../wavenet/net.cpp -o core.o
 clean:
 	rm -rf *.o newn
 #optim.o:
