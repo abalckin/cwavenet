@@ -3,6 +3,7 @@
 class Wavelet
 {
 public:
+  virtual double p0() const =0;
   virtual double h(double tau,  double p) const = 0;
   virtual double db(double tau, double htau, double a, double p) const = 0;
   virtual double dp(double tau, double p) const = 0;
@@ -10,6 +11,12 @@ public:
 };
 class Morlet :public Wavelet
 {
+public:
+  virtual double p0() const
+  {
+    return 1.;
+  }
+  /**Return wavelet value*/
   virtual double h(double tau, double p) const 
   {
     return cos(p*tau)*exp(-0.5*tau*tau);

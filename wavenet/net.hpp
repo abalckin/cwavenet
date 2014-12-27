@@ -1,11 +1,8 @@
 #include "./wavelet.hpp"
 #include <vector>
 #include <dlib/optimization.h>
-using namespace dlib;
-using namespace std;
-//using namespace vector;
 #pragma once
-typedef matrix<double,0,1> column_vector;
+typedef dlib::matrix<double,0,1> column_vector;
 typedef std::vector<double> std_vector;
 struct wavelon
 {
@@ -14,19 +11,22 @@ struct wavelon
   double p;
   double w;
 };
+struct ActivateFunc {
+    enum Func {Morlet,SLOG,POLYWOG};
+};
+typedef ActivateFunc::Func ActFunc;
 class Net 
 {
  public:
-  Net(Wavelet *wt, int ncount, double xmax, double xmin, double ymin, double a0);
-  //~Net();
+  Net(int ncount, double xmin, double xmax, double ymin, double a0=10., double w0=0.1, ActFunc f = ActivateFunc::Morlet);
   std_vector sim(const std_vector&  t);
+  column_vector gradient(const std_vector&  t, const std_vector&  target);
+  double energy(const std_vector& t, const std_vector& target);
  private:
   int nc;
   int wcount;
   column_vector weight;
   Wavelet* wt;
   wavelon* wn;
-  column_vector gradient(const std_vector&  t, const std_vector&  target);
-  double energy(const std_vector& t, const std_vector& target);
 };
 

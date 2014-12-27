@@ -1,33 +1,41 @@
 #include "net.hpp"
 #include <iostream>
-
-Net::Net(Wavelet* wavelet, int ncount, double xmin, double xmax, double ymin, double a0)
-{
+using namespace std;
+Net::Net(int ncount, double xmin, double xmax, double ymin, double a0, double w0, ActFunc f)
+  {
   wcount = ncount*4+1;
-  wt = wavelet;
+  //wt = new Morlet();
+  switch (f)
+     {
+     case  ActivateFunc::Morlet:
+       wt = new Morlet();
+       break;
+     default:
+       break;
+     }
   nc = ncount;
   weight.set_size(wcount);
   weight(0) = ymin;
-  double delta = (xmax - xmin)/wcount;
+  double delta = (xmax - xmin)/nc;
   wn =(wavelon *) (&weight(0) + 1); 
   for (int i=0; i<nc; i++)
     {
       wn[i].a = a0;
-      wn[i].b = i*(delta+1);
-      wn[i].p = 1.;
-      wn[i].w =0.05;
-    }  
-}
+      wn[i].b = i*delta;
+      wn[i].p = wt->p0();
+      wn[i].w =w0;
+    }
+  }
 
 std_vector Net::sim(const std_vector& t)
 {
   std_vector out(t.size());
-  for (int i=0; i<t.size();i++)
+  for (uint i=0; i<t.size();i++)
     {
       double nans = 0.;
       for( int j=0; j<nc; j++)
 	{
-	  double tau = wt->tau(t[j], wn[j].a, wn[j].b);
+	  double tau = wt->tau(t[i], wn[j].a, wn[j].b);
 	  nans+=wt->h(tau, wn[j].p)*wn[j].w;
 	}
       out[i]=nans*t[i]+ weight(0);
@@ -63,7 +71,7 @@ double Net::energy(const std_vector& t, const std_vector& target)
 {
   double ener = 0.;
   std_vector ans = sim(t);
-  for(int i=0; i<t.size(); i++)
+  for(uint i=0; i<t.size(); i++)
     {
       double err = target[i] - ans[i];
       ener += err*err;
