@@ -44,12 +44,12 @@ std_vector Net::sim(const std_vector& t)
 }
 column_vector Net::gradient(const std_vector& t, const std_vector& target)
  {
-   int len = t.size();
-   column_vector gd(len);
-   for(int k=0; k<wcount; k++ ) gd=0.;
+   column_vector gd;
+   gd.set_size(wcount);
+   for(int k=0; k<wcount; k++ ) gd(k)=0.;
    std_vector ans = sim(t);
    wavelon* gdw =(wavelon *) (&gd(0) + 1);
-   for (int j=0; j<t.size(); j++)
+   for (uint j=0; j<t.size(); j++)
    {
      double e = target[j]-ans[j];
      gd(0)+=-e;
@@ -61,12 +61,18 @@ column_vector Net::gradient(const std_vector& t, const std_vector& target)
 	 double d = e*t[j]*wn[i].w*wt->db(tau, htau, wn[i].a, wn[i].p);
 	 gdw[i].b += -d;
 	 gdw[i].a += -d*tau;
-	 gdw[i].p += e*t[j]*wn[i].w*wt->dp(tau, wn[i].p);
+	 gdw[i].p += -e*t[j]*wn[i].w*wt->dp(tau, wn[i].p);
        }
    }
-   return gd;
+   return gd; 
  }
-
+std_vector Net::gradientVector(const std_vector& t, const std_vector& target)
+{
+  column_vector gt = gradient(t, target);
+  std_vector ans(wcount);
+  for(int k=0; k<wcount; k++ ) ans[k]=gt(k);
+  return ans;
+}
 double Net::energy(const std_vector& t, const std_vector& target)
 {
   double ener = 0.;
