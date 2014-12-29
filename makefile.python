@@ -4,8 +4,8 @@ CFLAGS =
 all: _wavenet.so wavenet.py _wavelet.so wavelet.py
 
 # обертка + действительный класс
-_wavenet.so: wavenet_wrap.o net.o
-	      g++ $(CFLAGS) -shared wavenet_wrap.o net.o -L $(PYLIB) -o $@
+_wavenet.so: wavenet_wrap.o net.o train.o
+	      g++ $(CFLAGS) -shared wavenet_wrap.o net.o train.o -L $(PYLIB) -o $@
 # генерирует модуль обертки класса
 wavenet_wrap.o: wavenet_wrap.cxx
 		g++ $(CFLAGS) wavenet_wrap.cxx -c -g -fPIC -I $(PYINC)
@@ -17,7 +17,8 @@ wavenet.py: wavenet.i
 # программный код обертки класса C++
 net.o:
 	  g++ $(CFLAGS) ../wavenet/net.cpp -c -g -fPIC -Wno-deprecated
-
+train.o:
+	  g++ $(CFLAGS) ../wavenet/train.cpp -c -g -fPIC -Wno-deprecated
 
 
 # обертка + действительный класс

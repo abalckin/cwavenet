@@ -20,6 +20,7 @@ class TestSequenceFunctions(unittest.TestCase):
         self.eps = 1e-10
         self.inp = [0, 5., 10]
         self.morlet = wn.wavelet.Morlet()
+        self.targ = [(i/10)**2 for i in self.inp]
 
     def test_sim(self):
         sim = np.array(self.wn.sim(self.inp))
@@ -44,7 +45,7 @@ class TestSequenceFunctions(unittest.TestCase):
 
     def test_gradient(self):
         targ = np.array([0, 0.5, 1.])
-        gr = np.array(self.wn.gradientVector(self.inp, targ))
+        gr = np.array(self.wn.gradient(self.inp, targ))
         sim = np.array(self.wn.sim(self.inp))
         e = targ - sim
         c = gr[0]
@@ -76,7 +77,20 @@ class TestSequenceFunctions(unittest.TestCase):
             cp = -np.sum(p)
             self.assertEqual(cp, dp)
     def test_sim_speed(self):
+        import time
         inp = range(1, 1000000)
-        sim = np.array(self.wn.sim(inp))
+        start = time.time()
+        self.wn.sim(inp)
+        t = time.time()-start
+        self.assertLess(t, 1.)
+        
+    def test_train(self):
+        inp = range(1, 10, 20)
+        tar = [(x/10)**2 for x in inp]
+        n = wn.Net(10, self.xmin, self.xmax, self.ymin,
+                         self.a0, self.w0)
+        n.train(inp, tar, wn.TrainStrategy.CG, 100, 0.01)
+        r = n.energy(inp, tar)
+        self.assertLess(r, .01)
 if __name__ == '__main__':
     unittest.main()

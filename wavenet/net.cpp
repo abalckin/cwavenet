@@ -29,6 +29,12 @@ Net::Net(int ncount, double xmin, double xmax, double ymin, double a0, double w0
 
 std_vector Net::sim(const std_vector& t)
 {
+  return _sim(t, weight);
+}
+
+std_vector Net::_sim(const std_vector& t, const column_vector& weight)
+{
+  wavelon *wn =(wavelon *) (&weight(0) + 1);   
   std_vector out(t.size());
   for (uint i=0; i<t.size();i++)
     {
@@ -42,8 +48,19 @@ std_vector Net::sim(const std_vector& t)
     }
   return out;
 }
-column_vector Net::gradient(const std_vector& t, const std_vector& target)
+
+std_vector Net::gradient(const std_vector& t, const std_vector& target)
+{
+  column_vector gt = _gradient(t, target, weight);
+  std_vector ans(wcount);
+  for(int k=0; k<wcount; k++ ) ans[k]=gt(k);
+  return ans;
+  
+}
+
+column_vector Net::_gradient(const std_vector& t, const std_vector& target, const column_vector& weight)
  {
+   wavelon *wn =(wavelon *) (&weight(0) + 1);   
    column_vector gd;
    gd.set_size(wcount);
    for(int k=0; k<wcount; k++ ) gd(k)=0.;
@@ -66,23 +83,25 @@ column_vector Net::gradient(const std_vector& t, const std_vector& target)
    }
    return gd; 
  }
-std_vector Net::gradientVector(const std_vector& t, const std_vector& target)
-{
-  column_vector gt = gradient(t, target);
-  std_vector ans(wcount);
-  for(int k=0; k<wcount; k++ ) ans[k]=gt(k);
-  return ans;
-}
+
 double Net::energy(const std_vector& t, const std_vector& target)
 {
+  return _energy(t, target, weight);
+}
+double Net::_energy(const std_vector& t, const std_vector& target, const column_vector& weight)
+{
   double ener = 0.;
-  std_vector ans = sim(t);
+  std_vector ans = _sim(t, weight);
   for(uint i=0; i<t.size(); i++)
     {
       double err = target[i] - ans[i];
       ener += err*err;
     }
   return ener/2;
+}
+Net::~Net()
+{
+  delete[] wt;
 }
 
 

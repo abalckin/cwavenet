@@ -41,15 +41,17 @@ typedef TrainStrategy::Func TrainStrat;
 class Net 
 {
 public:
-  double f (const column_vector& x) const;
-  column_vector der (const column_vector& x)const;
+  double f (const column_vector& x);
+  column_vector der (const column_vector& x);
   Net(int ncount, double xmin, double xmax, double ymin, double a0=10.,
       double w0=0.1, ActFunc f = ActivateFunc::Morlet);
+  ~Net();
   std_vector sim(const std_vector&  t);
-  std_vector gradientVector(const std_vector& t, const std_vector& target);
+  std_vector gradient(const std_vector& t, const std_vector& target);
   double energy(const std_vector& t, const std_vector& target);
-  train_res train(const std_vector t, const std_vector target,
-		  TrainStrat train_strategy, int epochs, double goal, int show);
+  double train(const std_vector& t, const std_vector& target,
+		     TrainStrat train_strategy=TrainStrategy::CG,
+	       int epochs=30, double goal = 0.3, int show=1);
   friend NetModel;
  
 private:
@@ -60,16 +62,18 @@ private:
   std_vector targ;
   Wavelet* wt;
   wavelon* wn;
-  column_vector gradient(const std_vector&  t, const std_vector&  target);
+  column_vector _gradient(const std_vector&  t, const std_vector&  target, const column_vector& weight);
+  double _energy(const std_vector& t, const std_vector& target, const column_vector& weight);
+  std_vector _sim(const std_vector&  t, const column_vector& weight);
   template <typename search_strategy_type>
-  train_res _train(const std_vector t, const std_vector target,
+  double _train(const std_vector& t, const std_vector& target,
 		   search_strategy_type train_strategy, int epochs, double goal, int show);
 };
 
 class NetF
 {
   private:
-   const  Net *n;
+   Net *n;
 
   public:
     NetF(Net *net )
@@ -84,7 +88,7 @@ class NetF
 class NetDer
 {
   private:
-   const  Net *n;
+   Net *n;
 
   public:
     NetDer(Net *net)

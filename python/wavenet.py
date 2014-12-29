@@ -708,6 +708,26 @@ class ActivateFunc(_object):
 ActivateFunc_swigregister = _wavenet.ActivateFunc_swigregister
 ActivateFunc_swigregister(ActivateFunc)
 
+class TrainStrategy(_object):
+    """Proxy of C++ TrainStrategy class"""
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, TrainStrategy, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, TrainStrategy, name)
+    __repr__ = _swig_repr
+    Gradient = _wavenet.TrainStrategy_Gradient
+    CG = _wavenet.TrainStrategy_CG
+    BFGS = _wavenet.TrainStrategy_BFGS
+    def __init__(self): 
+        """__init__(TrainStrategy self) -> TrainStrategy"""
+        this = _wavenet.new_TrainStrategy()
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _wavenet.delete_TrainStrategy
+    __del__ = lambda self : None;
+TrainStrategy_swigregister = _wavenet.TrainStrategy_swigregister
+TrainStrategy_swigregister(TrainStrategy)
+
 class Net(_object):
     """Proxy of C++ Net class"""
     __swig_setmethods__ = {}
@@ -715,6 +735,26 @@ class Net(_object):
     __swig_getmethods__ = {}
     __getattr__ = lambda self, name: _swig_getattr(self, Net, name)
     __repr__ = _swig_repr
+    def f(self, *args):
+        """
+        f(Net self, column_vector const & x) -> double
+
+        Parameters:
+            x: column_vector const &
+
+        """
+        return _wavenet.Net_f(self, *args)
+
+    def der(self, *args):
+        """
+        der(Net self, column_vector const & x) -> column_vector
+
+        Parameters:
+            x: column_vector const &
+
+        """
+        return _wavenet.Net_der(self, *args)
+
     def __init__(self, *args): 
         """
         __init__(Net self, int ncount, double xmin, double xmax, double ymin, double a0=10., double w0=0.1, 
@@ -760,6 +800,8 @@ class Net(_object):
         this = _wavenet.new_Net(*args)
         try: self.this.append(this)
         except: self.this = this
+    __swig_destroy__ = _wavenet.delete_Net
+    __del__ = lambda self : None;
     def sim(self, *args):
         """
         sim(Net self, std_vector t) -> std_vector
@@ -770,16 +812,16 @@ class Net(_object):
         """
         return _wavenet.Net_sim(self, *args)
 
-    def gradientVector(self, *args):
+    def gradient(self, *args):
         """
-        gradientVector(Net self, std_vector t, std_vector target) -> std_vector
+        gradient(Net self, std_vector t, std_vector target) -> std_vector
 
         Parameters:
             t: std_vector const &
             target: std_vector const &
 
         """
-        return _wavenet.Net_gradientVector(self, *args)
+        return _wavenet.Net_gradient(self, *args)
 
     def energy(self, *args):
         """
@@ -792,10 +834,120 @@ class Net(_object):
         """
         return _wavenet.Net_energy(self, *args)
 
-    __swig_destroy__ = _wavenet.delete_Net
-    __del__ = lambda self : None;
+    def train(self, *args):
+        """
+        train(Net self, std_vector t, std_vector target, TrainStrat train_strategy=CG, int epochs=30, double goal=0.3, 
+            int show=1) -> double
+
+        Parameters:
+            t: std_vector const &
+            target: std_vector const &
+            train_strategy: enum TrainStrat
+            epochs: int
+            goal: double
+            show: int
+
+        train(Net self, std_vector t, std_vector target, TrainStrat train_strategy=CG, int epochs=30, double goal=0.3) -> double
+
+        Parameters:
+            t: std_vector const &
+            target: std_vector const &
+            train_strategy: enum TrainStrat
+            epochs: int
+            goal: double
+
+        train(Net self, std_vector t, std_vector target, TrainStrat train_strategy=CG, int epochs=30) -> double
+
+        Parameters:
+            t: std_vector const &
+            target: std_vector const &
+            train_strategy: enum TrainStrat
+            epochs: int
+
+        train(Net self, std_vector t, std_vector target, TrainStrat train_strategy=CG) -> double
+
+        Parameters:
+            t: std_vector const &
+            target: std_vector const &
+            train_strategy: enum TrainStrat
+
+        train(Net self, std_vector t, std_vector target) -> double
+
+        Parameters:
+            t: std_vector const &
+            target: std_vector const &
+
+        """
+        return _wavenet.Net_train(self, *args)
+
 Net_swigregister = _wavenet.Net_swigregister
 Net_swigregister(Net)
+
+class NetF(_object):
+    """Proxy of C++ NetF class"""
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, NetF, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, NetF, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        """
+        __init__(NetF self, Net net) -> NetF
+
+        Parameters:
+            net: Net *
+
+        """
+        this = _wavenet.new_NetF(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    def __call__(self, *args):
+        """
+        __call__(NetF self, column_vector const & x) -> double
+
+        Parameters:
+            x: column_vector const &
+
+        """
+        return _wavenet.NetF___call__(self, *args)
+
+    __swig_destroy__ = _wavenet.delete_NetF
+    __del__ = lambda self : None;
+NetF_swigregister = _wavenet.NetF_swigregister
+NetF_swigregister(NetF)
+
+class NetDer(_object):
+    """Proxy of C++ NetDer class"""
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, NetDer, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, NetDer, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        """
+        __init__(NetDer self, Net net) -> NetDer
+
+        Parameters:
+            net: Net *
+
+        """
+        this = _wavenet.new_NetDer(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    def __call__(self, *args):
+        """
+        __call__(NetDer self, column_vector const & x) -> double
+
+        Parameters:
+            x: column_vector const &
+
+        """
+        return _wavenet.NetDer___call__(self, *args)
+
+    __swig_destroy__ = _wavenet.delete_NetDer
+    __del__ = lambda self : None;
+NetDer_swigregister = _wavenet.NetDer_swigregister
+NetDer_swigregister(NetDer)
 
 # This file is compatible with both classic and new-style classes.
 

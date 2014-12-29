@@ -5,52 +5,44 @@ using namespace dlib;
 
 double Net::f (const column_vector& x)
 {
-  column_vector temp = weight;
-  weight = x;
-  double energ = energy(inp, targ);
-  weight = temp;
-  return energ;
+  return _energy(inp, targ, x);
 }
 
 column_vector Net::der (const column_vector& x)
 {
-  column_vector temp = weight;
-  weight = x;
-  column_vector d = gradient(inp, targ);
-  weight = temp;
-  return d;
+  return _gradient(inp, targ, x);
 }
 
-train_res Net::train(const std_vector t, const std_vector target,
-		     TrainStrat train_strategy=TrainStrategy::CG,
-		     int epochs=30, double goal = 0.3, int show=1)
+double Net::train(const std_vector& t, const std_vector& target,
+		     TrainStrat train_strategy,
+		  int epochs, double goal, int show)
 {
-     switch (train_strategy)
-     {
-       case TrainStrategy::CG:
+  switch (train_strategy)
+    {
+    case TrainStrategy::CG:
       return _train(t, target, cg_search_strategy(),
 		    epochs, goal, show);
-       break;
-     default:
-       return _train(t, target, cg_search_strategy(),
+      break;
+    default:
+      return _train(t, target, cg_search_strategy(),
 		    epochs, goal, show);
-       break;
-     }
+      break;
+    }
 }
 template <typename search_strategy_type>
-train_res Net::_train(const std_vector input, const std_vector target,
+double Net::_train(const std_vector& input, const std_vector& target,
 		      search_strategy_type search_strategy,
-		     int epochs=30, double goal = 0.3, int show=1)
+		      int epochs, double goal, int show)
 {
+  inp = input;
+  targ = target;
   NetF func(this);
   NetDer deriv(this);
-   inp = input;
-   targ = target;
-   column_vector g,s;
-  train_res res();
+  column_vector g,s;
   double f_value = f(weight);
   g = der(weight);
   int iter = 1;
+  train_res tr_res();
   if (!is_finite(f_value))
     throw error("The objective function generated non-finite outputs");
   if (!is_finite(g))
@@ -70,14 +62,16 @@ train_res Net::_train(const std_vector input, const std_vector target,
 
       // Take the search step indicated by the above line search
       weight += alpha*s;
-
+      f_value = f(weight);
+      g = der(weight);
       if (!is_finite(f_value))
 	throw error("The objective function generated non-finite outputs");
       if (!is_finite(g))
 	throw error("The objective function generated non-finite outputs");
+      iter++; //cout<<f_value<<endl;
     }
 
-  return  res;
+  return  f_value;
 }
 
 
