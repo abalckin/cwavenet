@@ -2,14 +2,13 @@ CFLAGS = -std=c++11
 all: newn
 
 newn: main.o core.o
-	g++ $(CFLAGS) core.o newn.o -o newn
+	g++ $(CFLAGS) net.o train.o newn.o -o newn
 
 main.o: core.o
 	g++ $(CFLAGS) -c ../newn.cpp 
 
 core.o:
-	g++ $(CFLAGS) -c ../../wavenet/net.cpp -o core.o
+	g++ $(CFLAGS) -c ../../wavenet/train.cpp -o train.o
+	g++ $(CFLAGS) -c ../../wavenet/net.cpp -o net.o
 clean:
 	rm -rf *.o newn
-#optim.o:
-	#g++ -c ../dlib/optimization.h -o optimization.h.gch

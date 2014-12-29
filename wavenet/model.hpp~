@@ -1,0 +1,26 @@
+#include "net.hpp"
+class NetModel 
+  {
+  private:
+    Net net;
+
+  public:
+    NetModel(const Net& net)
+    {
+      this.net = net;
+    };
+    double operator() (
+		       const column_vector& x
+		       ) const { return net.f(x); }
+
+    void get_derivative_and_hessian (
+				     const column_vector& x,
+				     column_vector& der,
+				     general_matrix& hess
+				     ) const
+    {
+      der = rosen_derivative(x);
+      hess = rosen_hessian(x);
+    }
+  };
+

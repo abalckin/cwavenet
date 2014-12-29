@@ -15,6 +15,4 @@ int main()
   //std::vector<double> t (arr, arr + sizeof(arr) / sizeof(arr[0]) );
       tar[i]=i;
     }
-  column_vector grad =  n.gradient(t, tar);
-   std::cout<<grad;
 }
