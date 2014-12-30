@@ -85,12 +85,12 @@ class TestSequenceFunctions(unittest.TestCase):
         self.assertLess(t, 7)
         
     def test_train(self):
-        inp = range(1, 10, 20)
+        inp = range(1, 50, 1)
         tar = [(x/10)**2 for x in inp]
         n = wn.Net(10, self.xmin, self.xmax, self.ymin,
                          self.a0, self.w0)
-        n.train(inp, tar, wn.TrainStrategy.CG, 100, 0.01)
+        n.train(inp, tar, wn.TrainStrategy.CG, 200, 200)
         r = n.energy(inp, tar)
-        self.assertLess(r, .01)
+        self.assertLess(r, 200)
 if __name__ == '__main__':
     unittest.main()
