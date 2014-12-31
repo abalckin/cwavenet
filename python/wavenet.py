@@ -659,6 +659,415 @@ class std_vector(_object):
 std_vector_swigregister = _wavenet.std_vector_swigregister
 std_vector_swigregister(std_vector)
 
+class param_series(_object):
+    """Proxy of C++ std::list<(double)> class"""
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, param_series, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, param_series, name)
+    __repr__ = _swig_repr
+    def iterator(self):
+        """
+        iterator(param_series self) -> SwigPyIterator
+
+        Parameters:
+            self: std::list< double > *
+
+        """
+        return _wavenet.param_series_iterator(self)
+
+    def __iter__(self): return self.iterator()
+    def __nonzero__(self):
+        """
+        __nonzero__(param_series self) -> bool
+
+        Parameters:
+            self: std::list< double > const *
+
+        """
+        return _wavenet.param_series___nonzero__(self)
+
+    def __bool__(self):
+        """
+        __bool__(param_series self) -> bool
+
+        Parameters:
+            self: std::list< double > const *
+
+        """
+        return _wavenet.param_series___bool__(self)
+
+    def __len__(self):
+        """
+        __len__(param_series self) -> std::list< double >::size_type
+
+        Parameters:
+            self: std::list< double > const *
+
+        """
+        return _wavenet.param_series___len__(self)
+
+    def pop(self):
+        """
+        pop(param_series self) -> std::list< double >::value_type
+
+        Parameters:
+            self: std::list< double > *
+
+        """
+        return _wavenet.param_series_pop(self)
+
+    def __getslice__(self, *args):
+        """
+        __getslice__(param_series self, std::list< double >::difference_type i, std::list< double >::difference_type j) -> param_series
+
+        Parameters:
+            i: std::list< double >::difference_type
+            j: std::list< double >::difference_type
+
+        """
+        return _wavenet.param_series___getslice__(self, *args)
+
+    def __setslice__(self, *args):
+        """
+        __setslice__(param_series self, std::list< double >::difference_type i, std::list< double >::difference_type j, param_series v=std::list< double,std::allocator< double > >())
+
+        Parameters:
+            i: std::list< double >::difference_type
+            j: std::list< double >::difference_type
+            v: std::list< double,std::allocator< double > > const &
+
+        __setslice__(param_series self, std::list< double >::difference_type i, std::list< double >::difference_type j)
+
+        Parameters:
+            i: std::list< double >::difference_type
+            j: std::list< double >::difference_type
+
+        """
+        return _wavenet.param_series___setslice__(self, *args)
+
+    def __delslice__(self, *args):
+        """
+        __delslice__(param_series self, std::list< double >::difference_type i, std::list< double >::difference_type j)
+
+        Parameters:
+            i: std::list< double >::difference_type
+            j: std::list< double >::difference_type
+
+        """
+        return _wavenet.param_series___delslice__(self, *args)
+
+    def __delitem__(self, *args):
+        """
+        __delitem__(param_series self, std::list< double >::difference_type i)
+
+        Parameters:
+            i: std::list< double >::difference_type
+
+        __delitem__(param_series self, PySliceObject * slice)
+
+        Parameters:
+            slice: PySliceObject *
+
+        """
+        return _wavenet.param_series___delitem__(self, *args)
+
+    def __getitem__(self, *args):
+        """
+        __getitem__(param_series self, PySliceObject * slice) -> param_series
+
+        Parameters:
+            slice: PySliceObject *
+
+        __getitem__(param_series self, std::list< double >::difference_type i) -> std::list< double >::value_type const &
+
+        Parameters:
+            i: std::list< double >::difference_type
+
+        """
+        return _wavenet.param_series___getitem__(self, *args)
+
+    def __setitem__(self, *args):
+        """
+        __setitem__(param_series self, PySliceObject * slice, param_series v)
+
+        Parameters:
+            slice: PySliceObject *
+            v: std::list< double,std::allocator< double > > const &
+
+        __setitem__(param_series self, PySliceObject * slice)
+
+        Parameters:
+            slice: PySliceObject *
+
+        __setitem__(param_series self, std::list< double >::difference_type i, std::list< double >::value_type const & x)
+
+        Parameters:
+            i: std::list< double >::difference_type
+            x: std::list< double >::value_type const &
+
+        """
+        return _wavenet.param_series___setitem__(self, *args)
+
+    def append(self, *args):
+        """
+        append(param_series self, std::list< double >::value_type const & x)
+
+        Parameters:
+            x: std::list< double >::value_type const &
+
+        """
+        return _wavenet.param_series_append(self, *args)
+
+    def empty(self):
+        """
+        empty(param_series self) -> bool
+
+        Parameters:
+            self: std::list< double > const *
+
+        """
+        return _wavenet.param_series_empty(self)
+
+    def size(self):
+        """
+        size(param_series self) -> std::list< double >::size_type
+
+        Parameters:
+            self: std::list< double > const *
+
+        """
+        return _wavenet.param_series_size(self)
+
+    def clear(self):
+        """
+        clear(param_series self)
+
+        Parameters:
+            self: std::list< double > *
+
+        """
+        return _wavenet.param_series_clear(self)
+
+    def swap(self, *args):
+        """
+        swap(param_series self, param_series v)
+
+        Parameters:
+            v: std::list< double > &
+
+        """
+        return _wavenet.param_series_swap(self, *args)
+
+    def get_allocator(self):
+        """
+        get_allocator(param_series self) -> std::list< double >::allocator_type
+
+        Parameters:
+            self: std::list< double > const *
+
+        """
+        return _wavenet.param_series_get_allocator(self)
+
+    def begin(self):
+        """
+        begin(param_series self) -> std::list< double >::iterator
+
+        Parameters:
+            self: std::list< double > *
+
+        """
+        return _wavenet.param_series_begin(self)
+
+    def end(self):
+        """
+        end(param_series self) -> std::list< double >::iterator
+
+        Parameters:
+            self: std::list< double > *
+
+        """
+        return _wavenet.param_series_end(self)
+
+    def rbegin(self):
+        """
+        rbegin(param_series self) -> std::list< double >::reverse_iterator
+
+        Parameters:
+            self: std::list< double > *
+
+        """
+        return _wavenet.param_series_rbegin(self)
+
+    def rend(self):
+        """
+        rend(param_series self) -> std::list< double >::reverse_iterator
+
+        Parameters:
+            self: std::list< double > *
+
+        """
+        return _wavenet.param_series_rend(self)
+
+    def pop_back(self):
+        """
+        pop_back(param_series self)
+
+        Parameters:
+            self: std::list< double > *
+
+        """
+        return _wavenet.param_series_pop_back(self)
+
+    def erase(self, *args):
+        """
+        erase(param_series self, std::list< double >::iterator pos) -> std::list< double >::iterator
+
+        Parameters:
+            pos: std::list< double >::iterator
+
+        erase(param_series self, std::list< double >::iterator first, std::list< double >::iterator last) -> std::list< double >::iterator
+
+        Parameters:
+            first: std::list< double >::iterator
+            last: std::list< double >::iterator
+
+        """
+        return _wavenet.param_series_erase(self, *args)
+
+    def __init__(self, *args): 
+        """
+        __init__(std::list<(double)> self) -> param_series
+        __init__(std::list<(double)> self, param_series arg2) -> param_series
+
+        Parameters:
+            arg2: std::list< double > const &
+
+        __init__(std::list<(double)> self, std::list< double >::size_type size) -> param_series
+
+        Parameters:
+            size: std::list< double >::size_type
+
+        __init__(std::list<(double)> self, std::list< double >::size_type size, std::list< double >::value_type const & value) -> param_series
+
+        Parameters:
+            size: std::list< double >::size_type
+            value: std::list< double >::value_type const &
+
+        """
+        this = _wavenet.new_param_series(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    def push_back(self, *args):
+        """
+        push_back(param_series self, std::list< double >::value_type const & x)
+
+        Parameters:
+            x: std::list< double >::value_type const &
+
+        """
+        return _wavenet.param_series_push_back(self, *args)
+
+    def front(self):
+        """
+        front(param_series self) -> std::list< double >::value_type const &
+
+        Parameters:
+            self: std::list< double > const *
+
+        """
+        return _wavenet.param_series_front(self)
+
+    def back(self):
+        """
+        back(param_series self) -> std::list< double >::value_type const &
+
+        Parameters:
+            self: std::list< double > const *
+
+        """
+        return _wavenet.param_series_back(self)
+
+    def assign(self, *args):
+        """
+        assign(param_series self, std::list< double >::size_type n, std::list< double >::value_type const & x)
+
+        Parameters:
+            n: std::list< double >::size_type
+            x: std::list< double >::value_type const &
+
+        """
+        return _wavenet.param_series_assign(self, *args)
+
+    def resize(self, *args):
+        """
+        resize(param_series self, std::list< double >::size_type new_size)
+
+        Parameters:
+            new_size: std::list< double >::size_type
+
+        resize(param_series self, std::list< double >::size_type new_size, std::list< double >::value_type const & x)
+
+        Parameters:
+            new_size: std::list< double >::size_type
+            x: std::list< double >::value_type const &
+
+        """
+        return _wavenet.param_series_resize(self, *args)
+
+    def insert(self, *args):
+        """
+        insert(param_series self, std::list< double >::iterator pos, std::list< double >::value_type const & x) -> std::list< double >::iterator
+
+        Parameters:
+            pos: std::list< double >::iterator
+            x: std::list< double >::value_type const &
+
+        insert(param_series self, std::list< double >::iterator pos, std::list< double >::size_type n, std::list< double >::value_type const & x)
+
+        Parameters:
+            pos: std::list< double >::iterator
+            n: std::list< double >::size_type
+            x: std::list< double >::value_type const &
+
+        """
+        return _wavenet.param_series_insert(self, *args)
+
+    def pop_front(self):
+        """
+        pop_front(param_series self)
+
+        Parameters:
+            self: std::list< double > *
+
+        """
+        return _wavenet.param_series_pop_front(self)
+
+    def push_front(self, *args):
+        """
+        push_front(param_series self, std::list< double >::value_type const & x)
+
+        Parameters:
+            x: std::list< double >::value_type const &
+
+        """
+        return _wavenet.param_series_push_front(self, *args)
+
+    def reverse(self):
+        """
+        reverse(param_series self)
+
+        Parameters:
+            self: std::list< double > *
+
+        """
+        return _wavenet.param_series_reverse(self)
+
+    __swig_destroy__ = _wavenet.delete_param_series
+    __del__ = lambda self : None;
+param_series_swigregister = _wavenet.param_series_swigregister
+param_series_swigregister(param_series)
+
 class wavelon(_object):
     """Proxy of C++ wavelon class"""
     __swig_setmethods__ = {}
@@ -837,7 +1246,7 @@ class Net(_object):
     def train(self, *args):
         """
         train(Net self, std_vector t, std_vector target, TrainStrat train_strategy=CG, int epochs=30, double goal=0.3, 
-            int show=1) -> double
+            int show=1) -> train_res
 
         Parameters:
             t: std_vector const &
@@ -847,7 +1256,7 @@ class Net(_object):
             goal: double
             show: int
 
-        train(Net self, std_vector t, std_vector target, TrainStrat train_strategy=CG, int epochs=30, double goal=0.3) -> double
+        train(Net self, std_vector t, std_vector target, TrainStrat train_strategy=CG, int epochs=30, double goal=0.3) -> train_res
 
         Parameters:
             t: std_vector const &
@@ -856,7 +1265,7 @@ class Net(_object):
             epochs: int
             goal: double
 
-        train(Net self, std_vector t, std_vector target, TrainStrat train_strategy=CG, int epochs=30) -> double
+        train(Net self, std_vector t, std_vector target, TrainStrat train_strategy=CG, int epochs=30) -> train_res
 
         Parameters:
             t: std_vector const &
@@ -864,14 +1273,14 @@ class Net(_object):
             train_strategy: enum TrainStrat
             epochs: int
 
-        train(Net self, std_vector t, std_vector target, TrainStrat train_strategy=CG) -> double
+        train(Net self, std_vector t, std_vector target, TrainStrat train_strategy=CG) -> train_res
 
         Parameters:
             t: std_vector const &
             target: std_vector const &
             train_strategy: enum TrainStrat
 
-        train(Net self, std_vector t, std_vector target) -> double
+        train(Net self, std_vector t, std_vector target) -> train_res
 
         Parameters:
             t: std_vector const &
@@ -936,7 +1345,7 @@ class NetDer(_object):
         except: self.this = this
     def __call__(self, *args):
         """
-        __call__(NetDer self, column_vector const & x) -> double
+        __call__(NetDer self, column_vector const & x) -> column_vector
 
         Parameters:
             x: column_vector const &
@@ -948,6 +1357,751 @@ class NetDer(_object):
     __del__ = lambda self : None;
 NetDer_swigregister = _wavenet.NetDer_swigregister
 NetDer_swigregister(NetDer)
+
+class train_set(_object):
+    """Proxy of C++ std::vector<(param_series)> class"""
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, train_set, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, train_set, name)
+    __repr__ = _swig_repr
+    def iterator(self):
+        """
+        iterator(train_set self) -> SwigPyIterator
+
+        Parameters:
+            self: std::vector< param_series > *
+
+        """
+        return _wavenet.train_set_iterator(self)
+
+    def __iter__(self): return self.iterator()
+    def __nonzero__(self):
+        """
+        __nonzero__(train_set self) -> bool
+
+        Parameters:
+            self: std::vector< param_series > const *
+
+        """
+        return _wavenet.train_set___nonzero__(self)
+
+    def __bool__(self):
+        """
+        __bool__(train_set self) -> bool
+
+        Parameters:
+            self: std::vector< param_series > const *
+
+        """
+        return _wavenet.train_set___bool__(self)
+
+    def __len__(self):
+        """
+        __len__(train_set self) -> std::vector< std::list< double,std::allocator< double > > >::size_type
+
+        Parameters:
+            self: std::vector< param_series > const *
+
+        """
+        return _wavenet.train_set___len__(self)
+
+    def pop(self):
+        """
+        pop(train_set self) -> param_series
+
+        Parameters:
+            self: std::vector< param_series > *
+
+        """
+        return _wavenet.train_set_pop(self)
+
+    def __getslice__(self, *args):
+        """
+        __getslice__(train_set self, std::vector< std::list< double,std::allocator< double > > >::difference_type i, std::vector< std::list< double,std::allocator< double > > >::difference_type j) -> train_set
+
+        Parameters:
+            i: std::vector< std::list< double,std::allocator< double > > >::difference_type
+            j: std::vector< std::list< double,std::allocator< double > > >::difference_type
+
+        """
+        return _wavenet.train_set___getslice__(self, *args)
+
+    def __setslice__(self, *args):
+        """
+        __setslice__(train_set self, std::vector< std::list< double,std::allocator< double > > >::difference_type i, std::vector< std::list< double,std::allocator< double > > >::difference_type j, 
+            train_set v=std::vector< std::list< double,std::allocator< double > >,std::allocator< std::list< double,std::allocator< double > > > >())
+
+        Parameters:
+            i: std::vector< std::list< double,std::allocator< double > > >::difference_type
+            j: std::vector< std::list< double,std::allocator< double > > >::difference_type
+            v: std::vector< std::list< double,std::allocator< double > >,std::allocator< std::list< double,std::allocator< double > > > > const &
+
+        __setslice__(train_set self, std::vector< std::list< double,std::allocator< double > > >::difference_type i, std::vector< std::list< double,std::allocator< double > > >::difference_type j)
+
+        Parameters:
+            i: std::vector< std::list< double,std::allocator< double > > >::difference_type
+            j: std::vector< std::list< double,std::allocator< double > > >::difference_type
+
+        """
+        return _wavenet.train_set___setslice__(self, *args)
+
+    def __delslice__(self, *args):
+        """
+        __delslice__(train_set self, std::vector< std::list< double,std::allocator< double > > >::difference_type i, std::vector< std::list< double,std::allocator< double > > >::difference_type j)
+
+        Parameters:
+            i: std::vector< std::list< double,std::allocator< double > > >::difference_type
+            j: std::vector< std::list< double,std::allocator< double > > >::difference_type
+
+        """
+        return _wavenet.train_set___delslice__(self, *args)
+
+    def __delitem__(self, *args):
+        """
+        __delitem__(train_set self, std::vector< std::list< double,std::allocator< double > > >::difference_type i)
+
+        Parameters:
+            i: std::vector< std::list< double,std::allocator< double > > >::difference_type
+
+        __delitem__(train_set self, PySliceObject * slice)
+
+        Parameters:
+            slice: PySliceObject *
+
+        """
+        return _wavenet.train_set___delitem__(self, *args)
+
+    def __getitem__(self, *args):
+        """
+        __getitem__(train_set self, PySliceObject * slice) -> train_set
+
+        Parameters:
+            slice: PySliceObject *
+
+        __getitem__(train_set self, std::vector< std::list< double,std::allocator< double > > >::difference_type i) -> param_series
+
+        Parameters:
+            i: std::vector< std::list< double,std::allocator< double > > >::difference_type
+
+        """
+        return _wavenet.train_set___getitem__(self, *args)
+
+    def __setitem__(self, *args):
+        """
+        __setitem__(train_set self, PySliceObject * slice, train_set v)
+
+        Parameters:
+            slice: PySliceObject *
+            v: std::vector< std::list< double,std::allocator< double > >,std::allocator< std::list< double,std::allocator< double > > > > const &
+
+        __setitem__(train_set self, PySliceObject * slice)
+
+        Parameters:
+            slice: PySliceObject *
+
+        __setitem__(train_set self, std::vector< std::list< double,std::allocator< double > > >::difference_type i, param_series x)
+
+        Parameters:
+            i: std::vector< std::list< double,std::allocator< double > > >::difference_type
+            x: std::vector< std::list< double,std::allocator< double > > >::value_type const &
+
+        """
+        return _wavenet.train_set___setitem__(self, *args)
+
+    def append(self, *args):
+        """
+        append(train_set self, param_series x)
+
+        Parameters:
+            x: std::vector< std::list< double,std::allocator< double > > >::value_type const &
+
+        """
+        return _wavenet.train_set_append(self, *args)
+
+    def empty(self):
+        """
+        empty(train_set self) -> bool
+
+        Parameters:
+            self: std::vector< param_series > const *
+
+        """
+        return _wavenet.train_set_empty(self)
+
+    def size(self):
+        """
+        size(train_set self) -> std::vector< std::list< double,std::allocator< double > > >::size_type
+
+        Parameters:
+            self: std::vector< param_series > const *
+
+        """
+        return _wavenet.train_set_size(self)
+
+    def clear(self):
+        """
+        clear(train_set self)
+
+        Parameters:
+            self: std::vector< param_series > *
+
+        """
+        return _wavenet.train_set_clear(self)
+
+    def swap(self, *args):
+        """
+        swap(train_set self, train_set v)
+
+        Parameters:
+            v: std::vector< param_series > &
+
+        """
+        return _wavenet.train_set_swap(self, *args)
+
+    def get_allocator(self):
+        """
+        get_allocator(train_set self) -> std::vector< std::list< double,std::allocator< double > > >::allocator_type
+
+        Parameters:
+            self: std::vector< param_series > const *
+
+        """
+        return _wavenet.train_set_get_allocator(self)
+
+    def begin(self):
+        """
+        begin(train_set self) -> std::vector< std::list< double,std::allocator< double > > >::iterator
+
+        Parameters:
+            self: std::vector< param_series > *
+
+        """
+        return _wavenet.train_set_begin(self)
+
+    def end(self):
+        """
+        end(train_set self) -> std::vector< std::list< double,std::allocator< double > > >::iterator
+
+        Parameters:
+            self: std::vector< param_series > *
+
+        """
+        return _wavenet.train_set_end(self)
+
+    def rbegin(self):
+        """
+        rbegin(train_set self) -> std::vector< std::list< double,std::allocator< double > > >::reverse_iterator
+
+        Parameters:
+            self: std::vector< param_series > *
+
+        """
+        return _wavenet.train_set_rbegin(self)
+
+    def rend(self):
+        """
+        rend(train_set self) -> std::vector< std::list< double,std::allocator< double > > >::reverse_iterator
+
+        Parameters:
+            self: std::vector< param_series > *
+
+        """
+        return _wavenet.train_set_rend(self)
+
+    def pop_back(self):
+        """
+        pop_back(train_set self)
+
+        Parameters:
+            self: std::vector< param_series > *
+
+        """
+        return _wavenet.train_set_pop_back(self)
+
+    def erase(self, *args):
+        """
+        erase(train_set self, std::vector< std::list< double,std::allocator< double > > >::iterator pos) -> std::vector< std::list< double,std::allocator< double > > >::iterator
+
+        Parameters:
+            pos: std::vector< std::list< double,std::allocator< double > > >::iterator
+
+        erase(train_set self, std::vector< std::list< double,std::allocator< double > > >::iterator first, std::vector< std::list< double,std::allocator< double > > >::iterator last) -> std::vector< std::list< double,std::allocator< double > > >::iterator
+
+        Parameters:
+            first: std::vector< std::list< double,std::allocator< double > > >::iterator
+            last: std::vector< std::list< double,std::allocator< double > > >::iterator
+
+        """
+        return _wavenet.train_set_erase(self, *args)
+
+    def __init__(self, *args): 
+        """
+        __init__(std::vector<(param_series)> self) -> train_set
+        __init__(std::vector<(param_series)> self, train_set arg2) -> train_set
+
+        Parameters:
+            arg2: std::vector< param_series > const &
+
+        __init__(std::vector<(param_series)> self, std::vector< std::list< double,std::allocator< double > > >::size_type size) -> train_set
+
+        Parameters:
+            size: std::vector< std::list< double,std::allocator< double > > >::size_type
+
+        __init__(std::vector<(param_series)> self, std::vector< std::list< double,std::allocator< double > > >::size_type size, param_series value) -> train_set
+
+        Parameters:
+            size: std::vector< std::list< double,std::allocator< double > > >::size_type
+            value: std::vector< std::list< double,std::allocator< double > > >::value_type const &
+
+        """
+        this = _wavenet.new_train_set(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    def push_back(self, *args):
+        """
+        push_back(train_set self, param_series x)
+
+        Parameters:
+            x: std::vector< std::list< double,std::allocator< double > > >::value_type const &
+
+        """
+        return _wavenet.train_set_push_back(self, *args)
+
+    def front(self):
+        """
+        front(train_set self) -> param_series
+
+        Parameters:
+            self: std::vector< param_series > const *
+
+        """
+        return _wavenet.train_set_front(self)
+
+    def back(self):
+        """
+        back(train_set self) -> param_series
+
+        Parameters:
+            self: std::vector< param_series > const *
+
+        """
+        return _wavenet.train_set_back(self)
+
+    def assign(self, *args):
+        """
+        assign(train_set self, std::vector< std::list< double,std::allocator< double > > >::size_type n, param_series x)
+
+        Parameters:
+            n: std::vector< std::list< double,std::allocator< double > > >::size_type
+            x: std::vector< std::list< double,std::allocator< double > > >::value_type const &
+
+        """
+        return _wavenet.train_set_assign(self, *args)
+
+    def resize(self, *args):
+        """
+        resize(train_set self, std::vector< std::list< double,std::allocator< double > > >::size_type new_size)
+
+        Parameters:
+            new_size: std::vector< std::list< double,std::allocator< double > > >::size_type
+
+        resize(train_set self, std::vector< std::list< double,std::allocator< double > > >::size_type new_size, 
+            param_series x)
+
+        Parameters:
+            new_size: std::vector< std::list< double,std::allocator< double > > >::size_type
+            x: std::vector< std::list< double,std::allocator< double > > >::value_type const &
+
+        """
+        return _wavenet.train_set_resize(self, *args)
+
+    def insert(self, *args):
+        """
+        insert(train_set self, std::vector< std::list< double,std::allocator< double > > >::iterator pos, param_series x) -> std::vector< std::list< double,std::allocator< double > > >::iterator
+
+        Parameters:
+            pos: std::vector< std::list< double,std::allocator< double > > >::iterator
+            x: std::vector< std::list< double,std::allocator< double > > >::value_type const &
+
+        insert(train_set self, std::vector< std::list< double,std::allocator< double > > >::iterator pos, std::vector< std::list< double,std::allocator< double > > >::size_type n, 
+            param_series x)
+
+        Parameters:
+            pos: std::vector< std::list< double,std::allocator< double > > >::iterator
+            n: std::vector< std::list< double,std::allocator< double > > >::size_type
+            x: std::vector< std::list< double,std::allocator< double > > >::value_type const &
+
+        """
+        return _wavenet.train_set_insert(self, *args)
+
+    def reserve(self, *args):
+        """
+        reserve(train_set self, std::vector< std::list< double,std::allocator< double > > >::size_type n)
+
+        Parameters:
+            n: std::vector< std::list< double,std::allocator< double > > >::size_type
+
+        """
+        return _wavenet.train_set_reserve(self, *args)
+
+    def capacity(self):
+        """
+        capacity(train_set self) -> std::vector< std::list< double,std::allocator< double > > >::size_type
+
+        Parameters:
+            self: std::vector< param_series > const *
+
+        """
+        return _wavenet.train_set_capacity(self)
+
+    __swig_destroy__ = _wavenet.delete_train_set
+    __del__ = lambda self : None;
+train_set_swigregister = _wavenet.train_set_swigregister
+train_set_swigregister(train_set)
+
+class train_res(_object):
+    """Proxy of C++ std::map<(std::string,train_set)> class"""
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, train_res, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, train_res, name)
+    __repr__ = _swig_repr
+    def iterator(self):
+        """
+        iterator(train_res self) -> SwigPyIterator
+
+        Parameters:
+            self: std::map< std::string,train_set > *
+
+        """
+        return _wavenet.train_res_iterator(self)
+
+    def __iter__(self): return self.iterator()
+    def __nonzero__(self):
+        """
+        __nonzero__(train_res self) -> bool
+
+        Parameters:
+            self: std::map< std::string,train_set > const *
+
+        """
+        return _wavenet.train_res___nonzero__(self)
+
+    def __bool__(self):
+        """
+        __bool__(train_res self) -> bool
+
+        Parameters:
+            self: std::map< std::string,train_set > const *
+
+        """
+        return _wavenet.train_res___bool__(self)
+
+    def __len__(self):
+        """
+        __len__(train_res self) -> std::map< std::string,std::vector< std::list< double,std::allocator< double > >,std::allocator< std::list< double,std::allocator< double > > > > >::size_type
+
+        Parameters:
+            self: std::map< std::string,train_set > const *
+
+        """
+        return _wavenet.train_res___len__(self)
+
+    def __iter__(self): return self.key_iterator()
+    def iterkeys(self): return self.key_iterator()
+    def itervalues(self): return self.value_iterator()
+    def iteritems(self): return self.iterator()
+    def __getitem__(self, *args):
+        """
+        __getitem__(train_res self, std::map< std::string,std::vector< std::list< double,std::allocator< double > >,std::allocator< std::list< double,std::allocator< double > > > > >::key_type const & key) -> train_set
+
+        Parameters:
+            key: std::map< std::string,std::vector< std::list< double,std::allocator< double > >,std::allocator< std::list< double,std::allocator< double > > > > >::key_type const &
+
+        """
+        return _wavenet.train_res___getitem__(self, *args)
+
+    def __delitem__(self, *args):
+        """
+        __delitem__(train_res self, std::map< std::string,std::vector< std::list< double,std::allocator< double > >,std::allocator< std::list< double,std::allocator< double > > > > >::key_type const & key)
+
+        Parameters:
+            key: std::map< std::string,std::vector< std::list< double,std::allocator< double > >,std::allocator< std::list< double,std::allocator< double > > > > >::key_type const &
+
+        """
+        return _wavenet.train_res___delitem__(self, *args)
+
+    def has_key(self, *args):
+        """
+        has_key(train_res self, std::map< std::string,std::vector< std::list< double,std::allocator< double > >,std::allocator< std::list< double,std::allocator< double > > > > >::key_type const & key) -> bool
+
+        Parameters:
+            key: std::map< std::string,std::vector< std::list< double,std::allocator< double > >,std::allocator< std::list< double,std::allocator< double > > > > >::key_type const &
+
+        """
+        return _wavenet.train_res_has_key(self, *args)
+
+    def keys(self):
+        """
+        keys(train_res self) -> PyObject *
+
+        Parameters:
+            self: std::map< std::string,train_set > *
+
+        """
+        return _wavenet.train_res_keys(self)
+
+    def values(self):
+        """
+        values(train_res self) -> PyObject *
+
+        Parameters:
+            self: std::map< std::string,train_set > *
+
+        """
+        return _wavenet.train_res_values(self)
+
+    def items(self):
+        """
+        items(train_res self) -> PyObject *
+
+        Parameters:
+            self: std::map< std::string,train_set > *
+
+        """
+        return _wavenet.train_res_items(self)
+
+    def __contains__(self, *args):
+        """
+        __contains__(train_res self, std::map< std::string,std::vector< std::list< double,std::allocator< double > >,std::allocator< std::list< double,std::allocator< double > > > > >::key_type const & key) -> bool
+
+        Parameters:
+            key: std::map< std::string,std::vector< std::list< double,std::allocator< double > >,std::allocator< std::list< double,std::allocator< double > > > > >::key_type const &
+
+        """
+        return _wavenet.train_res___contains__(self, *args)
+
+    def key_iterator(self):
+        """
+        key_iterator(train_res self) -> SwigPyIterator
+
+        Parameters:
+            self: std::map< std::string,train_set > *
+
+        """
+        return _wavenet.train_res_key_iterator(self)
+
+    def value_iterator(self):
+        """
+        value_iterator(train_res self) -> SwigPyIterator
+
+        Parameters:
+            self: std::map< std::string,train_set > *
+
+        """
+        return _wavenet.train_res_value_iterator(self)
+
+    def __setitem__(self, *args):
+        """
+        __setitem__(train_res self, std::map< std::string,std::vector< std::list< double,std::allocator< double > >,std::allocator< std::list< double,std::allocator< double > > > > >::key_type const & key)
+
+        Parameters:
+            key: std::map< std::string,std::vector< std::list< double,std::allocator< double > >,std::allocator< std::list< double,std::allocator< double > > > > >::key_type const &
+
+        __setitem__(train_res self, std::map< std::string,std::vector< std::list< double,std::allocator< double > >,std::allocator< std::list< double,std::allocator< double > > > > >::key_type const & key, 
+            train_set x)
+
+        Parameters:
+            key: std::map< std::string,std::vector< std::list< double,std::allocator< double > >,std::allocator< std::list< double,std::allocator< double > > > > >::key_type const &
+            x: std::map< std::string,std::vector< std::list< double,std::allocator< double > >,std::allocator< std::list< double,std::allocator< double > > > > >::mapped_type const &
+
+        """
+        return _wavenet.train_res___setitem__(self, *args)
+
+    def asdict(self):
+        """
+        asdict(train_res self) -> PyObject *
+
+        Parameters:
+            self: std::map< std::string,train_set > *
+
+        """
+        return _wavenet.train_res_asdict(self)
+
+    def __init__(self, *args): 
+        """
+        __init__(std::map<(std::string,train_set)> self, std::less< std::string > const & arg2) -> train_res
+
+        Parameters:
+            arg2: std::less< std::string > const &
+
+        __init__(std::map<(std::string,train_set)> self) -> train_res
+        __init__(std::map<(std::string,train_set)> self, train_res arg2) -> train_res
+
+        Parameters:
+            arg2: std::map< std::string,train_set > const &
+
+        """
+        this = _wavenet.new_train_res(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    def empty(self):
+        """
+        empty(train_res self) -> bool
+
+        Parameters:
+            self: std::map< std::string,train_set > const *
+
+        """
+        return _wavenet.train_res_empty(self)
+
+    def size(self):
+        """
+        size(train_res self) -> std::map< std::string,std::vector< std::list< double,std::allocator< double > >,std::allocator< std::list< double,std::allocator< double > > > > >::size_type
+
+        Parameters:
+            self: std::map< std::string,train_set > const *
+
+        """
+        return _wavenet.train_res_size(self)
+
+    def clear(self):
+        """
+        clear(train_res self)
+
+        Parameters:
+            self: std::map< std::string,train_set > *
+
+        """
+        return _wavenet.train_res_clear(self)
+
+    def swap(self, *args):
+        """
+        swap(train_res self, train_res v)
+
+        Parameters:
+            v: std::map< std::string,train_set > &
+
+        """
+        return _wavenet.train_res_swap(self, *args)
+
+    def get_allocator(self):
+        """
+        get_allocator(train_res self) -> std::map< std::string,std::vector< std::list< double,std::allocator< double > >,std::allocator< std::list< double,std::allocator< double > > > > >::allocator_type
+
+        Parameters:
+            self: std::map< std::string,train_set > const *
+
+        """
+        return _wavenet.train_res_get_allocator(self)
+
+    def begin(self):
+        """
+        begin(train_res self) -> std::map< std::string,std::vector< std::list< double,std::allocator< double > >,std::allocator< std::list< double,std::allocator< double > > > > >::iterator
+
+        Parameters:
+            self: std::map< std::string,train_set > *
+
+        """
+        return _wavenet.train_res_begin(self)
+
+    def end(self):
+        """
+        end(train_res self) -> std::map< std::string,std::vector< std::list< double,std::allocator< double > >,std::allocator< std::list< double,std::allocator< double > > > > >::iterator
+
+        Parameters:
+            self: std::map< std::string,train_set > *
+
+        """
+        return _wavenet.train_res_end(self)
+
+    def rbegin(self):
+        """
+        rbegin(train_res self) -> std::map< std::string,std::vector< std::list< double,std::allocator< double > >,std::allocator< std::list< double,std::allocator< double > > > > >::reverse_iterator
+
+        Parameters:
+            self: std::map< std::string,train_set > *
+
+        """
+        return _wavenet.train_res_rbegin(self)
+
+    def rend(self):
+        """
+        rend(train_res self) -> std::map< std::string,std::vector< std::list< double,std::allocator< double > >,std::allocator< std::list< double,std::allocator< double > > > > >::reverse_iterator
+
+        Parameters:
+            self: std::map< std::string,train_set > *
+
+        """
+        return _wavenet.train_res_rend(self)
+
+    def count(self, *args):
+        """
+        count(train_res self, std::map< std::string,std::vector< std::list< double,std::allocator< double > >,std::allocator< std::list< double,std::allocator< double > > > > >::key_type const & x) -> std::map< std::string,std::vector< std::list< double,std::allocator< double > >,std::allocator< std::list< double,std::allocator< double > > > > >::size_type
+
+        Parameters:
+            x: std::map< std::string,std::vector< std::list< double,std::allocator< double > >,std::allocator< std::list< double,std::allocator< double > > > > >::key_type const &
+
+        """
+        return _wavenet.train_res_count(self, *args)
+
+    def erase(self, *args):
+        """
+        erase(train_res self, std::map< std::string,std::vector< std::list< double,std::allocator< double > >,std::allocator< std::list< double,std::allocator< double > > > > >::key_type const & x) -> std::map< std::string,std::vector< std::list< double,std::allocator< double > >,std::allocator< std::list< double,std::allocator< double > > > > >::size_type
+
+        Parameters:
+            x: std::map< std::string,std::vector< std::list< double,std::allocator< double > >,std::allocator< std::list< double,std::allocator< double > > > > >::key_type const &
+
+        erase(train_res self, std::map< std::string,std::vector< std::list< double,std::allocator< double > >,std::allocator< std::list< double,std::allocator< double > > > > >::iterator position)
+
+        Parameters:
+            position: std::map< std::string,std::vector< std::list< double,std::allocator< double > >,std::allocator< std::list< double,std::allocator< double > > > > >::iterator
+
+        erase(train_res self, std::map< std::string,std::vector< std::list< double,std::allocator< double > >,std::allocator< std::list< double,std::allocator< double > > > > >::iterator first, 
+            std::map< std::string,std::vector< std::list< double,std::allocator< double > >,std::allocator< std::list< double,std::allocator< double > > > > >::iterator last)
+
+        Parameters:
+            first: std::map< std::string,std::vector< std::list< double,std::allocator< double > >,std::allocator< std::list< double,std::allocator< double > > > > >::iterator
+            last: std::map< std::string,std::vector< std::list< double,std::allocator< double > >,std::allocator< std::list< double,std::allocator< double > > > > >::iterator
+
+        """
+        return _wavenet.train_res_erase(self, *args)
+
+    def find(self, *args):
+        """
+        find(train_res self, std::map< std::string,std::vector< std::list< double,std::allocator< double > >,std::allocator< std::list< double,std::allocator< double > > > > >::key_type const & x) -> std::map< std::string,std::vector< std::list< double,std::allocator< double > >,std::allocator< std::list< double,std::allocator< double > > > > >::iterator
+
+        Parameters:
+            x: std::map< std::string,std::vector< std::list< double,std::allocator< double > >,std::allocator< std::list< double,std::allocator< double > > > > >::key_type const &
+
+        """
+        return _wavenet.train_res_find(self, *args)
+
+    def lower_bound(self, *args):
+        """
+        lower_bound(train_res self, std::map< std::string,std::vector< std::list< double,std::allocator< double > >,std::allocator< std::list< double,std::allocator< double > > > > >::key_type const & x) -> std::map< std::string,std::vector< std::list< double,std::allocator< double > >,std::allocator< std::list< double,std::allocator< double > > > > >::iterator
+
+        Parameters:
+            x: std::map< std::string,std::vector< std::list< double,std::allocator< double > >,std::allocator< std::list< double,std::allocator< double > > > > >::key_type const &
+
+        """
+        return _wavenet.train_res_lower_bound(self, *args)
+
+    def upper_bound(self, *args):
+        """
+        upper_bound(train_res self, std::map< std::string,std::vector< std::list< double,std::allocator< double > >,std::allocator< std::list< double,std::allocator< double > > > > >::key_type const & x) -> std::map< std::string,std::vector< std::list< double,std::allocator< double > >,std::allocator< std::list< double,std::allocator< double > > > > >::iterator
+
+        Parameters:
+            x: std::map< std::string,std::vector< std::list< double,std::allocator< double > >,std::allocator< std::list< double,std::allocator< double > > > > >::key_type const &
+
+        """
+        return _wavenet.train_res_upper_bound(self, *args)
+
+    __swig_destroy__ = _wavenet.delete_train_res
+    __del__ = lambda self : None;
+train_res_swigregister = _wavenet.train_res_swigregister
+train_res_swigregister(train_res)
 
 # This file is compatible with both classic and new-style classes.
 

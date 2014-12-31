@@ -84,12 +84,13 @@ class TestSequenceFunctions(unittest.TestCase):
         t = time.time()-start
         self.assertLess(t, 7)
         
-    def test_train(self):
+    def test_train_cg(self):
         inp = range(1, 50, 1)
         tar = [(x/10)**2 for x in inp]
         n = wn.Net(10, self.xmin, self.xmax, self.ymin,
                          self.a0, self.w0)
-        n.train(inp, tar, wn.TrainStrategy.CG, 2000, 20)
+        track = n.train(inp, tar, wn.TrainStrategy.CG, 200, 200, 20)
+        self.assertEqual(len(track['a'][1]), 5)
         r = n.energy(inp, tar)
         print(r)
         self.assertLess(r, 200)

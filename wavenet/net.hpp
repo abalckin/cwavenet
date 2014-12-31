@@ -5,6 +5,7 @@
 #include <vector>
 #include <list>
 #include <map>
+#include <string>
 #include <dlib/optimization/optimization_search_strategies_abstract.h>
 #include <dlib/optimization.h>
 #include <dlib/optimization/optimization_search_strategies.h>
@@ -49,7 +50,7 @@ public:
   std_vector sim(const std_vector&  t);
   std_vector gradient(const std_vector& t, const std_vector& target);
   double energy(const std_vector& t, const std_vector& target);
-  double train(const std_vector& t, const std_vector& target,
+  train_res train(const std_vector& t, const std_vector& target,
 		     TrainStrat train_strategy=TrainStrategy::CG,
 	       int epochs=30, double goal = 0.3, int show=1);
   friend NetModel;
@@ -66,8 +67,9 @@ private:
   double _energy(const std_vector& t, const std_vector& target, const column_vector& weight);
   std_vector _sim(const std_vector&  t, const column_vector& weight);
   template <typename search_strategy_type>
-  double _train(const std_vector& t, const std_vector& target,
+  train_res _train(const std_vector& t, const std_vector& target,
 		   search_strategy_type train_strategy, int epochs, double goal, int show);
+  void mem(train_res& tr_res, double f_value);
 };
 
 class NetF
@@ -95,7 +97,7 @@ class NetDer
     {
       n = net;
     };
-    double operator() (
+    column_vector operator() (
 		       const column_vector& x
 		       ) const { return n->der(x); }
   };
