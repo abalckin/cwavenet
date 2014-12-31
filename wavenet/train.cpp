@@ -1,6 +1,5 @@
 #include "net.hpp"
 
-using namespace std;
 using namespace dlib;
 
 double Net::f (const column_vector& x)
@@ -41,14 +40,13 @@ double Net::_train(const std_vector& input, const std_vector& target,
   column_vector g,s;
   double f_value = f(weight);
   g = der(weight);
-  int iter = 1;
   train_res tr_res();
   if (!is_finite(f_value))
     throw error("The objective function generated non-finite outputs");
   if (!is_finite(g))
     throw error("The objective function generated non-finite outputs");
 
-  while(iter<=epochs && f_value > goal)
+  for (int iter = 1; (epochs==0 || iter<=epochs) && f_value > goal; iter++)
     {
       s = search_strategy.get_next_direction(weight, f_value, g);
 
@@ -68,9 +66,7 @@ double Net::_train(const std_vector& input, const std_vector& target,
 	throw error("The objective function generated non-finite outputs");
       if (!is_finite(g))
 	throw error("The objective function generated non-finite outputs");
-      iter++; //cout<<f_value<<endl;
     }
-
   return  f_value;
 }
 

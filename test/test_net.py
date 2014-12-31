@@ -89,8 +89,9 @@ class TestSequenceFunctions(unittest.TestCase):
         tar = [(x/10)**2 for x in inp]
         n = wn.Net(10, self.xmin, self.xmax, self.ymin,
                          self.a0, self.w0)
-        n.train(inp, tar, wn.TrainStrategy.CG, 200, 200)
+        n.train(inp, tar, wn.TrainStrategy.CG, 2000, 20)
         r = n.energy(inp, tar)
+        print(r)
         self.assertLess(r, 200)
 if __name__ == '__main__':
     unittest.main()
