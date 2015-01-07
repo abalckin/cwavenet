@@ -1,5 +1,5 @@
 #include "net.hpp"
-
+#include "train.hpp"
 using namespace dlib;
 using namespace std;
 double Net::f (const column_vector& x)
@@ -9,19 +9,30 @@ double Net::f (const column_vector& x)
 
 column_vector Net::der (const column_vector& x)
 {
-  return _gradient(inp, targ, x);
+  return _gradient(inp, targ, x, varc, varp);
 }
 
 train_res Net::train(const std_vector& t, const std_vector& target,
 		     TrainStrat train_strategy,
-		     int epochs, double goal, int show)
+		     int epochs, double goal, int show, bool varc, bool varp)
 {
+  this->varc = varc;
+  this->varp = varp;
   switch (train_strategy)
     {
     case TrainStrategy::CG:
       return _train(t, target, cg_search_strategy(),
 		    epochs, goal, show);
       break;
+    case TrainStrategy::Gradient:
+      return _train(t, target, gr_search_strategy(),
+		    epochs, goal, show);
+      break;
+    case TrainStrategy::BFGS:
+      return _train(t, target, bfgs_search_strategy(),
+		    epochs, goal, show);
+      break;
+
     default:
       return _train(t, target, cg_search_strategy(),
 		    epochs, goal, show);

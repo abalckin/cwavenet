@@ -3038,9 +3038,6 @@ namespace swig {
 #include "../wavenet/wavelet.hpp"
 
 
-  #define SWIG_From_double   PyFloat_FromDouble 
-
-
 SWIGINTERN int
 SWIG_AsVal_double (PyObject *obj, double *val)
 {
@@ -3084,31 +3081,12 @@ SWIG_AsVal_double (PyObject *obj, double *val)
   return res;
 }
 
+
+  #define SWIG_From_double   PyFloat_FromDouble 
+
 #ifdef __cplusplus
 extern "C" {
 #endif
-SWIGINTERN PyObject *_wrap_Wavelet_p0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  Wavelet *arg1 = (Wavelet *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  double result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:Wavelet_p0",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_Wavelet, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Wavelet_p0" "', argument " "1"" of type '" "Wavelet const *""'"); 
-  }
-  arg1 = reinterpret_cast< Wavelet * >(argp1);
-  result = (double)((Wavelet const *)arg1)->p0();
-  resultobj = SWIG_From_double(static_cast< double >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
 SWIGINTERN PyObject *_wrap_Wavelet_h(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   Wavelet *arg1 = (Wavelet *) 0 ;
@@ -3315,166 +3293,6 @@ SWIGINTERN PyObject *Wavelet_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObje
   return SWIG_Py_Void();
 }
 
-SWIGINTERN PyObject *_wrap_Morlet_p0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  Morlet *arg1 = (Morlet *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  double result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:Morlet_p0",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_Morlet, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Morlet_p0" "', argument " "1"" of type '" "Morlet const *""'"); 
-  }
-  arg1 = reinterpret_cast< Morlet * >(argp1);
-  result = (double)((Morlet const *)arg1)->p0();
-  resultobj = SWIG_From_double(static_cast< double >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Morlet_h(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  Morlet *arg1 = (Morlet *) 0 ;
-  double arg2 ;
-  double arg3 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  double val2 ;
-  int ecode2 = 0 ;
-  double val3 ;
-  int ecode3 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  double result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OOO:Morlet_h",&obj0,&obj1,&obj2)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_Morlet, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Morlet_h" "', argument " "1"" of type '" "Morlet const *""'"); 
-  }
-  arg1 = reinterpret_cast< Morlet * >(argp1);
-  ecode2 = SWIG_AsVal_double(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Morlet_h" "', argument " "2"" of type '" "double""'");
-  } 
-  arg2 = static_cast< double >(val2);
-  ecode3 = SWIG_AsVal_double(obj2, &val3);
-  if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "Morlet_h" "', argument " "3"" of type '" "double""'");
-  } 
-  arg3 = static_cast< double >(val3);
-  result = (double)((Morlet const *)arg1)->h(arg2,arg3);
-  resultobj = SWIG_From_double(static_cast< double >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Morlet_db(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  Morlet *arg1 = (Morlet *) 0 ;
-  double arg2 ;
-  double arg3 ;
-  double arg4 ;
-  double arg5 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  double val2 ;
-  int ecode2 = 0 ;
-  double val3 ;
-  int ecode3 = 0 ;
-  double val4 ;
-  int ecode4 = 0 ;
-  double val5 ;
-  int ecode5 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  PyObject * obj3 = 0 ;
-  PyObject * obj4 = 0 ;
-  double result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OOOOO:Morlet_db",&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_Morlet, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Morlet_db" "', argument " "1"" of type '" "Morlet const *""'"); 
-  }
-  arg1 = reinterpret_cast< Morlet * >(argp1);
-  ecode2 = SWIG_AsVal_double(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Morlet_db" "', argument " "2"" of type '" "double""'");
-  } 
-  arg2 = static_cast< double >(val2);
-  ecode3 = SWIG_AsVal_double(obj2, &val3);
-  if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "Morlet_db" "', argument " "3"" of type '" "double""'");
-  } 
-  arg3 = static_cast< double >(val3);
-  ecode4 = SWIG_AsVal_double(obj3, &val4);
-  if (!SWIG_IsOK(ecode4)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "Morlet_db" "', argument " "4"" of type '" "double""'");
-  } 
-  arg4 = static_cast< double >(val4);
-  ecode5 = SWIG_AsVal_double(obj4, &val5);
-  if (!SWIG_IsOK(ecode5)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "Morlet_db" "', argument " "5"" of type '" "double""'");
-  } 
-  arg5 = static_cast< double >(val5);
-  result = (double)((Morlet const *)arg1)->db(arg2,arg3,arg4,arg5);
-  resultobj = SWIG_From_double(static_cast< double >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Morlet_dp(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  Morlet *arg1 = (Morlet *) 0 ;
-  double arg2 ;
-  double arg3 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  double val2 ;
-  int ecode2 = 0 ;
-  double val3 ;
-  int ecode3 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  double result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OOO:Morlet_dp",&obj0,&obj1,&obj2)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_Morlet, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Morlet_dp" "', argument " "1"" of type '" "Morlet const *""'"); 
-  }
-  arg1 = reinterpret_cast< Morlet * >(argp1);
-  ecode2 = SWIG_AsVal_double(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Morlet_dp" "', argument " "2"" of type '" "double""'");
-  } 
-  arg2 = static_cast< double >(val2);
-  ecode3 = SWIG_AsVal_double(obj2, &val3);
-  if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "Morlet_dp" "', argument " "3"" of type '" "double""'");
-  } 
-  arg3 = static_cast< double >(val3);
-  result = (double)((Morlet const *)arg1)->dp(arg2,arg3);
-  resultobj = SWIG_From_double(static_cast< double >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
 SWIGINTERN PyObject *_wrap_new_Morlet(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   Morlet *result = 0 ;
@@ -3518,13 +3336,6 @@ SWIGINTERN PyObject *Morlet_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObjec
 
 static PyMethodDef SwigMethods[] = {
 	 { (char *)"SWIG_PyInstanceMethod_New", (PyCFunction)SWIG_PyInstanceMethod_New, METH_O, NULL},
-	 { (char *)"Wavelet_p0", _wrap_Wavelet_p0, METH_VARARGS, (char *)"\n"
-		"Wavelet_p0(Wavelet self) -> double\n"
-		"\n"
-		"Parameters:\n"
-		"    self: Wavelet const *\n"
-		"\n"
-		""},
 	 { (char *)"Wavelet_h", _wrap_Wavelet_h, METH_VARARGS, (char *)"\n"
 		"Wavelet_h(Wavelet self, double tau, double p) -> double\n"
 		"\n"
@@ -3571,42 +3382,6 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		""},
 	 { (char *)"Wavelet_swigregister", Wavelet_swigregister, METH_VARARGS, NULL},
-	 { (char *)"Morlet_p0", _wrap_Morlet_p0, METH_VARARGS, (char *)"\n"
-		"Morlet_p0(Morlet self) -> double\n"
-		"\n"
-		"Parameters:\n"
-		"    self: Morlet const *\n"
-		"\n"
-		""},
-	 { (char *)"Morlet_h", _wrap_Morlet_h, METH_VARARGS, (char *)"\n"
-		"Morlet_h(Morlet self, double tau, double p) -> double\n"
-		"\n"
-		"Parameters:\n"
-		"    self: Morlet const *\n"
-		"    tau: double\n"
-		"    p: double\n"
-		"\n"
-		""},
-	 { (char *)"Morlet_db", _wrap_Morlet_db, METH_VARARGS, (char *)"\n"
-		"Morlet_db(Morlet self, double tau, double htau, double a, double p) -> double\n"
-		"\n"
-		"Parameters:\n"
-		"    self: Morlet const *\n"
-		"    tau: double\n"
-		"    htau: double\n"
-		"    a: double\n"
-		"    p: double\n"
-		"\n"
-		""},
-	 { (char *)"Morlet_dp", _wrap_Morlet_dp, METH_VARARGS, (char *)"\n"
-		"Morlet_dp(Morlet self, double tau, double p) -> double\n"
-		"\n"
-		"Parameters:\n"
-		"    self: Morlet const *\n"
-		"    tau: double\n"
-		"    p: double\n"
-		"\n"
-		""},
 	 { (char *)"new_Morlet", _wrap_new_Morlet, METH_VARARGS, (char *)"new_Morlet() -> Morlet"},
 	 { (char *)"delete_Morlet", _wrap_delete_Morlet, METH_VARARGS, (char *)"\n"
 		"delete_Morlet(Morlet self)\n"

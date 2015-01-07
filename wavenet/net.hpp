@@ -45,14 +45,14 @@ public:
   double f (const column_vector& x);
   column_vector der (const column_vector& x);
   Net(int ncount, double xmin, double xmax, double ymin, double a0=10.,
-      double w0=0.1, ActFunc f = ActivateFunc::Morlet);
+      double w0=0.1, double p0=1.0, ActFunc f = ActivateFunc::Morlet);
   ~Net();
   std_vector sim(const std_vector&  t);
   std_vector gradient(const std_vector& t, const std_vector& target);
   double energy(const std_vector& t, const std_vector& target);
   train_res train(const std_vector& t, const std_vector& target,
 		     TrainStrat train_strategy=TrainStrategy::CG,
-	       int epochs=30, double goal = 0.3, int show=1);
+		  int epochs=30, double goal = 0.3, int show=1, bool varc=true, bool varp=true);
   friend NetModel;
  
 private:
@@ -63,7 +63,9 @@ private:
   std_vector targ;
   Wavelet* wt;
   wavelon* wn;
-  column_vector _gradient(const std_vector&  t, const std_vector&  target, const column_vector& weight);
+  bool varc;
+  bool varp;
+  column_vector _gradient(const std_vector&  t, const std_vector&  target, const column_vector& weight, bool varc, bool varp);
   double _energy(const std_vector& t, const std_vector& target, const column_vector& weight);
   std_vector _sim(const std_vector&  t, const column_vector& weight);
   template <typename search_strategy_type>

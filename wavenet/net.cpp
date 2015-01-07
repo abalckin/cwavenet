@@ -1,10 +1,9 @@
 #include "net.hpp"
 #include <iostream>
 using namespace std;
-Net::Net(int ncount, double xmin, double xmax, double ymin, double a0, double w0, ActFunc f)
+Net::Net(int ncount, double xmin, double xmax, double ymin, double a0, double w0, double p0, ActFunc f)
   {
   wcount = ncount*4+1;
-  //wt = new Morlet();
   switch (f)
      {
      case  ActivateFunc::Morlet:
@@ -22,7 +21,7 @@ Net::Net(int ncount, double xmin, double xmax, double ymin, double a0, double w0
     {
       wn[i].a = a0;
       wn[i].b = i*delta;
-      wn[i].p = wt->p0();
+      wn[i].p = p0;
       wn[i].w =w0;
     }
   }
@@ -51,14 +50,14 @@ std_vector Net::_sim(const std_vector& t, const column_vector& weight)
 
 std_vector Net::gradient(const std_vector& t, const std_vector& target)
 {
-  column_vector gt = _gradient(t, target, weight);
+  column_vector gt = _gradient(t, target, weight, true, true);
   std_vector ans(wcount);
   for(int k=0; k<wcount; k++ ) ans[k]=gt(k);
   return ans;
   
 }
 
-column_vector Net::_gradient(const std_vector& t, const std_vector& target, const column_vector& weight)
+column_vector Net::_gradient(const std_vector& t, const std_vector& target, const column_vector& weight, bool varc, bool varp)
  {
    wavelon *wn =(wavelon *) (&weight(0) + 1);   
    column_vector gd;
@@ -69,7 +68,8 @@ column_vector Net::_gradient(const std_vector& t, const std_vector& target, cons
    for (uint j=0; j<t.size(); j++)
    {
      double e = target[j]-ans[j];
-     gd(0)+=-e;
+     if (varc)
+       gd(0)+=-e;
      for (int i=0; i<nc; i++)
        {
 	 double tau = wt->tau(t[j], wn[i].a, wn[i].b);
@@ -78,7 +78,8 @@ column_vector Net::_gradient(const std_vector& t, const std_vector& target, cons
 	 double d = e*t[j]*wn[i].w*wt->db(tau, htau, wn[i].a, wn[i].p);
 	 gdw[i].b += -d;
 	 gdw[i].a += -d*tau;
-	 gdw[i].p += -e*t[j]*wn[i].w*wt->dp(tau, wn[i].p);
+	 if (varp)
+	   gdw[i].p += -e*t[j]*wn[i].w*wt->dp(tau, wn[i].p);
        }
    }
    return gd; 

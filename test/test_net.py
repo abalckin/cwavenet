@@ -8,8 +8,8 @@ import numpy as np
 
 class TestSequenceFunctions(unittest.TestCase):
     def setUp(self):
-        self.xmax = 10.
-        self.xmin = 0.
+        self.xmax = 50
+        self.xmin = 0
         self.ymin = 0.
         self.a0 = 10.
         self.w0 = 0.1
@@ -66,7 +66,7 @@ class TestSequenceFunctions(unittest.TestCase):
             dp = ws[n, 2]
             dw = ws[n, 3]
             cw = -np.sum(i*htau*e)
-            self.assertEqual(dw, cw)
+            self.assertLess(abs(dw-cw), self.eps)
             d = e*i*self.w0*np.vectorize(self.morlet.db)(tau,
                                             htau, self.a0, self.p0)
             cb = -np.sum(d)
@@ -83,16 +83,26 @@ class TestSequenceFunctions(unittest.TestCase):
         self.wn.sim(inp)
         t = time.time()-start
         self.assertLess(t, 7)
-        
+
     def test_train_cg(self):
-        inp = range(1, 50, 1)
+        inp = range(self.xmin, self.xmax, 1)
         tar = [(x/10)**2 for x in inp]
-        n = wn.Net(10, self.xmin, self.xmax, self.ymin,
+        n = wn.Net(5, self.xmin, self.xmax, tar[0],
                          self.a0, self.w0)
-        track = n.train(inp, tar, wn.TrainStrategy.CG, 200, 200, 20)
-        self.assertEqual(len(track['a'][1]), 5)
+        track = n.train(inp, tar, wn.TrainStrategy.CG, 100, 0, 1, True, True)
+        self.assertEqual(len(track['c'][0]), 101)
         r = n.energy(inp, tar)
-        print(r)
-        self.assertLess(r, 200)
+        self.assertLess(r, 45)
+
+    def test_train_cg_not_ex(self):
+        inp = range(self.xmin, self.xmax, 1)
+        tar = [(x/10)**2 for x in inp]
+        o = wn.Net(5, self.xmin, self.xmax, tar[0],
+                         self.a0, self.w0)
+        track = o.train(inp, tar, wn.TrainStrategy.CG, 100, 0, 2, False, False)
+        self.assertEqual(len(track['c'][0]), 51)
+        r = o.energy(inp, tar)
+        self.assertGreater(r, 70)
+
 if __name__ == '__main__':
     unittest.main()

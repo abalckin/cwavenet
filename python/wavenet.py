@@ -1167,7 +1167,7 @@ class Net(_object):
     def __init__(self, *args): 
         """
         __init__(Net self, int ncount, double xmin, double xmax, double ymin, double a0=10., double w0=0.1, 
-            ActFunc f=Morlet) -> Net
+            double p0=1.0, ActFunc f=Morlet) -> Net
 
         Parameters:
             ncount: int
@@ -1176,7 +1176,20 @@ class Net(_object):
             ymin: double
             a0: double
             w0: double
+            p0: double
             f: enum ActFunc
+
+        __init__(Net self, int ncount, double xmin, double xmax, double ymin, double a0=10., double w0=0.1, 
+            double p0=1.0) -> Net
+
+        Parameters:
+            ncount: int
+            xmin: double
+            xmax: double
+            ymin: double
+            a0: double
+            w0: double
+            p0: double
 
         __init__(Net self, int ncount, double xmin, double xmax, double ymin, double a0=10., double w0=0.1) -> Net
 
@@ -1245,6 +1258,31 @@ class Net(_object):
 
     def train(self, *args):
         """
+        train(Net self, std_vector t, std_vector target, TrainStrat train_strategy=CG, int epochs=30, double goal=0.3, 
+            int show=1, bool varc=True, bool varp=True) -> train_res
+
+        Parameters:
+            t: std_vector const &
+            target: std_vector const &
+            train_strategy: enum TrainStrat
+            epochs: int
+            goal: double
+            show: int
+            varc: bool
+            varp: bool
+
+        train(Net self, std_vector t, std_vector target, TrainStrat train_strategy=CG, int epochs=30, double goal=0.3, 
+            int show=1, bool varc=True) -> train_res
+
+        Parameters:
+            t: std_vector const &
+            target: std_vector const &
+            train_strategy: enum TrainStrat
+            epochs: int
+            goal: double
+            show: int
+            varc: bool
+
         train(Net self, std_vector t, std_vector target, TrainStrat train_strategy=CG, int epochs=30, double goal=0.3, 
             int show=1) -> train_res
 

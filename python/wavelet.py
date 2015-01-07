@@ -77,16 +77,6 @@ class Wavelet(_object):
     __getattr__ = lambda self, name: _swig_getattr(self, Wavelet, name)
     def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined - class is abstract")
     __repr__ = _swig_repr
-    def p0(self):
-        """
-        p0(Wavelet self) -> double
-
-        Parameters:
-            self: Wavelet const *
-
-        """
-        return _wavelet.Wavelet_p0(self)
-
     def h(self, *args):
         """
         h(Wavelet self, double tau, double p) -> double
@@ -162,51 +152,6 @@ class Morlet(Wavelet):
     for _s in [Wavelet]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
     __getattr__ = lambda self, name: _swig_getattr(self, Morlet, name)
     __repr__ = _swig_repr
-    def p0(self):
-        """
-        p0(Morlet self) -> double
-
-        Parameters:
-            self: Morlet const *
-
-        """
-        return _wavelet.Morlet_p0(self)
-
-    def h(self, *args):
-        """
-        h(Morlet self, double tau, double p) -> double
-
-        Parameters:
-            tau: double
-            p: double
-
-        """
-        return _wavelet.Morlet_h(self, *args)
-
-    def db(self, *args):
-        """
-        db(Morlet self, double tau, double htau, double a, double p) -> double
-
-        Parameters:
-            tau: double
-            htau: double
-            a: double
-            p: double
-
-        """
-        return _wavelet.Morlet_db(self, *args)
-
-    def dp(self, *args):
-        """
-        dp(Morlet self, double tau, double p) -> double
-
-        Parameters:
-            tau: double
-            p: double
-
-        """
-        return _wavelet.Morlet_dp(self, *args)
-
     def __init__(self): 
         """__init__(Morlet self) -> Morlet"""
         this = _wavelet.new_Morlet()
