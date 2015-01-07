@@ -20,7 +20,7 @@ Net::Net(int ncount, double xmin, double xmax, double ymin, double a0, double w0
   for (int i=0; i<nc; i++)
     {
       wn[i].a = a0;
-      wn[i].b = i*delta;
+      wn[i].b = i*delta+delta/2;
       wn[i].p = p0;
       wn[i].w =w0;
     }
