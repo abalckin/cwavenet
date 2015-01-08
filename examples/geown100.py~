@@ -27,7 +27,7 @@ class Test():
     def calc(self):
         p0=3.
         a0=15.
-        ts = wn.TrainStrategy.BFGS
+        ts = wn.TrainStrategy.CG
         inp = plb.date2num(self.time)
         tar = self.value-np.average(self.value)
         inp -= np.min(inp)

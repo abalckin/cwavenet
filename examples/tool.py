@@ -2,14 +2,14 @@ import pylab as plb
 import numpy as np
 
 
-def show(t, target, wavenet, param):
+def plot(t, target, wavenet, param):
     plb.rc('font', family='serif')
     plb.rc('font', size=13)
     plb.figure('Апроксимация')
     plb.subplot(211)
     #plb.title('Вейвсеть из 30 вейвлетов Морле')
     plb.plot(t, target, label='Модельный сигнал')
-    plb.plot(t, wavenet.sim(t), label='Аппроксимация')
+    plb.plot(t, wavenet.sim(t), linestyle='--', label='Аппроксимация')
     plb.legend()
     plb.subplot(212)
     plb.title('Суммарная квадратичная ошибка')
@@ -33,6 +33,6 @@ def show(t, target, wavenet, param):
     plb.subplot(122)
     plb.title('Смещение, c')
     plb.plot(param['c'][0])
-    plb.show()
+    #plb.show()
 
 

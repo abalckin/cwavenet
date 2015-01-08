@@ -27,18 +27,18 @@ class Test():
     def calc(self):
         p0=3.
         a0=15.
-        ts = wn.TrainStrategy.BFGS
-        #ts = wn.TrainStrategy.Gradient
+        #ts = wn.TrainStrategy.BFGS
+        ts = wn.TrainStrategy.Gradient
         inp = plb.date2num(self.time)
         tar = self.value-np.average(self.value)
         inp -= np.min(inp)
         delta = np.max(inp)-np.min(inp)
         k = 4*24/delta
         inp *= k
-        w = wn.Net(10, np.min(inp), np.max(inp), np.average(tar),
+        w = wn.Net(5, np.min(inp), np.max(inp), np.average(tar),
                          a0, .01, p0)
-        #track = w.train(inp, tar, ts, 50, 230000, 1, False, False)
-        track = w.train(inp, tar, ts, 200, 300000, 1, True, True)
+        #track = w.train(inp, tar, ts, 200, 300000, 1, False, False)
+        track = w.train(inp, tar, ts, 300, 100000, 1, True, True)
         print('first')
         for c in track.keys():
             print(c)
@@ -50,17 +50,20 @@ class Test():
             a= np.array(track[c])
             print (np.transpose(a[:, -1]))
         #import pdb; pdb.set_trace()
-        tool.show(inp, tar, w, track)
-        we = wn.Net(10, np.min(inp), np.max(inp), np.average(tar),
+        tool.plot(inp, tar, w, track)
+        we = wn.Net(5, np.min(inp), np.max(inp), np.average(tar),
                          a0, .01, p0)
-        tracke = we.train(inp, tar, ts, 200, 300000, 1, False, False)
+        plb.show()
+        tracke = we.train(inp, tar, ts, 300, 100000, 1, False, False)
+        #import pdb; pdb.set_trace()
         plb.title('Суммарная квадратичная ошибка')
         plb.plot(tracke['e'][0], label='Обычная вейвсеть')
-        plb.plot(track['e'][0], label='Полиморфная вейвсеть')
+        plb.plot(track['e'][0], linestyle='--', label='Полиморфная вейвсеть')
         plb.xlabel('Эпохи')
         plb.legend()
         plb.show()
-        tool.show(inp, tar, w, tracke)
+        tool.plot(inp, tar, we, tracke)
+        plb.show()
         sys.exit()
 
     def __init__(self):
