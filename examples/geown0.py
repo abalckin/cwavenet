@@ -2,7 +2,7 @@
 import sys
 import tool
 sys.path.append('../python/')
-import neurolab as nl
+import wavenet as wn
 import pylab as plb
 import numpy as np
 import csv
@@ -33,52 +33,53 @@ class Test():
         #    return np.sin(10*x)
         elif 0 <= x:
             return 10*np.exp(-.05*x - 0.5)*np.sin((0.03*x + 0.7)*x)
-
+        
     def calc(self):
-        inp = np.arange(-10, 10, 0.2)
+        inp = np.arange(-10, 10, 0.5)
         tar = np.vectorize(self.func1)(inp)
         tar -= np.min(tar)
         tar /= np.max(tar)
         size = len(inp)
-        inp = inp.reshape(size, 1)
-        tar = tar.reshape(size, 1)
-        net = nl.net.newff([[np.min(inp), np.max(inp)]], [10, 1])
-        net.trainf = nl.train.train_gd
-        #print(dir(net))
-        #for l in net.layers:
-        #    l.initf = nl.init.InitRand([-10., 10.], 'wb')
-        ##    print (l.np)
-        error = net.train(inp, tar, epochs=100, goal=0.3, adapt=True)
-        # Simulate network
-        out = net.sim(inp)
-        #print(out)
-        # Plot result
-        plb.subplot(211)
-        plb.plot(error)
-        plb.xlabel('Эпоха')
-        plb.ylabel('Суммарная квардратичная ошибка, нТ')
-
-
-        plb.subplot(212)
-        plb.plot(inp, tar, inp, out)
-        plb.xlabel('Время, час')
-        plb.ylabel('F, нТ')
-        plb.legend(['Модельный сигнал', 'Аппроксимация'], loc=0)
+        p0=3.3
+        a0=6.
+        nc = 20
+        #ts = wn.TrainStrategy.BFGS
+        ts = wn.TrainStrategy.Gradient
+        w = wn.Net(nc, np.min(inp), np.max(inp), np.average(tar),
+                         a0, .1, p0)
+        track = w.train(inp, tar, ts, 100, 0.3, 1, False, False)
+        #track = w.train(inp, tar, ts, 600, 100000, 1, True, True)
+        #import pdb; pdb.set_trace()
+        tool.plot(inp, tar, w, track)
+        print (w.energy(inp, tar))
+        plb.show()
+        sys.exit()
+        we = wn.Net(nc, np.min(inp), np.max(inp), np.average(tar),
+                         a0, .01, p0)
+        plb.show()
+        tracke = we.train(inp, tar, ts, 600, 100000, 1, False, False)
+        #import pdb; pdb.set_trace()
+        plb.title('Суммарная квадратичная ошибка')
+        plb.plot(tracke['e'][0], label='Обычная вейвсеть')
+        plb.plot(track['e'][0], linestyle='--', label='Полиморфная вейвсеть')
+        plb.xlabel('Эпохи')
+        plb.legend()
+        plb.show()
+        tool.plot(inp, tar, we, tracke)
         plb.show()
         sys.exit()
 
     def __init__(self):
-        plb.rc('font', family='serif')
-        plb.rc('font', size=15)
         self.fileName = "../data/spidr_1420457768932_0.txt"
         self.load()
-
-
 def main():
     t = Test()
     t.calc()
 if __name__ == '__main__':
     main()
+
+
+
 
 
 

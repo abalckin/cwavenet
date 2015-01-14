@@ -10,7 +10,7 @@ def plot(t, target, wavenet, param):
     #plb.title('Вейвсеть из 30 вейвлетов Морле')
     plb.plot(t, target, label='Модельный сигнал')
     plb.plot(t, wavenet.sim(t), linestyle='--', label='Аппроксимация')
-    plb.legend()
+    plb.legend(loc=0)
     plb.subplot(212)
     plb.title('Суммарная квадратичная ошибка')
     plb.plot(param['e'][0])

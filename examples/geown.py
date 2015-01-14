@@ -27,18 +27,20 @@ class Test():
     def calc(self):
         p0=3.
         a0=15.
+        nc = 5
         #ts = wn.TrainStrategy.BFGS
         ts = wn.TrainStrategy.Gradient
         inp = plb.date2num(self.time)
         tar = self.value-np.average(self.value)
+        tar = tar / np.max(tar)
         inp -= np.min(inp)
         delta = np.max(inp)-np.min(inp)
         k = 4*24/delta
         inp *= k
-        w = wn.Net(5, np.min(inp), np.max(inp), np.average(tar),
+        w = wn.Net(nc, np.min(inp), np.max(inp), np.average(tar),
                          a0, .01, p0)
         #track = w.train(inp, tar, ts, 200, 300000, 1, False, False)
-        track = w.train(inp, tar, ts, 300, 100000, 1, True, True)
+        track = w.train(inp, tar, ts, 600, 100000, 1, True, True)
         print('first')
         for c in track.keys():
             print(c)
@@ -51,10 +53,10 @@ class Test():
             print (np.transpose(a[:, -1]))
         #import pdb; pdb.set_trace()
         tool.plot(inp, tar, w, track)
-        we = wn.Net(5, np.min(inp), np.max(inp), np.average(tar),
+        we = wn.Net(nc, np.min(inp), np.max(inp), np.average(tar),
                          a0, .01, p0)
         plb.show()
-        tracke = we.train(inp, tar, ts, 300, 100000, 1, False, False)
+        tracke = we.train(inp, tar, ts, 600, 100000, 1, False, False)
         #import pdb; pdb.set_trace()
         plb.title('Суммарная квадратичная ошибка')
         plb.plot(tracke['e'][0], label='Обычная вейвсеть')
