@@ -2,7 +2,7 @@
 import sys
 import tool
 sys.path.append('../python/')
-import wavenet as wn
+import neurolab as nl
 import pylab as plb
 import numpy as np
 import csv
@@ -33,42 +33,53 @@ class Test():
         #    return np.sin(10*x)
         elif 0 <= x:
             return 10*np.exp(-.05*x - 0.5)*np.sin((0.03*x + 0.7)*x)
-        
+
     def calc(self):
         inp = np.arange(-10, 10, 0.3)
         tar = np.vectorize(self.func1)(inp)
         tar -= np.min(tar)
         tar /= np.max(tar)
         size = len(inp)
-        p0=3.3
-        a0=6.
-        nc = 10
-        w0 = .1
-        w1 = 0.2
-        #ts = wn.TrainStrategy.BFGS
-        ts = wn.TrainStrategy.Gradient
-        w = wn.Net(nc, np.min(inp), np.max(inp), np.average(tar),
-                         a0, w0, w1, p0)
-        track = w.train(inp, tar, ts, 10, 0.3, 1, False, False)
-        #track = w.train(inp, tar, ts, 600, 100000, 1, True, True)
-        #import pdb; pdb.set_trace()
-        tool.plot(inp, tar, w, track, xlabel='x', ylabel='f(x)')
-        print (w.energy(inp, tar))
+        inp = inp.reshape(size, 1)
+        tar = tar.reshape(size, 1)
+        net = nl.net.newff([[np.min(inp), np.max(inp)]], [10, 1])
+        net.trainf = nl.train.train_gd
+        #print(dir(net))
+        #for l in net.layers:
+        #    l.initf = nl.init.InitRand([-10., 10.], 'wb')
+        ##    print (l.np)
+        error = net.train(inp, tar, epochs=100, goal=0.3, adapt=True)
+        # Simulate network
+        out = net.sim(inp)
+        #print(out)
+        # Plot result
+        plb.subplot(211)
+        plb.plot(error)
+        plb.xlabel('Эпоха')
+        plb.ylabel('Суммарная квардратичная ошибка E')
+
+
+        plb.subplot(212)
+        plb.plot(inp, tar, linestyle='-')
+        plb.plot(inp, out, linestyle='--')
+        plb.xlabel('x')
+        plb.ylabel('f(x)')
+        plb.legend(['Модельный сигнал', 'Аппроксимация'], loc=0)
         plb.show()
         sys.exit()
 
     def __init__(self):
-        pass
-        #self.fileName = "../data/spidr_1420457768932_0.txt"
-        #self.load()
+        plb.rc('font', family='serif')
+        plb.rc('font', size=14)
+        self.fileName = "../data/spidr_1420457768932_0.txt"
+        self.load()
+
+
 def main():
     t = Test()
     t.calc()
 if __name__ == '__main__':
     main()
-
-
-
 
 
 

@@ -1,7 +1,9 @@
 #include "net.hpp"
 #include <iostream>
+#include <stdlib.h>     /* srand, rand */
+#include <time.h> 
 using namespace std;
-Net::Net(int ncount, double xmin, double xmax, double ymin, double a0, double w0, double p0, ActFunc f)
+Net::Net(int ncount, double xmin, double xmax, double ymin, double a0, double w0, double w1, double p0, ActFunc f)
   {
   wcount = ncount*4+1;
   switch (f)
@@ -16,13 +18,17 @@ Net::Net(int ncount, double xmin, double xmax, double ymin, double a0, double w0
   weight.set_size(wcount);
   weight(0) = ymin;
   double delta = (xmax - xmin)/nc;
-  wn =(wavelon *) (&weight(0) + 1); 
+  wn =(wavelon *) (&weight(0) + 1);
+  srand (time(NULL));
   for (int i=0; i<nc; i++)
     {
       wn[i].a = a0;
       wn[i].b = xmin+i*delta+delta/2;
       wn[i].p = p0;
-      wn[i].w =w0;
+      float r = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
+      float d = w1-w0;
+      double wi = (r*d)+w0;
+      wn[i].w =wi;
     }
   }
 

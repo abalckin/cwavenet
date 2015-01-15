@@ -1166,8 +1166,8 @@ class Net(_object):
 
     def __init__(self, *args): 
         """
-        __init__(Net self, int ncount, double xmin, double xmax, double ymin, double a0=10., double w0=0.1, 
-            double p0=1.0, ActFunc f=Morlet) -> Net
+        __init__(Net self, int ncount, double xmin, double xmax, double ymin, double a0=10., double w0=0.09, 
+            double w1=0.11, double p0=1.0, ActFunc f=Morlet) -> Net
 
         Parameters:
             ncount: int
@@ -1176,11 +1176,12 @@ class Net(_object):
             ymin: double
             a0: double
             w0: double
+            w1: double
             p0: double
             f: enum ActFunc
 
-        __init__(Net self, int ncount, double xmin, double xmax, double ymin, double a0=10., double w0=0.1, 
-            double p0=1.0) -> Net
+        __init__(Net self, int ncount, double xmin, double xmax, double ymin, double a0=10., double w0=0.09, 
+            double w1=0.11, double p0=1.0) -> Net
 
         Parameters:
             ncount: int
@@ -1189,9 +1190,22 @@ class Net(_object):
             ymin: double
             a0: double
             w0: double
+            w1: double
             p0: double
 
-        __init__(Net self, int ncount, double xmin, double xmax, double ymin, double a0=10., double w0=0.1) -> Net
+        __init__(Net self, int ncount, double xmin, double xmax, double ymin, double a0=10., double w0=0.09, 
+            double w1=0.11) -> Net
+
+        Parameters:
+            ncount: int
+            xmin: double
+            xmax: double
+            ymin: double
+            a0: double
+            w0: double
+            w1: double
+
+        __init__(Net self, int ncount, double xmin, double xmax, double ymin, double a0=10., double w0=0.09) -> Net
 
         Parameters:
             ncount: int

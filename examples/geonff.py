@@ -35,7 +35,7 @@ class Test():
             return 10*np.exp(-.05*x - 0.5)*np.sin((0.03*x + 0.7)*x)
 
     def calc(self):
-        inp = np.arange(-10, 10, 0.2)
+        inp = np.arange(-10, 10, 0.3)
         tar = np.vectorize(self.func1)(inp)
         tar -= np.min(tar)
         tar /= np.max(tar)
@@ -56,20 +56,21 @@ class Test():
         plb.subplot(211)
         plb.plot(error)
         plb.xlabel('Эпоха')
-        plb.ylabel('Суммарная квардратичная ошибка, нТ')
+        plb.ylabel('Суммарная квардратичная ошибка E')
 
 
         plb.subplot(212)
-        plb.plot(inp, tar, inp, out)
-        plb.xlabel('Время, час')
-        plb.ylabel('F, нТ')
-        plb.legend(['Модельный сигнал', 'Аппроксимация'], loc=0)
+        plb.plot(inp, tar, linestyle='-')
+        plb.plot(inp, out, linestyle='--')
+        plb.xlabel('x')
+        plb.ylabel('f(x)')
+        plb.legend(['Модельная функция', 'Аппроксимация'], loc=0)
         plb.show()
         sys.exit()
 
     def __init__(self):
         plb.rc('font', family='serif')
-        plb.rc('font', size=15)
+        plb.rc('font', size=14)
         self.fileName = "../data/spidr_1420457768932_0.txt"
         self.load()
 
