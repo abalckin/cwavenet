@@ -44,13 +44,18 @@ class Net
 public:
   double f (const column_vector& x);
   column_vector der (const column_vector& x);
+<<<<<<< HEAD
+  Net(int ncount, double tmin, double tmax, double ymin, double a0=10.,
+      double w0=0.1, double p0=1.0, ActFunc f = ActivateFunc::Morlet);
+=======
   Net(int ncount, double xmin, double xmax, double ymin, double a0=10.,
       double w0=0.09, double w1=0.11, double p0=1.0, ActFunc f = ActivateFunc::Morlet);
+>>>>>>> e24cb8ea927ef12ec458eb681cce52e9f68d1fc5
   ~Net();
-  std_vector sim(const std_vector&  t);
-  std_vector gradient(const std_vector& t, const std_vector& target);
-  double energy(const std_vector& t, const std_vector& target);
-  train_res train(const std_vector& t, const std_vector& target,
+  std_vector sim(const std_vector&  t, const std_vector&  inp);
+  std_vector gradient(const std_vector& t, const std_vector& target, const std_vector&  inp);
+  double energy(const std_vector& t, const std_vector&  inp, const std_vector& target);
+  train_res train(const std_vector& t,const std_vector&  inp, const std_vector& target,
 		     TrainStrat train_strategy=TrainStrategy::CG,
 		  int epochs=30, double goal = 0.3, int show=1, bool varc=true, bool varp=true);
   friend NetModel;
@@ -59,17 +64,18 @@ private:
   int nc;
   int wcount;
   column_vector weight;
+  std_vector t;
   std_vector inp;
   std_vector targ;
   Wavelet* wt;
   wavelon* wn;
   bool varc;
   bool varp;
-  column_vector _gradient(const std_vector&  t, const std_vector&  target, const column_vector& weight, bool varc, bool varp);
-  double _energy(const std_vector& t, const std_vector& target, const column_vector& weight);
-  std_vector _sim(const std_vector&  t, const column_vector& weight);
+  column_vector _gradient(const std_vector&  t, const std_vector&  inp, const std_vector&  target, const column_vector& weight, bool varc, bool varp);
+  double _energy(const std_vector& t, const std_vector&  inp,  const std_vector& target, const column_vector& weight);
+  std_vector _sim(const std_vector&  t, const std_vector&  inp, const column_vector& weight);
   template <typename search_strategy_type>
-  train_res _train(const std_vector& t, const std_vector& target,
+  train_res _train(const std_vector& t, const std_vector&  inp, const std_vector& target,
 		   search_strategy_type train_strategy, int epochs, double goal, int show);
   void mem(train_res& tr_res, double f_value);
 };

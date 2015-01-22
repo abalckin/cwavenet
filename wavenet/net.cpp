@@ -32,12 +32,12 @@ Net::Net(int ncount, double xmin, double xmax, double ymin, double a0, double w0
     }
   }
 
-std_vector Net::sim(const std_vector& t)
+std_vector Net::sim(const std_vector& t, const std_vector&  inp)
 {
-  return _sim(t, weight);
+  return _sim(t, inp, weight);
 }
 
-std_vector Net::_sim(const std_vector& t, const column_vector& weight)
+std_vector Net::_sim(const std_vector& t,const std_vector&  inp, const column_vector& weight)
 {
   wavelon *wn =(wavelon *) (&weight(0) + 1);   
   std_vector out(t.size());
@@ -49,27 +49,27 @@ std_vector Net::_sim(const std_vector& t, const column_vector& weight)
 	  double tau = wt->tau(t[i], wn[j].a, wn[j].b);
 	  nans+=wt->h(tau, wn[j].p)*wn[j].w;
 	}
-      out[i]=nans*t[i]+ weight(0);
+      out[i]=nans*inp[i]+ weight(0);
     }
   return out;
 }
 
-std_vector Net::gradient(const std_vector& t, const std_vector& target)
+std_vector Net::gradient(const std_vector& t, const std_vector&  inp, const std_vector& target)
 {
-  column_vector gt = _gradient(t, target, weight, true, true);
+  column_vector gt = _gradient(t, inp, target, weight, true, true);
   std_vector ans(wcount);
   for(int k=0; k<wcount; k++ ) ans[k]=gt(k);
   return ans;
   
 }
 
-column_vector Net::_gradient(const std_vector& t, const std_vector& target, const column_vector& weight, bool varc, bool varp)
+column_vector Net::_gradient(const std_vector& t, const std_vector&  inp, const std_vector& target, const column_vector& weight, bool varc, bool varp)
  {
    wavelon *wn =(wavelon *) (&weight(0) + 1);   
    column_vector gd;
    gd.set_size(wcount);
    for(int k=0; k<wcount; k++ ) gd(k)=0.;
-   std_vector ans = sim(t);
+   std_vector ans = sim(t, inp);
    wavelon* gdw =(wavelon *) (&gd(0) + 1);
    for (uint j=0; j<t.size(); j++)
    {
@@ -80,25 +80,25 @@ column_vector Net::_gradient(const std_vector& t, const std_vector& target, cons
        {
 	 double tau = wt->tau(t[j], wn[i].a, wn[i].b);
 	 double htau = wt->h(tau, wn[i].p);
-	 gdw[i].w+=-e*htau*t[j];
-	 double d = e*t[j]*wn[i].w*wt->db(tau, htau, wn[i].a, wn[i].p);
+	 gdw[i].w+=-e*htau*inp[j];
+	 double d = e*inp[j]*wn[i].w*wt->db(tau, htau, wn[i].a, wn[i].p);
 	 gdw[i].b += -d;
 	 gdw[i].a += -d*tau;
 	 if (varp)
-	   gdw[i].p += -e*t[j]*wn[i].w*wt->dp(tau, wn[i].p);
+	   gdw[i].p += -e*inp[j]*wn[i].w*wt->dp(tau, wn[i].p);
        }
    }
    return gd; 
  }
 
-double Net::energy(const std_vector& t, const std_vector& target)
+double Net::energy(const std_vector& t, const std_vector&  inp, const std_vector& target)
 {
-  return _energy(t, target, weight);
+  return _energy(t, inp, target, weight);
 }
-double Net::_energy(const std_vector& t, const std_vector& target, const column_vector& weight)
+double Net::_energy(const std_vector& t, const std_vector&  inp, const std_vector& target, const column_vector& weight)
 {
   double ener = 0.;
-  std_vector ans = _sim(t, weight);
+  std_vector ans = _sim(t, inp, weight);
   for(uint i=0; i<t.size(); i++)
     {
       double err = target[i] - ans[i];

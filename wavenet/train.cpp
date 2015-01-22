@@ -4,15 +4,15 @@ using namespace dlib;
 using namespace std;
 double Net::f (const column_vector& x)
 {
-  return _energy(inp, targ, x);
+  return _energy(t, inp, targ, x);
 }
 
 column_vector Net::der (const column_vector& x)
 {
-  return _gradient(inp, targ, x, varc, varp);
+  return _gradient(t, inp, targ, x, varc, varp);
 }
 
-train_res Net::train(const std_vector& t, const std_vector& target,
+train_res Net::train(const std_vector& t, const std_vector&  inp, const std_vector& target,
 		     TrainStrat train_strategy,
 		     int epochs, double goal, int show, bool varc, bool varp)
 {
@@ -21,26 +21,26 @@ train_res Net::train(const std_vector& t, const std_vector& target,
   switch (train_strategy)
     {
     case TrainStrategy::CG:
-      return _train(t, target, cg_search_strategy(),
+      return _train(t, inp, target, cg_search_strategy(),
 		    epochs, goal, show);
       break;
     case TrainStrategy::Gradient:
-      return _train(t, target, gr_search_strategy(),
+      return _train(t, inp, target, gr_search_strategy(),
 		    epochs, goal, show);
       break;
     case TrainStrategy::BFGS:
-      return _train(t, target, bfgs_search_strategy(),
+      return _train(t, inp, target, bfgs_search_strategy(),
 		    epochs, goal, show);
       break;
 
     default:
-      return _train(t, target, cg_search_strategy(),
+      return _train(t, inp, target, cg_search_strategy(),
 		    epochs, goal, show);
       break;
     }
 }
 template <typename search_strategy_type>
-train_res Net::_train(const std_vector& input, const std_vector& target,
+train_res Net::_train(const std_vector& time, const std_vector&  input, const std_vector& target,
 		      search_strategy_type search_strategy,
 		      int epochs, double goal, int show)
 {
@@ -53,6 +53,7 @@ train_res Net::_train(const std_vector& input, const std_vector& target,
   tr_res[std::string("w")] = train_set(nc);
   inp = input;
   targ = target;
+  t = time;
   NetF func(this);
   NetDer deriv(this);
   column_vector g,s;
