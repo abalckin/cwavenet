@@ -2,19 +2,17 @@ import pylab as plb
 import numpy as np
 
 
-def plot(t, target, wavenet, param, xlabel='', ylabel=''):
+
+def plot(t, inp, target, wavenet, param, xlabel='', ylabel=''):
     plb.rc('font', family='serif')
     plb.rc('font', size=13)
     plb.figure('Апроксимация')
     plb.subplot(212)
-    #plb.title('Вейвсеть из 30 вейвлетов Морле')
-    plb.plot(t, target, label='Модельная функция')
-    plb.plot(t, wavenet.sim(t), linestyle='--', label='Аппроксимация')
-    plb.legend(loc=1)
-    plb.xlabel(xlabel)
-    plb.ylabel(ylabel)
+    plb.plot(t, target, label='Модельный сигнал')
+    plb.plot(t, wavenet.sim(t, inp), linestyle='--', label='Аппроксимация')
+    plb.legend(loc=0)
     plb.subplot(211)
-    plb.ylabel('Суммарная квадратичная ошибка E')
+    plb.title('Суммарная квадратичная ошибка')
     plb.plot(param['e'][0])
     plb.xlabel('Эпохи')
 

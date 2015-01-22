@@ -1166,13 +1166,13 @@ class Net(_object):
 
     def __init__(self, *args): 
         """
-        __init__(Net self, int ncount, double xmin, double xmax, double ymin, double a0=10., double w0=0.09, 
-            double w1=0.11, double p0=1.0, ActFunc f=Morlet) -> Net
+        __init__(Net self, int ncount, double tmin, double tmax, double ymin, double a0=10., double w0=0.1, 
+            double w1=0.1, double p0=1.0, ActFunc f=Morlet) -> Net
 
         Parameters:
             ncount: int
-            xmin: double
-            xmax: double
+            tmin: double
+            tmax: double
             ymin: double
             a0: double
             w0: double
@@ -1180,56 +1180,56 @@ class Net(_object):
             p0: double
             f: enum ActFunc
 
-        __init__(Net self, int ncount, double xmin, double xmax, double ymin, double a0=10., double w0=0.09, 
-            double w1=0.11, double p0=1.0) -> Net
+        __init__(Net self, int ncount, double tmin, double tmax, double ymin, double a0=10., double w0=0.1, 
+            double w1=0.1, double p0=1.0) -> Net
 
         Parameters:
             ncount: int
-            xmin: double
-            xmax: double
+            tmin: double
+            tmax: double
             ymin: double
             a0: double
             w0: double
             w1: double
             p0: double
 
-        __init__(Net self, int ncount, double xmin, double xmax, double ymin, double a0=10., double w0=0.09, 
-            double w1=0.11) -> Net
+        __init__(Net self, int ncount, double tmin, double tmax, double ymin, double a0=10., double w0=0.1, 
+            double w1=0.1) -> Net
 
         Parameters:
             ncount: int
-            xmin: double
-            xmax: double
+            tmin: double
+            tmax: double
             ymin: double
             a0: double
             w0: double
             w1: double
 
-        __init__(Net self, int ncount, double xmin, double xmax, double ymin, double a0=10., double w0=0.09) -> Net
+        __init__(Net self, int ncount, double tmin, double tmax, double ymin, double a0=10., double w0=0.1) -> Net
 
         Parameters:
             ncount: int
-            xmin: double
-            xmax: double
+            tmin: double
+            tmax: double
             ymin: double
             a0: double
             w0: double
 
-        __init__(Net self, int ncount, double xmin, double xmax, double ymin, double a0=10.) -> Net
+        __init__(Net self, int ncount, double tmin, double tmax, double ymin, double a0=10.) -> Net
 
         Parameters:
             ncount: int
-            xmin: double
-            xmax: double
+            tmin: double
+            tmax: double
             ymin: double
             a0: double
 
-        __init__(Net self, int ncount, double xmin, double xmax, double ymin) -> Net
+        __init__(Net self, int ncount, double tmin, double tmax, double ymin) -> Net
 
         Parameters:
             ncount: int
-            xmin: double
-            xmax: double
+            tmin: double
+            tmax: double
             ymin: double
 
         """
@@ -1240,31 +1240,34 @@ class Net(_object):
     __del__ = lambda self : None;
     def sim(self, *args):
         """
-        sim(Net self, std_vector t) -> std_vector
+        sim(Net self, std_vector t, std_vector inp) -> std_vector
 
         Parameters:
             t: std_vector const &
+            inp: std_vector const &
 
         """
         return _wavenet.Net_sim(self, *args)
 
     def gradient(self, *args):
         """
-        gradient(Net self, std_vector t, std_vector target) -> std_vector
+        gradient(Net self, std_vector t, std_vector target, std_vector inp) -> std_vector
 
         Parameters:
             t: std_vector const &
             target: std_vector const &
+            inp: std_vector const &
 
         """
         return _wavenet.Net_gradient(self, *args)
 
     def energy(self, *args):
         """
-        energy(Net self, std_vector t, std_vector target) -> double
+        energy(Net self, std_vector t, std_vector inp, std_vector target) -> double
 
         Parameters:
             t: std_vector const &
+            inp: std_vector const &
             target: std_vector const &
 
         """
@@ -1272,11 +1275,12 @@ class Net(_object):
 
     def train(self, *args):
         """
-        train(Net self, std_vector t, std_vector target, TrainStrat train_strategy=CG, int epochs=30, double goal=0.3, 
-            int show=1, bool varc=True, bool varp=True) -> train_res
+        train(Net self, std_vector t, std_vector inp, std_vector target, TrainStrat train_strategy=CG, int epochs=30, 
+            double goal=0.3, int show=1, bool varc=True, bool varp=True) -> train_res
 
         Parameters:
             t: std_vector const &
+            inp: std_vector const &
             target: std_vector const &
             train_strategy: enum TrainStrat
             epochs: int
@@ -1285,11 +1289,12 @@ class Net(_object):
             varc: bool
             varp: bool
 
-        train(Net self, std_vector t, std_vector target, TrainStrat train_strategy=CG, int epochs=30, double goal=0.3, 
-            int show=1, bool varc=True) -> train_res
+        train(Net self, std_vector t, std_vector inp, std_vector target, TrainStrat train_strategy=CG, int epochs=30, 
+            double goal=0.3, int show=1, bool varc=True) -> train_res
 
         Parameters:
             t: std_vector const &
+            inp: std_vector const &
             target: std_vector const &
             train_strategy: enum TrainStrat
             epochs: int
@@ -1297,45 +1302,51 @@ class Net(_object):
             show: int
             varc: bool
 
-        train(Net self, std_vector t, std_vector target, TrainStrat train_strategy=CG, int epochs=30, double goal=0.3, 
-            int show=1) -> train_res
+        train(Net self, std_vector t, std_vector inp, std_vector target, TrainStrat train_strategy=CG, int epochs=30, 
+            double goal=0.3, int show=1) -> train_res
 
         Parameters:
             t: std_vector const &
+            inp: std_vector const &
             target: std_vector const &
             train_strategy: enum TrainStrat
             epochs: int
             goal: double
             show: int
 
-        train(Net self, std_vector t, std_vector target, TrainStrat train_strategy=CG, int epochs=30, double goal=0.3) -> train_res
+        train(Net self, std_vector t, std_vector inp, std_vector target, TrainStrat train_strategy=CG, int epochs=30, 
+            double goal=0.3) -> train_res
 
         Parameters:
             t: std_vector const &
+            inp: std_vector const &
             target: std_vector const &
             train_strategy: enum TrainStrat
             epochs: int
             goal: double
 
-        train(Net self, std_vector t, std_vector target, TrainStrat train_strategy=CG, int epochs=30) -> train_res
+        train(Net self, std_vector t, std_vector inp, std_vector target, TrainStrat train_strategy=CG, int epochs=30) -> train_res
 
         Parameters:
             t: std_vector const &
+            inp: std_vector const &
             target: std_vector const &
             train_strategy: enum TrainStrat
             epochs: int
 
-        train(Net self, std_vector t, std_vector target, TrainStrat train_strategy=CG) -> train_res
+        train(Net self, std_vector t, std_vector inp, std_vector target, TrainStrat train_strategy=CG) -> train_res
 
         Parameters:
             t: std_vector const &
+            inp: std_vector const &
             target: std_vector const &
             train_strategy: enum TrainStrat
 
-        train(Net self, std_vector t, std_vector target) -> train_res
+        train(Net self, std_vector t, std_vector inp, std_vector target) -> train_res
 
         Parameters:
             t: std_vector const &
+            inp: std_vector const &
             target: std_vector const &
 
         """

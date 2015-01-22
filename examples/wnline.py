@@ -40,7 +40,7 @@ class Test():
         #ts = wn.TrainStrategy.BFGS
         ts = wn.TrainStrategy.Gradient
         w = wn.Net(nc, np.min(inp), np.max(inp), np.average(tar),
-                         a0, .01, p0)
+                         a0, .01, 0.01, p0)
         track = w.train(t, inp, tar, ts, 100, 0.3, 1, False, False)
         #track = w.train(inp, tar, ts, 600, 100000, 1, True, True)
         #import pdb; pdb.set_trace()
