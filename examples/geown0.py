@@ -54,6 +54,7 @@ class Test():
             #track = w.train(inp, inp, d, ts, 200, 0.05, 1, False, False)
             track = w.train(inp, inp, tar, ts, 200, 0.05, 1, True, True)
             list_track.append(track)
+        for t in list
         #track = w.train(inp, tar, ts, 600, 100000, 1, False, False)
         #import pdb; pdb.set_trace()
         tool.plot(inp, inp, d, w, track, xlabel='x', ylabel='f(x)')
