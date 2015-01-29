@@ -25,10 +25,10 @@ class Test():
         self.time = signal[0, :].astype(np.datetime64).astype(dt.datetime)
 
     def func1(self, x):
-        return -3*x-100
+        return np.sin(-3*x)-100
         
     def calc(self):
-        t = np.arange(-10, 10, 0.5)
+        t = np.arange(-10, 100, 5.)
         tar = np.vectorize(self.func1)(t)
         #tar -= np.min(tar)
         #tar /= np.max(tar)
