@@ -25,35 +25,47 @@ class Test():
         self.time = signal[0, :].astype(np.datetime64).astype(dt.datetime)
 
     def func1(self, x):
-        if x < -2:
-            return -2.186*x-12.846
-        elif -2 <= x < 0:
-            return 4.246*x
-        #elif -1 <= x < 0:
-        #    return np.sin(10*x)
-        elif 0 <= x:
-            return 10*np.exp(-.05*x - 0.5)*np.sin((0.03*x + 0.7)*x)
+        if x<0:
+            return 10*np.exp(-.03*x - 0.3)*np.sin((0.6*x-0.1))+x+10
+        if x>=0:
+            return 10*np.exp(-.03*x - 0.3)*np.sin((0.3*x-0.1))+x+10
+    
         
     def calc(self):
-        inp = np.arange(-10, 10, 0.3)
-        tar = np.vectorize(self.func1)(inp)
-        tar -= np.min(tar)
-        tar /= np.max(tar)
-        size = len(inp)
-        p0=3.3
-        a0=6.
-        nc = 20
-        w0 = .1
-        w1 = 0.2
-        #ts = wn.TrainStrategy.BFGS
-        ts = wn.TrainStrategy.Gradient
-        w = wn.Net(nc, np.min(inp), np.max(inp), np.average(tar),
-                         a0, w0, w1, p0)
-        track = w.train(inp, tar, ts, 10, 0.3, 1, False, False)
-        #track = w.train(inp, tar, ts, 600, 100000, 1, True, True)
+        list_track = []
+        list_minerr = []
+        test_num =2
+        for i in range(test_num):
+            inp = np.arange(-20, 20, 0.5)
+            tar = np.vectorize(self.func1)(inp)
+            size = len(inp)
+            d = tar+np.random.random(size)
+            list_minerr.append(0.5*sum(((d-tar)**2)))
+            #tar -= np.min(tar)
+            #tar /= np.max(tar)
+            p0=2.
+            a0=5.
+            nc = 10
+            w0 = .1
+            w1 = -.1
+            ts = wn.TrainStrategy.BFGS
+            #ts = wn.TrainStrategy.Gradient
+            w = wn.Net(nc, np.min(inp), np.max(inp), np.average(d),
+                             a0, w0, w1, p0)
+            #track = w.train(inp, inp, d, ts, 200, 0.05, 1, False, False)
+            track = w.train(inp,inp, tar, ts, 200, 0.05, 1, True, True)
+            list_track.append(track)
+        E= np.array([t['e'] for t in list_track])
+        import pdb; pdb.set_trace()    
+        #track = w.train(inp, tar, ts, 600, 100000, 1, False, False)
         #import pdb; pdb.set_trace()
-        tool.plot(inp, tar, w, track, xlabel='x', ylabel='f(x)')
-        print (w.energy(inp, tar))
+        tool.plot(inp, inp, d, w, track, xlabel='x', ylabel='f(x)')
+        #print (w.energy(inp, inp, tar))
+        #print (w.energy(inp, inp, d))
+        print (w.energy(inp, inp, tar))
+        print (w.energy(inp, inp, d))
+        print (0.5*sum(((d-tar)**2)))
+        #print (0.5*sum(((d-tar)**2)))
         plb.show()
         sys.exit()
 

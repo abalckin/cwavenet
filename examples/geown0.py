@@ -34,7 +34,8 @@ class Test():
     def calc(self):
         list_track = []
         list_minerr = []
-        for i in range(1):
+        test_num =3
+        for i in range(test_num):
             inp = np.arange(-20, 20, 0.5)
             tar = np.vectorize(self.func1)(inp)
             size = len(inp)
@@ -52,9 +53,12 @@ class Test():
             w = wn.Net(nc, np.min(inp), np.max(inp), np.average(d),
                              a0, w0, w1, p0)
             #track = w.train(inp, inp, d, ts, 200, 0.05, 1, False, False)
-            track = w.train(inp, inp, tar, ts, 200, 0.05, 1, True, True)
+            track = w.train(inp,inp, tar, ts, 200, 0.05, 1, True, True)
             list_track.append(track)
-        for t in list
+        E= np.array([t['e'] for t in list_track])
+        Eav=np.average(E, axis=0)[0]
+        np.savetxt('Eav.txt', Eav, delimiter=', ')
+        #import pdb; pdb.set_trace()    
         #track = w.train(inp, tar, ts, 600, 100000, 1, False, False)
         #import pdb; pdb.set_trace()
         tool.plot(inp, inp, d, w, track, xlabel='x', ylabel='f(x)')

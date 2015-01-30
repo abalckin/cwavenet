@@ -1,6 +1,6 @@
 PYINC = /usr/include/python3.4
 PYLIB = /usr/local/bin
-CFLAGS =
+CFLAGS = -O3
 all: _wavenet.so wavenet.py _wavelet.so wavelet.py
 
 # обертка + действительный класс
