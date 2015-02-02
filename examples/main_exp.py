@@ -18,7 +18,7 @@ def calc():
     list_minerr = []
     Ereal_list=[]
     Emin_list=[]
-    test_num = 3
+    test_num = 100
     for i in range(test_num):
         print('Iter {}...'.format(i))
         inp = np.arange(-20, 20, 0.5)
@@ -35,8 +35,8 @@ def calc():
         ts = wn.TrainStrategy.Gradient
         w = wn.Net(nc, np.min(inp), np.max(inp), np.average(0),
                          a0, w0, w1, p0)
-        #track = w.train(inp, inp, d, ts, 200, 0.05, 1, False, False)
-        track = w.train(inp,inp, tar, ts, 200, 0.05, 1, True, True)
+        track = w.train(inp, inp, d, ts, 200, 0.05, 1, False, False)
+        #track = w.train(inp,inp, tar, ts, 200, 0.05, 1, True, True)
         list_track.append(track)
         Ereal_list.append(w.energy(inp, inp, d))
         Emin_list.append(0.5*sum(((d-tar)**2)))
