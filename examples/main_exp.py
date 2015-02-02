@@ -18,28 +18,40 @@ def calc():
     list_minerr = []
     Ereal_list=[]
     Emin_list=[]
-    test_num = 100
-    for i in range(test_num):
-        print('Iter {}...'.format(i))
-        inp = np.arange(-20, 20, 0.5)
-        tar = np.vectorize(func1)(inp)
-        size = len(inp)
-        d = tar+np.random.random(size)
-        list_minerr.append(0.5*sum(((d-tar)**2)))
-        p0=2.
-        a0=5.
-        nc = 10
-        w0 = .1
-        w1 = -.1
-        #ts = wn.TrainStrategy.BFGS
-        ts = wn.TrainStrategy.Gradient
-        w = wn.Net(nc, np.min(inp), np.max(inp), np.average(0),
-                         a0, w0, w1, p0)
-        track = w.train(inp, inp, d, ts, 200, 0.05, 1, False, False)
-        #track = w.train(inp,inp, tar, ts, 200, 0.05, 1, True, True)
-        list_track.append(track)
-        Ereal_list.append(w.energy(inp, inp, d))
-        Emin_list.append(0.5*sum(((d-tar)**2)))
+    x010_list=[]
+    test_num = 20
+for k2 in [0.1, 0.5, 10]:
+        for i in range(test_num):
+                print('Iter {}...'.format(i))
+                inp = np.arange(-20, 20, 0.5)
+                tar = np.vectorize(func1)(inp)
+                size = len(inp)
+                d = tar+np.random.random(size)
+                list_minerr.append(0.5*sum(((d-tar)**2)))
+                p0=2.
+                a0=5.
+                nc = 10
+                w0 = .1
+                w1 = -.1
+                #ts = wn.TrainStrategy.BFGS
+                ts = wn.TrainStrategy.Gradient
+                w = wn.Net(nc, np.min(inp), np.max(inp), np.average(0),
+                                 a0, w0, w1, p0)
+                track = w.train(inp, inp, d, ts, 200, 0.05, 1, False, False)
+                #track = w.train(inp,inp, tar, ts, 200, 0.05, 1, True, True)
+                list_track.append(track)
+                Ereal_list.append(w.energy(inp, inp, d))
+                Emin_list.append(0.5*sum(((d-tar)**2)))
+                E = track['e']
+                x = np.arange(0, 201)
+                y = np.array(E)[0]
+                y010 = np.extract(y < y[0]*0.1, y)[0]
+                yinf = y[-1]
+                x010 = np.nonzero(y == y010)[0][0]
+                xinf = x[-1]
+                x010_list.append(x010)
+            print (np.std(x010_list))
+
     E = np.array([t['e'] for t in list_track])
     Eav = np.array(np.average(E, axis=0)[0])
     Ereal = np.array([np.average(Ereal_list)])
