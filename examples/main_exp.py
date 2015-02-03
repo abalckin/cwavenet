@@ -24,7 +24,7 @@ def calc():
         inp = np.arange(-20, 20, 0.5)
         tar = np.vectorize(func1)(inp)
         size = len(inp)
-        d = tar+np.random.random(size)
+        d = tar+np.random.random(size)-0.5
         list_minerr.append(0.5*sum(((d-tar)**2)))
         p0=2.
         a0=5.
