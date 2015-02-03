@@ -3,7 +3,7 @@
 #include <stdlib.h>     /* srand, rand */
 #include <time.h> 
 using namespace std;
-Net::Net(int ncount, double xmin, double xmax, double ymin, double a0, double w0, double w1, double p0, ActFunc f)
+Net::Net(int ncount, double xmin, double xmax, double ymin, double a0, double a1, double w0, double w1, double p0, double p1, ActFunc f)
   {
   wcount = ncount*4+1;
   switch (f)
@@ -20,15 +20,18 @@ Net::Net(int ncount, double xmin, double xmax, double ymin, double a0, double w0
   double delta = (xmax - xmin)/nc;
   wn =(wavelon *) (&weight(0) + 1);
   srand (time(NULL));
+  float dw = w1-w0;
+  float da = a1-a0;
+  float dp = p1-p0;
   for (int i=0; i<nc; i++)
     {
-      wn[i].a = a0;
-      wn[i].b = xmin+i*delta+delta/2;
-      wn[i].p = p0;
+      wn[i].b = xmin+i*delta+delta/2.;
       float r = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
-      float d = w1-w0;
-      double wi = (r*d)+w0;
-      wn[i].w =wi;
+      wn[i].w = (r*dw)+w0;
+      r = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
+      wn[i].a = (r*da)+a0;
+      r = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
+      wn[i].p = (r*dp)+p0;
     }
   }
 

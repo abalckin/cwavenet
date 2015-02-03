@@ -3,12 +3,14 @@ import numpy as np
 
 
 
-def plot(t, inp, target, wavenet, param, xlabel='', ylabel=''):
+def plot(t, inp, target, wavenet, param, orig=None, xlabel='', ylabel=''):
     plb.rc('font', family='serif')
     plb.rc('font', size=13)
     plb.figure('Апроксимация')
     plb.subplot(212)
     plb.plot(t, target, label='Модельный сигнал')
+    if orig is not None:
+        plb.plot(t, orig, label='Оригинал')
     plb.plot(t, wavenet.sim(t, inp), linestyle='--', label='Аппроксимация')
     plb.legend(loc=0)
     plb.subplot(211)

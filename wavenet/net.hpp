@@ -44,8 +44,8 @@ class Net
 public:
   double f (const column_vector& x);
   column_vector der (const column_vector& x);
-  Net(int ncount, double tmin, double tmax, double ymin, double a0=10.,
-      double w0=0.1, double w1=0.1, double p0=1.0, ActFunc f = ActivateFunc::Morlet);
+  Net(int ncount, double tmin, double tmax, double ymin, double a0=10., double a1=10.,
+      double w0=0.1, double w1=0.1, double p0=1.0, double p1=1.0, ActFunc f = ActivateFunc::Morlet);
   ~Net();
   std_vector sim(const std_vector&  t, const std_vector&  inp);
   std_vector gradient(const std_vector& t, const std_vector& target, const std_vector&  inp);
