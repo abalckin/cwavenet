@@ -44,7 +44,7 @@ def main():
     print('\n\t\t\t|Обычная вейвсеть\t\t\t\t|Полиморфная вейвсеть')
     print('\nk2\t|\tS\t|\tn\t|\tM\t|\tdE\t|\tn\t|\tM\t|\tdE')
     #import pdb; pdb.set_trace()
-    klist = [0.0001*5**i for i in range(1, 8)]
+    klist = [0.1*5**i for i in range(1, 8)]
     for k2 in klist:
         for polymorph in [False, True]:
             for i in range(test_num):
