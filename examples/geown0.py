@@ -49,11 +49,11 @@ class Test():
             list_minerr.append(0.5*sum(((d-tar)**2)))
             #tar -= np.min(tar)
             #tar /= np.max(tar)
-            p0=1.75
-            p1=1.75
-            a0=3.5
+            p0=2.
+            p1=2.
+            a0=3.
             a1=5.
-            nc=10
+            nc=16
             w0=-.5
             w1=2.0
             #ts = wn.TrainStrategy.BFGS

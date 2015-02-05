@@ -29,15 +29,13 @@ def main():
     N = 100
     np.random.seed()
     test_num = 50
-    
-    p0=1.75
-    p1=1.75
-    a0=3.5
+    p0=2.
+    p1=2.
+    a0=3.
     a1=5.
-    nc=10
+    nc=16
     w0=-.5
     w1=2.0
-
     print('\n\t\t\t|Обычная вейвсеть\t\t\t\t|Полиморфная вейвсеть')
     print('\nk2\t|\tS\t|\tn\t|\tM\t|\tdE\t|\tn\t|\tM\t|\tdE')
     #import pdb; pdb.set_trace()
