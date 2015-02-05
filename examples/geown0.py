@@ -45,23 +45,23 @@ class Test():
             inp = np.arange(-20, 20, 0.5)
             tar = np.vectorize(self.func2)(inp)
             size = len(inp)
-            d = tar+(np.random.random(size)-0.5)*20
+            d = tar+(np.random.random(size)-0.5)*5.062
             list_minerr.append(0.5*sum(((d-tar)**2)))
             #tar -= np.min(tar)
             #tar /= np.max(tar)
-            p0=1.5
-            p1=1.5
+            p0=1.75
+            p1=1.75
             a0=3.5
-            a1=7.0
-            nc = 10
-            w0 = -0.5
-            w1 = 2.
+            a1=5.
+            nc=10
+            w0=-.5
+            w1=2.0
             #ts = wn.TrainStrategy.BFGS
             ts = wn.TrainStrategy.Gradient
             w = wn.Net(nc, np.min(inp), np.max(inp), np.average(0),
                              a0, a1, w0, w1, p0, p1)
-            track = w.train(inp, inp, d, ts, 200, 0.05, 1, False, False)
-            #track = w.train(inp,inp, tar, ts, 100, 0.05, 1, True, True)
+            #track = w.train(inp, inp, d, ts, 200, 0.05, 1, False, False)
+            track = w.train(inp,inp, tar, ts, 100, 0.05, 1, True, True)
             list_track.append(track)
         E= np.array([t['e'] for t in list_track])
         Eav=np.average(E, axis=0)[0]
