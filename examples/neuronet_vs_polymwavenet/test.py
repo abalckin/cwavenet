@@ -19,24 +19,24 @@ def mean_confidence_interval(data, confidence=0.95):
 # Mодельная функция
 def func1(x):
     if x < 0:
-        return 10.*np.exp(-.03*x - 0.3)*np.sin((0.6*x-0.1))+x+.5
+        return 10*np.exp(-.03*x*40 - 0.3)*np.sin((0.6*x*40-0.1))+40*x+.5
     if x >= 0:
-        return 10.*np.exp(-.03*x - 0.3)*np.sin((0.3*x-0.1))+x+.5
+        return 10*np.exp(-.03*x*40 - 0.3)*np.sin((0.3*x*40-0.1))+40*x+.5
 
 def main():
     # Инициалиазация
     Exp_list = []
-    N = 100
+    N = 200
     np.random.seed()
-    test_num = 50
-    p0=2.
-    p1=2.
-    a0=3.
-    a1=5.
+    test_num = 3
+    p0=2./40
+    p1=2./40
+    a0=3./40
+    a1=5./40
     nc=16
-    w0=-.5
-    w1=2.0
-    print('\n\t\t\t|Обычная вейвсеть\t\t\t\t|Полиморфная вейвсеть')
+    w0=-.5/20
+    w1=2.0/20
+    print('\n\t\t\t|Полиморфная вейвсеть\t\t\t\t|Нейронная сеть')
     print('\nk2\t|\tS\t|\tn\t|\tM\t|\tdE\t|\tn\t|\tM\t|\tdE')
     #import pdb; pdb.set_trace()
     klist = [1.*1.5**i for i in range(1, 11)]
@@ -47,46 +47,50 @@ def main():
         ME_list = [[], []]
         for ff in [True, False]:
             for i in range(test_num):
-                inp = np.arange(-20, 20, 0.5)
-                tar = np.vectorize(func1)(inp)
+                inp = np.arange(-0.5, 0.5, 0.5/40.)
+                tar = np.vectorize(func1)(inp)/20
                 T = tar.shape[-1]
-                eps = (np.random.random(T)-0.5)*k2
+                eps = (np.random.random(T)-0.5)*k2/20.
                 d = tar+eps
                 #err_min = 0.5*np.sum(((d-tar)**2))
                 if ff == True:
                     inp_ff = inp.reshape(T, 1)
                     tar_ff = tar.reshape(T, 1)
-                    n = nl.net.newff([[np.min(inp_ff), np.max(inp_ff)]], [10, 1])
+                    n = nl.net.newff([[np.min(inp_ff), np.max(inp_ff)]], [16 ,1])
                     n.trainf = nl.train.train_gd
-                    E = n.train(inp_ff, tar_ff, epochs=100, goal=0.0, adapt=True)
-                    ans = n.sim(inp_ff)
+                    #import pdb; pdb.set_trace()
+                    E = n.train(inp_ff, tar_ff, epochs=N, goal=0.0, adapt=True, show=0)
+                    y = np.array(E)
+                    ans = n.sim(inp_ff).reshape(T)
+                    #import pdb; pdb.set_trace()
+                    #import pdb; pdb.set_trace()
                 else:
                     ts = wn.TrainStrategy.Gradient
                     w = wn.Net(nc, np.min(inp), np.max(inp), np.average(d),
                             a0, a1, w0, w1, p0, p1)
-                    track = w.train(inp, inp, d, ts, N, 0.0, 1, True, True)
-                    ans = w.sim(inp, inp)
+                    track = w.train(inp, inp*40, d, ts, N, 0.0, 1, True, True)
+                    ans = w.sim(inp, inp*40)
                     E = track['e']
+                    y = np.array(E)[0]
                 Ay = (np.sum(tar**2)/T)**0.5
                 Aeps = (np.sum((d-tar)**2)/T)**0.5
                 S = (Ay/Aeps)**2
                 S_list.append(S)
 
-                y = np.array(E)[0]
                 try:
                     y010 = np.extract(y < y[0]*0.1, y)[0]
                     x010 = np.nonzero(y == y010)[0][0]
-                    n_list[polymorph].append(x010)
+                    n_list[ff].append(x010)
                 except:
                     pass
                 #M = (yinf-err_min)/err_min
                 Ae = (np.sum((ans-tar)**2)/T)**0.5 
                 M = (Ay/Ae)**2
                 #import pdb; pdb.set_trace()
-                M_list[polymorph].append(M)
+                M_list[ff].append(M)
                 #import pdb; pdb.set_trace()
                 dEinf = (y[-2]-y[-1])
-                ME_list[polymorph].append(dEinf)
+                ME_list[ff].append(dEinf)
         S, dS = mean_confidence_interval(S_list)
         n0, dn0 = mean_confidence_interval(n_list[0])
         M0, dM0 = mean_confidence_interval(M_list[0])
