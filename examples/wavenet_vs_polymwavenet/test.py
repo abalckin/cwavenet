@@ -1,7 +1,7 @@
 #! /usr/bin/python3
 import sys
-import tool
-sys.path.append('../python/')
+
+sys.path.append('../../bin')
 
 import wavenet as wn
 import pylab as plb
@@ -52,7 +52,6 @@ def main():
                 T = tar.shape[-1]
                 eps = (np.random.random(T)-0.5)*k2
                 d = tar+eps
-                err_min = 0.5*np.sum(((d-tar)**2))
                 ts = wn.TrainStrategy.Gradient
                 w = wn.Net(nc, np.min(inp), np.max(inp), np.average(0),
                             a0, a1, w0, w1, p0, p1)
@@ -76,7 +75,7 @@ def main():
                 #import pdb; pdb.set_trace()
                 M_list[polymorph].append(M)
                 #import pdb; pdb.set_trace()
-                dEinf = (y[-2]-y[-1])/err_min
+                dEinf = y[-2]-y[-1]
                 ME_list[polymorph].append(dEinf)
         S, dS = mean_confidence_interval(S_list)
         n0, dn0 = mean_confidence_interval(n_list[0])
