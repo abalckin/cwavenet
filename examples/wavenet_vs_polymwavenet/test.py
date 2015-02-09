@@ -26,7 +26,7 @@ def func1(x):
 def main():
     # Инициалиазация
     Exp_list=[]
-    N = 100
+    N = 200
     np.random.seed()
     test_num = 50
     p0=2.
@@ -36,6 +36,9 @@ def main():
     nc=16
     w0=-.5
     w1=2.0
+    text_file = open("log.txt", "w")
+    text_file.write('\n\t\t\t|Обычная вейвсеть\t\t\t\t|Полиморфная вейвсеть')
+    text_file.write('\nk2\t|\tS\t|\tn\t|\tM\t|\tdE\t|\tn\t|\tM\t|\tdE')
     print('\n\t\t\t|Обычная вейвсеть\t\t\t\t|Полиморфная вейвсеть')
     print('\nk2\t|\tS\t|\tn\t|\tM\t|\tdE\t|\tn\t|\tM\t|\tdE')
     #import pdb; pdb.set_trace()
@@ -84,7 +87,7 @@ def main():
         n1, dn1 = mean_confidence_interval(n_list[1])
         M1, dM1 = mean_confidence_interval(M_list[1])
         ME1, dME1 = mean_confidence_interval(ME_list[1])
-        print('\n{k2:.3f}\t|{S:.1f}~{dS:.1f}\t|{n0:.1f}~{dn0:.1f}\t|{M0:.1f}~{dM0:.1f}\t|{ME0:.3f}~\
+        str = '\n{k2:.3f}\t|{S:.1f}~{dS:.1f}\t|{n0:.1f}~{dn0:.1f}\t|{M0:.1f}~{dM0:.1f}\t|{ME0:.3f}~\
 {dME0:.3f}\t|{n1:.1f}~{dn1:.1f}\t|{M1:.1f}~{dM1:.1f}\t|{ME1:.3f}~{dME1:.3f}'.format(
             k2=k2,
             S=S,
@@ -101,10 +104,13 @@ def main():
             dM1=dM1,
             ME1=ME1,
             dME1=dME1
-            ))
+            )
+        print(str)
         Exp_list.append([k2, S, dS, n0, dn0, M0, dM0, ME0, dME0, n1, dn1, M1,
                         dM1, ME1, dME1])
-        np.savetxt('result.txt', np.array(Exp_list), delimiter=', ')
+        text_file.write(str)
+    np.savetxt('result.txt', np.array(Exp_list), delimiter=', ')
+    text_file.close()
 
 if __name__ == '__main__':
     main()

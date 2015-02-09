@@ -28,14 +28,14 @@ def main():
     Exp_list = []
     N = 200
     np.random.seed()
-    test_num = 3
-    p0=2./40
-    p1=2./40
-    a0=3./40
-    a1=5./40
+    test_num = 5
+    p0=.05003
+    p1=.05013
+    a0=0.04
+    a1=0.12
     nc=16
-    w0=-.5/20
-    w1=2.0/20
+    w0=-.05
+    w1=0.06
     print('\n\t\t\t|Полиморфная вейвсеть\t\t\t\t|Нейронная сеть')
     print('\nk2\t|\tS\t|\tn\t|\tM\t|\tdE\t|\tn\t|\tM\t|\tdE')
     #import pdb; pdb.set_trace()
@@ -48,15 +48,15 @@ def main():
         for ff in [True, False]:
             for i in range(test_num):
                 inp = np.arange(-0.5, 0.5, 0.5/40.)
-                tar = np.vectorize(func1)(inp)/20
+                tar = np.vectorize(func1)(inp)/30
                 T = tar.shape[-1]
-                eps = (np.random.random(T)-0.5)*k2/20.
+                eps = (np.random.random(T)-0.5)*k2/30.
                 d = tar+eps
                 #err_min = 0.5*np.sum(((d-tar)**2))
                 if ff == True:
                     inp_ff = inp.reshape(T, 1)
-                    tar_ff = tar.reshape(T, 1)
-                    n = nl.net.newff([[np.min(inp_ff), np.max(inp_ff)]], [16 ,1])
+                    tar_ff = d.reshape(T, 1)
+                    n = nl.net.newff([[np.min(inp_ff), np.max(inp_ff)]], [16*4, 1])
                     n.trainf = nl.train.train_gd
                     #import pdb; pdb.set_trace()
                     E = n.train(inp_ff, tar_ff, epochs=N, goal=0.0, adapt=True, show=0)
@@ -66,7 +66,7 @@ def main():
                     #import pdb; pdb.set_trace()
                 else:
                     ts = wn.TrainStrategy.Gradient
-                    w = wn.Net(nc, np.min(inp), np.max(inp), np.average(d),
+                    w = wn.Net(nc, np.min(inp), np.max(inp), np.average(-0.01),
                             a0, a1, w0, w1, p0, p1)
                     track = w.train(inp, inp*40, d, ts, N, 0.0, 1, True, True)
                     ans = w.sim(inp, inp*40)
