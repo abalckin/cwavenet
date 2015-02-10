@@ -20,11 +20,30 @@ plb.fill_between(res[:, 1], res[:, 1], res[:, 1]-np.max(res[:, 1]), res[:, 1], a
 plb.xscale('log')
 plb.legend(loc=0)
 plb.xlim(res[-1, 1]-0.1, res[0, 1]+20)
-plb.ylim(0, 310)
+plb.ylim(0, 670)
 plb.gca().set_xticks(res[:, 1])
 #plb.gca().xaxis.set_major_locator(plb.LogLocator(numticks=50))
 plb.gca().xaxis.set_major_formatter(plb.ScalarFormatter())
 plb.ylabel('Отношение сигнал/шум на выходе сети, M')
 plb.xlabel('Отношение сигнал/шум на входе системы, S')
-plb.annotate('Область применимости вейвсетей', [10, 175])
-plb.show()
+plb.annotate('Область применимости вейвсетей', [10, 300])
+#plb.show()
+polym_higest=res[:, 11]>res[:, 1]
+polym_avg=res[polym_higest, 11][1:-2]
+std_higest=res[:, 5]>res[:, 1]
+std_avg=res[std_higest, 5][:-2]
+inp_avg=res[std_higest, 1][:-2]
+print('Улучшение в среднем на {}%'.format(np.average((polym_avg-std_avg)/std_avg*100)))
+polym_avg_db=10*np.log10(polym_avg-inp_avg)
+std_avg_db=10*np.log10(std_avg-inp_avg)
+print('Улучшение в среднем на {}дб'.format(np.average(polym_avg_db-std_avg_db)))
+
+
+
+
+
+
+
+
+
+

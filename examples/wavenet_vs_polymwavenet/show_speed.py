@@ -29,3 +29,9 @@ plb.ylabel(u'Продолжительность сходимости вейвс�
 plb.xlabel('Отношение сигнал/шум на входе системы, S')
 plb.annotate('Область применимости вейвсетей', [15, 175])
 plb.show()
+polym_higest=res[:, 11]>res[:, 1]
+polym_avg=res[polym_higest, 9][1:-2]
+std_higest=res[:, 5]>res[:, 1]
+std_avg=res[std_higest, 3][:-2]
+inp_avg=res[std_higest, 1][:-2]
+print('Улучшение в среднем на {}%'.format(np.average((std_avg-polym_avg)/std_avg*100)))
