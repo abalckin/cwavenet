@@ -3,7 +3,7 @@
 #include <stdlib.h>     /* srand, rand */
 #include <time.h> 
 using namespace std;
-Net::Net(int ncount, double xmin, double xmax, double ymin, double a0, double a1, double w0, double w1, double p0, double p1, ActFunc f)
+Net::Net(int ncount, double xmin, double xmax, double ymin, double a0, double a1, double w0, double w1, double p0, double p1, ActFunc f, int numberOfThreads)
   {
   wcount = ncount*4+1;
   switch (f)
@@ -20,6 +20,7 @@ Net::Net(int ncount, double xmin, double xmax, double ymin, double a0, double a1
   double delta = (xmax - xmin)/nc;
   wn =(wavelon *) (&weight(0) + 1);
   srand (time(NULL));
+  omp_set_num_threads(numberOfThreads);
   float dw = w1-w0;
   float da = a1-a0;
   float dp = p1-p0;
@@ -44,6 +45,7 @@ std_vector Net::_sim(const std_vector& t,const std_vector&  inp, const column_ve
 {
   wavelon *wn =(wavelon *) (&weight(0) + 1);   
   std_vector out(t.size());
+  #pragma omp parallel for
   for (uint i=0; i<t.size();i++)
     {
       double nans = 0.;
@@ -74,6 +76,7 @@ column_vector Net::_gradient(const std_vector& t, const std_vector&  inp, const 
    for(int k=0; k<wcount; k++ ) gd(k)=0.;
    std_vector ans = sim(t, inp);
    wavelon* gdw =(wavelon *) (&gd(0) + 1);
+   #pragma omp parallel for
    for (uint j=0; j<t.size(); j++)
    {
      double e = target[j]-ans[j];

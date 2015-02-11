@@ -6,7 +6,7 @@ import wavenet as wn
 import math
 import pylab as plb
 xmax = 1440
-xmin = 0
+xmin = 1
 y0 = 0.
 a0 = 99.
 a1 = 101.
@@ -18,8 +18,8 @@ ncount = 9
 inp = range(xmin, xmax, 1)
 tar = [math.sin(x/1440*3.14*2.) for x in inp]
 w = wn.Net(ncount, xmin, xmax, y0,
-                         a0, a1,  w0, w1, p0, p1, wn.ActivateFunc.Morlet, 16)
-track = w.train(inp, inp, tar, wn.TrainStrategy.BFGS, 100, 0.2, 1)
+                         a0, a1,  w0, w1, p0, p1, wn.ActivateFunc.Morlet, 9)
+track = w.train(inp, inp, tar, wn.TrainStrategy.BFGS, 50, 0.2, 1)
 tool.plot(inp, inp, tar, w, track)
 plb.show()
 sys.exit()

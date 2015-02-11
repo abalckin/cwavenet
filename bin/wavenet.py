@@ -1167,6 +1167,24 @@ class Net(_object):
     def __init__(self, *args): 
         """
         __init__(Net self, int ncount, double tmin, double tmax, double ymin, double a0=10., double a1=10., 
+            double w0=0.1, double w1=0.1, double p0=1.0, double p1=1.0, ActFunc f=Morlet, 
+            int numberOfThreads=2) -> Net
+
+        Parameters:
+            ncount: int
+            tmin: double
+            tmax: double
+            ymin: double
+            a0: double
+            a1: double
+            w0: double
+            w1: double
+            p0: double
+            p1: double
+            f: enum ActFunc
+            numberOfThreads: int
+
+        __init__(Net self, int ncount, double tmin, double tmax, double ymin, double a0=10., double a1=10., 
             double w0=0.1, double w1=0.1, double p0=1.0, double p1=1.0, ActFunc f=Morlet) -> Net
 
         Parameters:

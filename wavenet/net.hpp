@@ -11,6 +11,7 @@
 #include <dlib/optimization/optimization_search_strategies.h>
 #include <dlib/optimization/optimization_stop_strategies.h>
 #include <dlib/optimization/optimization_line_search.h>
+#include <omp.h>
 //#include "model.hpp"
 class NetModel;
 typedef dlib::matrix<double,0,1> column_vector;
@@ -45,7 +46,7 @@ public:
   double f (const column_vector& x);
   column_vector der (const column_vector& x);
   Net(int ncount, double tmin, double tmax, double ymin, double a0=10., double a1=10.,
-      double w0=0.1, double w1=0.1, double p0=1.0, double p1=1.0, ActFunc f = ActivateFunc::Morlet);
+	double w0=0.1, double w1=0.1, double p0=1.0, double p1=1.0, ActFunc f = ActivateFunc::Morlet, int numberOfThreads=2);
   ~Net();
   std_vector sim(const std_vector&  t, const std_vector&  inp);
   std_vector gradient(const std_vector& t, const std_vector& target, const std_vector&  inp);
