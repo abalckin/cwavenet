@@ -29,8 +29,8 @@ def main():
     N = 200
     np.random.seed()
     test_num = 5
-    p0=.05003
-    p1=.05013
+    p0=.05
+    p1=.05
     a0=0.04
     a1=0.12
     nc=16
@@ -39,7 +39,7 @@ def main():
     print('\n\t\t\t|Полиморфная вейвсеть\t\t\t\t|Нейронная сеть')
     print('\nk2\t|\tS\t|\tn\t|\tM\t|\tdE\t|\tn\t|\tM\t|\tdE')
     #import pdb; pdb.set_trace()
-    klist = [1.*1.5**i for i in range(1, 11)]
+    klist = [1.*1.5**i/30. for i in range(1, 11)]
     for k2 in klist:
         S_list = []
         n_list = [[], []]
@@ -50,7 +50,7 @@ def main():
                 inp = np.arange(-0.5, 0.5, 0.5/40.)
                 tar = np.vectorize(func1)(inp)/30
                 T = tar.shape[-1]
-                eps = (np.random.random(T)-0.5)*k2/30.
+                eps = (np.random.random(T)-0.5)*k2
                 d = tar+eps
                 #err_min = 0.5*np.sum(((d-tar)**2))
                 if ff == True:
@@ -66,7 +66,7 @@ def main():
                     #import pdb; pdb.set_trace()
                 else:
                     ts = wn.TrainStrategy.Gradient
-                    w = wn.Net(nc, np.min(inp), np.max(inp), np.average(-0.01),
+                    w = wn.Net(nc, np.min(inp), np.max(inp), -0.01,
                             a0, a1, w0, w1, p0, p1)
                     track = w.train(inp, inp*40, d, ts, N, 0.0, 1, True, True)
                     ans = w.sim(inp, inp*40)
