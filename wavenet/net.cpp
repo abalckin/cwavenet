@@ -49,6 +49,7 @@ std_vector Net::_sim(const std_vector& t,const std_vector&  inp, const column_ve
   for (uint i=0; i<t.size();i++)
     {
       double nans = 0.;
+      #pragma omp parallel for reduction(+:nans)
       for( int j=0; j<nc; j++)
 	{
 	  double tau = wt->tau(t[i], wn[j].a, wn[j].b);

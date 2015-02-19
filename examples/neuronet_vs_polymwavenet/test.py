@@ -28,18 +28,19 @@ def main():
     Exp_list = []
     N = 200
     np.random.seed()
-    test_num = 5
-    p0=.05
-    p1=.05
-    a0=0.04
-    a1=0.12
+    test_num = 15
+
+    p0=.0345
+    p1=.0345
+    a0=0.03
+    a1=0.03
     nc=16
-    w0=-.05
-    w1=0.06
+    w0=-.01
+    w1=0.01
     print('\n\t\t\t|Полиморфная вейвсеть\t\t\t\t|Нейронная сеть')
     print('\nk2\t|\tS\t|\tn\t|\tM\t|\tdE\t|\tn\t|\tM\t|\tdE')
     #import pdb; pdb.set_trace()
-    klist = [1.*1.5**i/30. for i in range(1, 11)]
+    klist = [1.*1.5**i/30. for i in range(-1, 10)]
     for k2 in klist:
         S_list = []
         n_list = [[], []]
@@ -56,10 +57,10 @@ def main():
                 if ff == True:
                     inp_ff = inp.reshape(T, 1)
                     tar_ff = d.reshape(T, 1)
-                    n = nl.net.newff([[np.min(inp_ff), np.max(inp_ff)]], [16*4, 1])
+                    n = nl.net.newff([[-1., 1.]], [35, 1])
                     n.trainf = nl.train.train_gd
                     #import pdb; pdb.set_trace()
-                    E = n.train(inp_ff, tar_ff, epochs=N, goal=0.0, adapt=True, show=0)
+                    E = n.train(inp_ff, tar_ff, epochs=N, goal=0.0, show=0, adapt=True)
                     y = np.array(E)
                     ans = n.sim(inp_ff).reshape(T)
                     #import pdb; pdb.set_trace()
@@ -67,7 +68,7 @@ def main():
                 else:
                     ts = wn.TrainStrategy.Gradient
                     w = wn.Net(nc, np.min(inp), np.max(inp), -0.01,
-                            a0, a1, w0, w1, p0, p1)
+                            a0, a1, w0, w1, p0, p1, wn.ActivateFunc.Morlet, 9)
                     track = w.train(inp, inp*40, d, ts, N, 0.0, 1, True, True)
                     ans = w.sim(inp, inp*40)
                     E = track['e']
