@@ -22,7 +22,7 @@ x = np.arange(-0.5, 0.5, 0.5/40)
 o = np.vectorize(func1)(x)/30
 size = len(x)
 #print(size)
-y = o + (np.random.random(size)-0.5)*1./30.
+y = o + (np.random.random(size)-0.5)*3.
 
 inp = x.reshape(size,1)
 tar = y.reshape(size,1)

@@ -13,8 +13,8 @@ res = np.loadtxt('result.txt', delimiter=', ')[0:10]
 #import pdb; pdb.set_trace()
 #plb.barh(y_pos, performance, xerr=error, align='center', alpha=0.4)
 #plb.yscale('linear')
-plb.errorbar(res[:, 1], res[:, 3], yerr=res[:, 4], label='Традиционная вейвлет-сеть', linestyle='--', marker='*', color='black')
-plb.errorbar(res[:, 1], res[:, 9], yerr=res[:, 10], label='Полиморфная вейвлет-сеть', marker='o', color='green')
+plb.errorbar(res[:, 1], res[:, 3], yerr=res[:, 4], label='Полиморфная вейвлет-сеть', linestyle='--', marker='*', color='black')
+plb.errorbar(res[:, 1], res[:, 9], yerr=res[:, 10], label='Многослойная нейронная сеть', marker='o', color='green')
 #plb.errorbar(res[:, 1], res[:, 1],  yerr=res[:, 2], label='Отношение сигнал/шум на входе системы', color='blue')
 #import pdb; pdb.set_trace()
 #plb.fill_between(res[:, 1], res[:, 1], res[:, 1]-np.max(res[:, 1]), res[:, 1], alpha=0.1, color='blue')
@@ -29,20 +29,21 @@ plb.ylabel(u'Продолжительность сходимости вейвл�
 plb.xlabel('Отношение сигнал/шум на входе системы, S')
 plb.annotate('Область применимости вейвлет-сетей', [15, 175])
 plb.show()
-polym_higest=res[:, 11]>res[:, 1]
-polym_avg=res[polym_higest, 9][1:-2]
-std_higest=res[:, 5]>res[:, 1]
-std_avg=res[std_higest, 3][:-2]
-inp_avg=res[std_higest, 1][:-2]
-polym_min=res[polym_higest, 9][1:-2]-res[polym_higest, 10][1:-2]
-polym_max=res[polym_higest, 9][1:-2]+res[polym_higest, 10][1:-2]
-std_max=res[std_higest, 3][:-2]+res[std_higest, 4][:-2]
-std_min=res[std_higest, 3][:-2]-res[std_higest, 4][:-2]
-print('Улучшение в среднем на {}%'.format(np.average((std_avg-polym_avg)/std_avg*100)))
-print('Улучшение по диапазону на {0}-{1}%'.format((np.average((std_min-polym_min)/std_min*100)),
-      np.average((std_max-polym_max)/std_max*100)))
-print('Улучшение по диапазону на {0}-{1}'.format((np.average((std_min-polym_min))),
-      np.average((std_max-polym_max))))
+
+a = 4
+b = -3
+neur_avg = res[a:b, 9]
+poly_avg = res[a:b, 3]
+neur_min = res[a:b, 9]-res[a:b, 10]
+neur_max = res[a:b, 9]+res[a:b, 10]
+poly_min = res[a:b, 3]-res[a:b, 4]
+poly_max = res[a:b, 3]+res[a:b, 4]
+#import pdb; pdb.set_trace()
+print('Улучшение в среднем на {}%'.format(np.average((neur_avg-poly_avg)/neur_avg*100)))
+print('Улучшение по диапазону на {0}-{1}%'.format((np.average((neur_min-poly_min)/neur_min*100)),
+      np.average((neur_max-poly_max)/neur_max*100)))
+print('Улучшение по диапазону на {0}-{1}'.format((np.average((neur_min-poly_min))),
+      np.average((neur_max-poly_max))))
 
 
 

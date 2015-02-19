@@ -30,7 +30,7 @@ class Test():
             inp = np.arange(-0.5, 0.5, 0.5/40)
             tar = np.vectorize(self.func2)(inp)/30
             size = len(inp)
-            d = tar+(np.random.random(size)-0.5)*5.062/30
+            d = tar+(np.random.random(size)-0.5)*3
             list_minerr.append(0.5*sum(((d-tar)**2)))
             #tar -= np.min(tar)
             #tar /= np.max(tar)
@@ -46,7 +46,7 @@ class Test():
             w = wn.Net(nc, np.min(inp), np.max(inp), -0.04,
                              a0, a1, w0, w1, p0, p1)
             #track = w.train(inp, inp, d, ts, 200, 0.05, 1, False, False)
-            track = w.train(inp, inp*40 , tar, ts, 200, 0.0, 1, True, True)
+            track = w.train(inp, inp*40 , d, ts, 100, 0.0, 1, True, True)
             list_track.append(track)
         E= np.array([t['e'] for t in list_track])
         Eav=np.average(E, axis=0)[0]
