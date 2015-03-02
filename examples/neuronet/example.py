@@ -21,21 +21,19 @@ def func1(x):
 x = np.arange(-0.5, 0.5, 0.5/40)
 o = np.vectorize(func1)(x)/30
 size = len(x)
-print(size)
-y = o + (np.random.random(size)-0.5)*5/30.
+#print(size)
+y = o + (np.random.random(size)-0.5)*3.
 
 inp = x.reshape(size,1)
 tar = y.reshape(size,1)
 
-# Create network with 2 layers and random initialized
-net = nl.net.newff([[-1, 1]],[16*4, 1])
+n = nl.net.newff([[np.min(inp), np.max(inp)]], [35, 1])
+n.trainf = nl.train.train_gd
 #import pdb; pdb.set_trace()
-# Train network
-error = net.train(inp, o.reshape(size, 1), epochs=500, show=100, goal=0.001)
-
-# Simulate network
-out = net.sim(inp)
-
+error = n.train(inp, tar, epochs=200, goal=0.0, show=0, adapt=True)
+y3 = np.array(error)
+out = n.sim(inp)
+print(error[-1])
 # Plot result
 import pylab as pl
 pl.subplot(211)

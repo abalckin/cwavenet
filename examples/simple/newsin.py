@@ -5,7 +5,7 @@ sys.path.append('../../bin/')
 import wavenet as wn
 import math
 import pylab as plb
-xmax = 1440
+xmax = 1440*5
 xmin = 1
 y0 = 0.
 a0 = 99.
