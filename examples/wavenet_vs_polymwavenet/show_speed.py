@@ -26,8 +26,8 @@ plb.gca().set_xticks(res[:, 1])
 #plb.gca().xaxis.set_major_locator(plb.LogLocator(numticks=50))
 plb.gca().xaxis.set_major_formatter(plb.ScalarFormatter())
 plb.ylabel(u'Продолжительность сходимости вейвлет-сети, $\hat{n}$')
-plb.xlabel('Отношение сигнал/шум на входе системы, S')
-plb.annotate('Область применимости вейвлет-сетей', [15, 175])
+plb.xlabel('Отношение сигнал/шум для временного ряда $d(t), S$')
+#plb.annotate('Область применимости вейвлет-сетей', [15, 175])
 plb.show()
 polym_higest=res[:, 11]>res[:, 1]
 polym_avg=res[polym_higest, 9][1:-2]
