@@ -1,0 +1,31 @@
+######################################################################
+# Cygwin makefile that builds cregister.dll. a dynamically loaded
+# C extension module (shareable), which is imported by register.py
+######################################################################
+
+PYLIB = /usr/local/bin
+PYINC = /usr/include/python3.4
+
+CMODS = _cregister.so
+CFLAGS = -O3 -fopenmp
+all: $(CMODS) cregister.py
+
+# обертка + действительный класс
+$(CMODS): cregister_wrap.o cregister.o
+	      g++ $(CFLAGS) -shared cregister_wrap.o cregister.o  -L $(PYLIB) -o $@
+# генерирует модуль обертки класса
+cregister_wrap.o: cregister_wrap.cxx
+		g++ $(CFLAGS) cregister_wrap.cxx -c -g -fPIC -I $(PYINC) 
+cregister_wrap.cxx: cregister.i
+		  swig -c++ -python cregister.i
+cregister.py: cregister.i
+	    swig -c++ -python cregister.i
+
+# программный код обертки класса C++
+cregister.o:
+	  g++ $(CFLAGS) ../wavenet/cregister.cpp -c -g -fPIC -Wno-deprecated
+
+
+
+clean:
+	rm -f *.pyc *.o *.so *.cxx cregister.py
