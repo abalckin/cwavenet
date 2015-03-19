@@ -1324,10 +1324,11 @@ class Net(_object):
 
     def train(self, *args):
         """
-        train(Net self, std_vector t, std_vector inp, std_vector target, TrainStrat train_strategy=CG, int epochs=30, 
-            double goal=0.3, int show=1, bool varc=True, bool varp=True) -> train_res
+        train(Net self, Caller & cb, std_vector t, std_vector inp, std_vector target, TrainStrat train_strategy=CG, 
+            int epochs=30, double goal=0.3, int show=1, bool varc=True, bool varp=True) -> train_res
 
         Parameters:
+            cb: Caller &
             t: std_vector const &
             inp: std_vector const &
             target: std_vector const &
@@ -1338,10 +1339,11 @@ class Net(_object):
             varc: bool
             varp: bool
 
-        train(Net self, std_vector t, std_vector inp, std_vector target, TrainStrat train_strategy=CG, int epochs=30, 
-            double goal=0.3, int show=1, bool varc=True) -> train_res
+        train(Net self, Caller & cb, std_vector t, std_vector inp, std_vector target, TrainStrat train_strategy=CG, 
+            int epochs=30, double goal=0.3, int show=1, bool varc=True) -> train_res
 
         Parameters:
+            cb: Caller &
             t: std_vector const &
             inp: std_vector const &
             target: std_vector const &
@@ -1351,10 +1353,11 @@ class Net(_object):
             show: int
             varc: bool
 
-        train(Net self, std_vector t, std_vector inp, std_vector target, TrainStrat train_strategy=CG, int epochs=30, 
-            double goal=0.3, int show=1) -> train_res
+        train(Net self, Caller & cb, std_vector t, std_vector inp, std_vector target, TrainStrat train_strategy=CG, 
+            int epochs=30, double goal=0.3, int show=1) -> train_res
 
         Parameters:
+            cb: Caller &
             t: std_vector const &
             inp: std_vector const &
             target: std_vector const &
@@ -1363,10 +1366,11 @@ class Net(_object):
             goal: double
             show: int
 
-        train(Net self, std_vector t, std_vector inp, std_vector target, TrainStrat train_strategy=CG, int epochs=30, 
-            double goal=0.3) -> train_res
+        train(Net self, Caller & cb, std_vector t, std_vector inp, std_vector target, TrainStrat train_strategy=CG, 
+            int epochs=30, double goal=0.3) -> train_res
 
         Parameters:
+            cb: Caller &
             t: std_vector const &
             inp: std_vector const &
             target: std_vector const &
@@ -1374,26 +1378,30 @@ class Net(_object):
             epochs: int
             goal: double
 
-        train(Net self, std_vector t, std_vector inp, std_vector target, TrainStrat train_strategy=CG, int epochs=30) -> train_res
+        train(Net self, Caller & cb, std_vector t, std_vector inp, std_vector target, TrainStrat train_strategy=CG, 
+            int epochs=30) -> train_res
 
         Parameters:
+            cb: Caller &
             t: std_vector const &
             inp: std_vector const &
             target: std_vector const &
             train_strategy: enum TrainStrat
             epochs: int
 
-        train(Net self, std_vector t, std_vector inp, std_vector target, TrainStrat train_strategy=CG) -> train_res
+        train(Net self, Caller & cb, std_vector t, std_vector inp, std_vector target, TrainStrat train_strategy=CG) -> train_res
 
         Parameters:
+            cb: Caller &
             t: std_vector const &
             inp: std_vector const &
             target: std_vector const &
             train_strategy: enum TrainStrat
 
-        train(Net self, std_vector t, std_vector inp, std_vector target) -> train_res
+        train(Net self, Caller & cb, std_vector t, std_vector inp, std_vector target) -> train_res
 
         Parameters:
+            cb: Caller &
             t: std_vector const &
             inp: std_vector const &
             target: std_vector const &

@@ -12,7 +12,7 @@ column_vector Net::der (const column_vector& x)
   return _gradient(t, inp, targ, x, varc, varp);
 }
 
-train_res Net::train(const std_vector& t, const std_vector&  inp, const std_vector& target,
+train_res Net::train(Caller& cb, const std_vector& t, const std_vector&  inp, const std_vector& target,
 		     TrainStrat train_strategy,
 		     int epochs, double goal, int show, bool varc, bool varp)
 {
@@ -22,27 +22,27 @@ train_res Net::train(const std_vector& t, const std_vector&  inp, const std_vect
     {
     case TrainStrategy::CG:
       return _train(t, inp, target, cg_search_strategy(),
-		    epochs, goal, show);
+		    epochs, goal, show, cb);
       break;
     case TrainStrategy::Gradient:
       return _train(t, inp, target, gr_search_strategy(),
-		    epochs, goal, show);
+		    epochs, goal, show, cb);
       break;
     case TrainStrategy::BFGS:
       return _train(t, inp, target, bfgs_search_strategy(),
-		    epochs, goal, show);
+		    epochs, goal, show, cb);
       break;
 
     default:
       return _train(t, inp, target, cg_search_strategy(),
-		    epochs, goal, show);
+		    epochs, goal, show, cb);
       break;
     }
 }
 template <typename search_strategy_type>
 train_res Net::_train(const std_vector& time, const std_vector&  input, const std_vector& target,
 		      search_strategy_type search_strategy,
-		      int epochs, double goal, int show)
+		      int epochs, double goal, int show, Caller& cb)
 {
   train_res tr_res;
   tr_res[std::string("a")] = train_set(nc);
@@ -84,8 +84,12 @@ train_res Net::_train(const std_vector& time, const std_vector&  input, const st
       if (!is_finite(g))
 	throw error("The objective function generated non-finite outputs");
       if (iter % show == 0)
-	mem(tr_res, f_value);
-
+	{
+	  mem(tr_res, f_value);
+	  int prg = iter*100/epochs;
+	  if (cb.Handler != NULL)
+		     cb.triggerEvent(prg);
+	}
     }
   return  tr_res;
 }

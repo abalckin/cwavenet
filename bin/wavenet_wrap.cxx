@@ -2939,36 +2939,37 @@ SWIG_Python_NonDynamicSetAttr(PyObject *obj, PyObject *name, PyObject *value) {
 
 #define SWIGTYPE_p_ActivateFunc swig_types[0]
 #define SWIGTYPE_p_ActivateFunc__Func swig_types[1]
-#define SWIGTYPE_p_Net swig_types[2]
-#define SWIGTYPE_p_NetDer swig_types[3]
-#define SWIGTYPE_p_NetF swig_types[4]
-#define SWIGTYPE_p_TrainStrategy swig_types[5]
-#define SWIGTYPE_p_TrainStrategy__Func swig_types[6]
-#define SWIGTYPE_p_allocator_type swig_types[7]
-#define SWIGTYPE_p_char swig_types[8]
-#define SWIGTYPE_p_difference_type swig_types[9]
-#define SWIGTYPE_p_dlib__matrixT_double_0_1_t swig_types[10]
-#define SWIGTYPE_p_dlib__matrixT_double_t swig_types[11]
-#define SWIGTYPE_p_key_type swig_types[12]
-#define SWIGTYPE_p_mapped_type swig_types[13]
-#define SWIGTYPE_p_p_PyObject swig_types[14]
-#define SWIGTYPE_p_size_type swig_types[15]
-#define SWIGTYPE_p_std__allocatorT_double_t swig_types[16]
-#define SWIGTYPE_p_std__allocatorT_std__listT_double_std__allocatorT_double_t_t_t swig_types[17]
-#define SWIGTYPE_p_std__allocatorT_std__pairT_std__string_const_std__vectorT_param_series_std__allocatorT_param_series_t_t_t_t swig_types[18]
-#define SWIGTYPE_p_std__invalid_argument swig_types[19]
-#define SWIGTYPE_p_std__lessT_std__string_t swig_types[20]
-#define SWIGTYPE_p_std__listT__Tp__Alloc_t swig_types[21]
-#define SWIGTYPE_p_std__listT_double_std__allocatorT_double_t_t swig_types[22]
-#define SWIGTYPE_p_std__mapT_std__string_std__vectorT_param_series_std__allocatorT_param_series_t_t_std__lessT_std__string_t_std__allocatorT_std__pairT_std__string_const_std__vectorT_param_series_std__allocatorT_param_series_t_t_t_t_t swig_types[23]
-#define SWIGTYPE_p_std__vectorT__Tp__Alloc_t swig_types[24]
-#define SWIGTYPE_p_std__vectorT_double_std__allocatorT_double_t_t swig_types[25]
-#define SWIGTYPE_p_std__vectorT_std__listT_double_std__allocatorT_double_t_t_std__allocatorT_std__listT_double_std__allocatorT_double_t_t_t_t swig_types[26]
-#define SWIGTYPE_p_swig__SwigPyIterator swig_types[27]
-#define SWIGTYPE_p_value_type swig_types[28]
-#define SWIGTYPE_p_wavelon swig_types[29]
-static swig_type_info *swig_types[31];
-static swig_module_info swig_module = {swig_types, 30, 0, 0, 0, 0};
+#define SWIGTYPE_p_Caller swig_types[2]
+#define SWIGTYPE_p_Net swig_types[3]
+#define SWIGTYPE_p_NetDer swig_types[4]
+#define SWIGTYPE_p_NetF swig_types[5]
+#define SWIGTYPE_p_TrainStrategy swig_types[6]
+#define SWIGTYPE_p_TrainStrategy__Func swig_types[7]
+#define SWIGTYPE_p_allocator_type swig_types[8]
+#define SWIGTYPE_p_char swig_types[9]
+#define SWIGTYPE_p_difference_type swig_types[10]
+#define SWIGTYPE_p_dlib__matrixT_double_0_1_t swig_types[11]
+#define SWIGTYPE_p_dlib__matrixT_double_t swig_types[12]
+#define SWIGTYPE_p_key_type swig_types[13]
+#define SWIGTYPE_p_mapped_type swig_types[14]
+#define SWIGTYPE_p_p_PyObject swig_types[15]
+#define SWIGTYPE_p_size_type swig_types[16]
+#define SWIGTYPE_p_std__allocatorT_double_t swig_types[17]
+#define SWIGTYPE_p_std__allocatorT_std__listT_double_std__allocatorT_double_t_t_t swig_types[18]
+#define SWIGTYPE_p_std__allocatorT_std__pairT_std__string_const_std__vectorT_param_series_std__allocatorT_param_series_t_t_t_t swig_types[19]
+#define SWIGTYPE_p_std__invalid_argument swig_types[20]
+#define SWIGTYPE_p_std__lessT_std__string_t swig_types[21]
+#define SWIGTYPE_p_std__listT__Tp__Alloc_t swig_types[22]
+#define SWIGTYPE_p_std__listT_double_std__allocatorT_double_t_t swig_types[23]
+#define SWIGTYPE_p_std__mapT_std__string_std__vectorT_param_series_std__allocatorT_param_series_t_t_std__lessT_std__string_t_std__allocatorT_std__pairT_std__string_const_std__vectorT_param_series_std__allocatorT_param_series_t_t_t_t_t swig_types[24]
+#define SWIGTYPE_p_std__vectorT__Tp__Alloc_t swig_types[25]
+#define SWIGTYPE_p_std__vectorT_double_std__allocatorT_double_t_t swig_types[26]
+#define SWIGTYPE_p_std__vectorT_std__listT_double_std__allocatorT_double_t_t_std__allocatorT_std__listT_double_std__allocatorT_double_t_t_t_t swig_types[27]
+#define SWIGTYPE_p_swig__SwigPyIterator swig_types[28]
+#define SWIGTYPE_p_value_type swig_types[29]
+#define SWIGTYPE_p_wavelon swig_types[30]
+static swig_type_info *swig_types[32];
+static swig_module_info swig_module = {swig_types, 31, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -12102,29 +12103,165 @@ fail:
 SWIGINTERN PyObject *_wrap_Net_train__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   Net *arg1 = (Net *) 0 ;
-  std_vector *arg2 = 0 ;
+  Caller *arg2 = 0 ;
   std_vector *arg3 = 0 ;
   std_vector *arg4 = 0 ;
-  TrainStrat arg5 ;
-  int arg6 ;
-  double arg7 ;
-  int arg8 ;
-  bool arg9 ;
+  std_vector *arg5 = 0 ;
+  TrainStrat arg6 ;
+  int arg7 ;
+  double arg8 ;
+  int arg9 ;
+  bool arg10 ;
+  bool arg11 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  int res3 = SWIG_OLDOBJ ;
+  int res4 = SWIG_OLDOBJ ;
+  int res5 = SWIG_OLDOBJ ;
+  int val6 ;
+  int ecode6 = 0 ;
+  int val7 ;
+  int ecode7 = 0 ;
+  double val8 ;
+  int ecode8 = 0 ;
+  int val9 ;
+  int ecode9 = 0 ;
+  bool val10 ;
+  int ecode10 = 0 ;
+  bool val11 ;
+  int ecode11 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  PyObject * obj5 = 0 ;
+  PyObject * obj6 = 0 ;
+  PyObject * obj7 = 0 ;
+  PyObject * obj8 = 0 ;
+  PyObject * obj9 = 0 ;
+  PyObject * obj10 = 0 ;
+  SwigValueWrapper< std::map< std::string,std::vector< std::list< double,std::allocator< double > >,std::allocator< std::list< double,std::allocator< double > > > >,std::less< std::string >,std::allocator< std::pair< std::string const,std::vector< std::list< double,std::allocator< double > >,std::allocator< std::list< double,std::allocator< double > > > > > > > > result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOOOOOOOOO:Net_train",&obj0,&obj1,&obj2,&obj3,&obj4,&obj5,&obj6,&obj7,&obj8,&obj9,&obj10)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_Net, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Net_train" "', argument " "1"" of type '" "Net *""'"); 
+  }
+  arg1 = reinterpret_cast< Net * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_Caller,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Net_train" "', argument " "2"" of type '" "Caller &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Net_train" "', argument " "2"" of type '" "Caller &""'"); 
+  }
+  arg2 = reinterpret_cast< Caller * >(argp2);
+  {
+    std::vector<double,std::allocator< double > > *ptr = (std::vector<double,std::allocator< double > > *)0;
+    res3 = swig::asptr(obj2, &ptr);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "Net_train" "', argument " "3"" of type '" "std_vector const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Net_train" "', argument " "3"" of type '" "std_vector const &""'"); 
+    }
+    arg3 = ptr;
+  }
+  {
+    std::vector<double,std::allocator< double > > *ptr = (std::vector<double,std::allocator< double > > *)0;
+    res4 = swig::asptr(obj3, &ptr);
+    if (!SWIG_IsOK(res4)) {
+      SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "Net_train" "', argument " "4"" of type '" "std_vector const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Net_train" "', argument " "4"" of type '" "std_vector const &""'"); 
+    }
+    arg4 = ptr;
+  }
+  {
+    std::vector<double,std::allocator< double > > *ptr = (std::vector<double,std::allocator< double > > *)0;
+    res5 = swig::asptr(obj4, &ptr);
+    if (!SWIG_IsOK(res5)) {
+      SWIG_exception_fail(SWIG_ArgError(res5), "in method '" "Net_train" "', argument " "5"" of type '" "std_vector const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Net_train" "', argument " "5"" of type '" "std_vector const &""'"); 
+    }
+    arg5 = ptr;
+  }
+  ecode6 = SWIG_AsVal_int(obj5, &val6);
+  if (!SWIG_IsOK(ecode6)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '" "Net_train" "', argument " "6"" of type '" "TrainStrat""'");
+  } 
+  arg6 = static_cast< TrainStrat >(val6);
+  ecode7 = SWIG_AsVal_int(obj6, &val7);
+  if (!SWIG_IsOK(ecode7)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode7), "in method '" "Net_train" "', argument " "7"" of type '" "int""'");
+  } 
+  arg7 = static_cast< int >(val7);
+  ecode8 = SWIG_AsVal_double(obj7, &val8);
+  if (!SWIG_IsOK(ecode8)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode8), "in method '" "Net_train" "', argument " "8"" of type '" "double""'");
+  } 
+  arg8 = static_cast< double >(val8);
+  ecode9 = SWIG_AsVal_int(obj8, &val9);
+  if (!SWIG_IsOK(ecode9)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode9), "in method '" "Net_train" "', argument " "9"" of type '" "int""'");
+  } 
+  arg9 = static_cast< int >(val9);
+  ecode10 = SWIG_AsVal_bool(obj9, &val10);
+  if (!SWIG_IsOK(ecode10)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode10), "in method '" "Net_train" "', argument " "10"" of type '" "bool""'");
+  } 
+  arg10 = static_cast< bool >(val10);
+  ecode11 = SWIG_AsVal_bool(obj10, &val11);
+  if (!SWIG_IsOK(ecode11)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode11), "in method '" "Net_train" "', argument " "11"" of type '" "bool""'");
+  } 
+  arg11 = static_cast< bool >(val11);
+  result = (arg1)->train(*arg2,(std_vector const &)*arg3,(std_vector const &)*arg4,(std_vector const &)*arg5,arg6,arg7,arg8,arg9,arg10,arg11);
+  resultobj = SWIG_NewPointerObj((new train_res(static_cast< const train_res& >(result))), SWIGTYPE_p_std__mapT_std__string_std__vectorT_param_series_std__allocatorT_param_series_t_t_std__lessT_std__string_t_std__allocatorT_std__pairT_std__string_const_std__vectorT_param_series_std__allocatorT_param_series_t_t_t_t_t, SWIG_POINTER_OWN |  0 );
+  if (SWIG_IsNewObj(res3)) delete arg3;
+  if (SWIG_IsNewObj(res4)) delete arg4;
+  if (SWIG_IsNewObj(res5)) delete arg5;
+  return resultobj;
+fail:
+  if (SWIG_IsNewObj(res3)) delete arg3;
+  if (SWIG_IsNewObj(res4)) delete arg4;
+  if (SWIG_IsNewObj(res5)) delete arg5;
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Net_train__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  Net *arg1 = (Net *) 0 ;
+  Caller *arg2 = 0 ;
+  std_vector *arg3 = 0 ;
+  std_vector *arg4 = 0 ;
+  std_vector *arg5 = 0 ;
+  TrainStrat arg6 ;
+  int arg7 ;
+  double arg8 ;
+  int arg9 ;
   bool arg10 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  int res2 = SWIG_OLDOBJ ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
   int res3 = SWIG_OLDOBJ ;
   int res4 = SWIG_OLDOBJ ;
-  int val5 ;
-  int ecode5 = 0 ;
+  int res5 = SWIG_OLDOBJ ;
   int val6 ;
   int ecode6 = 0 ;
-  double val7 ;
+  int val7 ;
   int ecode7 = 0 ;
-  int val8 ;
+  double val8 ;
   int ecode8 = 0 ;
-  bool val9 ;
+  int val9 ;
   int ecode9 = 0 ;
   bool val10 ;
   int ecode10 = 0 ;
@@ -12146,17 +12283,14 @@ SWIGINTERN PyObject *_wrap_Net_train__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyO
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Net_train" "', argument " "1"" of type '" "Net *""'"); 
   }
   arg1 = reinterpret_cast< Net * >(argp1);
-  {
-    std::vector<double,std::allocator< double > > *ptr = (std::vector<double,std::allocator< double > > *)0;
-    res2 = swig::asptr(obj1, &ptr);
-    if (!SWIG_IsOK(res2)) {
-      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Net_train" "', argument " "2"" of type '" "std_vector const &""'"); 
-    }
-    if (!ptr) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Net_train" "', argument " "2"" of type '" "std_vector const &""'"); 
-    }
-    arg2 = ptr;
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_Caller,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Net_train" "', argument " "2"" of type '" "Caller &""'"); 
   }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Net_train" "', argument " "2"" of type '" "Caller &""'"); 
+  }
+  arg2 = reinterpret_cast< Caller * >(argp2);
   {
     std::vector<double,std::allocator< double > > *ptr = (std::vector<double,std::allocator< double > > *)0;
     res3 = swig::asptr(obj2, &ptr);
@@ -12179,75 +12313,81 @@ SWIGINTERN PyObject *_wrap_Net_train__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyO
     }
     arg4 = ptr;
   }
-  ecode5 = SWIG_AsVal_int(obj4, &val5);
-  if (!SWIG_IsOK(ecode5)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "Net_train" "', argument " "5"" of type '" "TrainStrat""'");
-  } 
-  arg5 = static_cast< TrainStrat >(val5);
+  {
+    std::vector<double,std::allocator< double > > *ptr = (std::vector<double,std::allocator< double > > *)0;
+    res5 = swig::asptr(obj4, &ptr);
+    if (!SWIG_IsOK(res5)) {
+      SWIG_exception_fail(SWIG_ArgError(res5), "in method '" "Net_train" "', argument " "5"" of type '" "std_vector const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Net_train" "', argument " "5"" of type '" "std_vector const &""'"); 
+    }
+    arg5 = ptr;
+  }
   ecode6 = SWIG_AsVal_int(obj5, &val6);
   if (!SWIG_IsOK(ecode6)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '" "Net_train" "', argument " "6"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '" "Net_train" "', argument " "6"" of type '" "TrainStrat""'");
   } 
-  arg6 = static_cast< int >(val6);
-  ecode7 = SWIG_AsVal_double(obj6, &val7);
+  arg6 = static_cast< TrainStrat >(val6);
+  ecode7 = SWIG_AsVal_int(obj6, &val7);
   if (!SWIG_IsOK(ecode7)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode7), "in method '" "Net_train" "', argument " "7"" of type '" "double""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode7), "in method '" "Net_train" "', argument " "7"" of type '" "int""'");
   } 
-  arg7 = static_cast< double >(val7);
-  ecode8 = SWIG_AsVal_int(obj7, &val8);
+  arg7 = static_cast< int >(val7);
+  ecode8 = SWIG_AsVal_double(obj7, &val8);
   if (!SWIG_IsOK(ecode8)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode8), "in method '" "Net_train" "', argument " "8"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode8), "in method '" "Net_train" "', argument " "8"" of type '" "double""'");
   } 
-  arg8 = static_cast< int >(val8);
-  ecode9 = SWIG_AsVal_bool(obj8, &val9);
+  arg8 = static_cast< double >(val8);
+  ecode9 = SWIG_AsVal_int(obj8, &val9);
   if (!SWIG_IsOK(ecode9)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode9), "in method '" "Net_train" "', argument " "9"" of type '" "bool""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode9), "in method '" "Net_train" "', argument " "9"" of type '" "int""'");
   } 
-  arg9 = static_cast< bool >(val9);
+  arg9 = static_cast< int >(val9);
   ecode10 = SWIG_AsVal_bool(obj9, &val10);
   if (!SWIG_IsOK(ecode10)) {
     SWIG_exception_fail(SWIG_ArgError(ecode10), "in method '" "Net_train" "', argument " "10"" of type '" "bool""'");
   } 
   arg10 = static_cast< bool >(val10);
-  result = (arg1)->train((std_vector const &)*arg2,(std_vector const &)*arg3,(std_vector const &)*arg4,arg5,arg6,arg7,arg8,arg9,arg10);
+  result = (arg1)->train(*arg2,(std_vector const &)*arg3,(std_vector const &)*arg4,(std_vector const &)*arg5,arg6,arg7,arg8,arg9,arg10);
   resultobj = SWIG_NewPointerObj((new train_res(static_cast< const train_res& >(result))), SWIGTYPE_p_std__mapT_std__string_std__vectorT_param_series_std__allocatorT_param_series_t_t_std__lessT_std__string_t_std__allocatorT_std__pairT_std__string_const_std__vectorT_param_series_std__allocatorT_param_series_t_t_t_t_t, SWIG_POINTER_OWN |  0 );
-  if (SWIG_IsNewObj(res2)) delete arg2;
   if (SWIG_IsNewObj(res3)) delete arg3;
   if (SWIG_IsNewObj(res4)) delete arg4;
+  if (SWIG_IsNewObj(res5)) delete arg5;
   return resultobj;
 fail:
-  if (SWIG_IsNewObj(res2)) delete arg2;
   if (SWIG_IsNewObj(res3)) delete arg3;
   if (SWIG_IsNewObj(res4)) delete arg4;
+  if (SWIG_IsNewObj(res5)) delete arg5;
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_Net_train__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_Net_train__SWIG_2(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   Net *arg1 = (Net *) 0 ;
-  std_vector *arg2 = 0 ;
+  Caller *arg2 = 0 ;
   std_vector *arg3 = 0 ;
   std_vector *arg4 = 0 ;
-  TrainStrat arg5 ;
-  int arg6 ;
-  double arg7 ;
-  int arg8 ;
-  bool arg9 ;
+  std_vector *arg5 = 0 ;
+  TrainStrat arg6 ;
+  int arg7 ;
+  double arg8 ;
+  int arg9 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  int res2 = SWIG_OLDOBJ ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
   int res3 = SWIG_OLDOBJ ;
   int res4 = SWIG_OLDOBJ ;
-  int val5 ;
-  int ecode5 = 0 ;
+  int res5 = SWIG_OLDOBJ ;
   int val6 ;
   int ecode6 = 0 ;
-  double val7 ;
+  int val7 ;
   int ecode7 = 0 ;
-  int val8 ;
+  double val8 ;
   int ecode8 = 0 ;
-  bool val9 ;
+  int val9 ;
   int ecode9 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
@@ -12266,17 +12406,14 @@ SWIGINTERN PyObject *_wrap_Net_train__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyO
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Net_train" "', argument " "1"" of type '" "Net *""'"); 
   }
   arg1 = reinterpret_cast< Net * >(argp1);
-  {
-    std::vector<double,std::allocator< double > > *ptr = (std::vector<double,std::allocator< double > > *)0;
-    res2 = swig::asptr(obj1, &ptr);
-    if (!SWIG_IsOK(res2)) {
-      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Net_train" "', argument " "2"" of type '" "std_vector const &""'"); 
-    }
-    if (!ptr) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Net_train" "', argument " "2"" of type '" "std_vector const &""'"); 
-    }
-    arg2 = ptr;
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_Caller,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Net_train" "', argument " "2"" of type '" "Caller &""'"); 
   }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Net_train" "', argument " "2"" of type '" "Caller &""'"); 
+  }
+  arg2 = reinterpret_cast< Caller * >(argp2);
   {
     std::vector<double,std::allocator< double > > *ptr = (std::vector<double,std::allocator< double > > *)0;
     res3 = swig::asptr(obj2, &ptr);
@@ -12299,67 +12436,73 @@ SWIGINTERN PyObject *_wrap_Net_train__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyO
     }
     arg4 = ptr;
   }
-  ecode5 = SWIG_AsVal_int(obj4, &val5);
-  if (!SWIG_IsOK(ecode5)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "Net_train" "', argument " "5"" of type '" "TrainStrat""'");
-  } 
-  arg5 = static_cast< TrainStrat >(val5);
+  {
+    std::vector<double,std::allocator< double > > *ptr = (std::vector<double,std::allocator< double > > *)0;
+    res5 = swig::asptr(obj4, &ptr);
+    if (!SWIG_IsOK(res5)) {
+      SWIG_exception_fail(SWIG_ArgError(res5), "in method '" "Net_train" "', argument " "5"" of type '" "std_vector const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Net_train" "', argument " "5"" of type '" "std_vector const &""'"); 
+    }
+    arg5 = ptr;
+  }
   ecode6 = SWIG_AsVal_int(obj5, &val6);
   if (!SWIG_IsOK(ecode6)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '" "Net_train" "', argument " "6"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '" "Net_train" "', argument " "6"" of type '" "TrainStrat""'");
   } 
-  arg6 = static_cast< int >(val6);
-  ecode7 = SWIG_AsVal_double(obj6, &val7);
+  arg6 = static_cast< TrainStrat >(val6);
+  ecode7 = SWIG_AsVal_int(obj6, &val7);
   if (!SWIG_IsOK(ecode7)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode7), "in method '" "Net_train" "', argument " "7"" of type '" "double""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode7), "in method '" "Net_train" "', argument " "7"" of type '" "int""'");
   } 
-  arg7 = static_cast< double >(val7);
-  ecode8 = SWIG_AsVal_int(obj7, &val8);
+  arg7 = static_cast< int >(val7);
+  ecode8 = SWIG_AsVal_double(obj7, &val8);
   if (!SWIG_IsOK(ecode8)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode8), "in method '" "Net_train" "', argument " "8"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode8), "in method '" "Net_train" "', argument " "8"" of type '" "double""'");
   } 
-  arg8 = static_cast< int >(val8);
-  ecode9 = SWIG_AsVal_bool(obj8, &val9);
+  arg8 = static_cast< double >(val8);
+  ecode9 = SWIG_AsVal_int(obj8, &val9);
   if (!SWIG_IsOK(ecode9)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode9), "in method '" "Net_train" "', argument " "9"" of type '" "bool""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode9), "in method '" "Net_train" "', argument " "9"" of type '" "int""'");
   } 
-  arg9 = static_cast< bool >(val9);
-  result = (arg1)->train((std_vector const &)*arg2,(std_vector const &)*arg3,(std_vector const &)*arg4,arg5,arg6,arg7,arg8,arg9);
+  arg9 = static_cast< int >(val9);
+  result = (arg1)->train(*arg2,(std_vector const &)*arg3,(std_vector const &)*arg4,(std_vector const &)*arg5,arg6,arg7,arg8,arg9);
   resultobj = SWIG_NewPointerObj((new train_res(static_cast< const train_res& >(result))), SWIGTYPE_p_std__mapT_std__string_std__vectorT_param_series_std__allocatorT_param_series_t_t_std__lessT_std__string_t_std__allocatorT_std__pairT_std__string_const_std__vectorT_param_series_std__allocatorT_param_series_t_t_t_t_t, SWIG_POINTER_OWN |  0 );
-  if (SWIG_IsNewObj(res2)) delete arg2;
   if (SWIG_IsNewObj(res3)) delete arg3;
   if (SWIG_IsNewObj(res4)) delete arg4;
+  if (SWIG_IsNewObj(res5)) delete arg5;
   return resultobj;
 fail:
-  if (SWIG_IsNewObj(res2)) delete arg2;
   if (SWIG_IsNewObj(res3)) delete arg3;
   if (SWIG_IsNewObj(res4)) delete arg4;
+  if (SWIG_IsNewObj(res5)) delete arg5;
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_Net_train__SWIG_2(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_Net_train__SWIG_3(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   Net *arg1 = (Net *) 0 ;
-  std_vector *arg2 = 0 ;
+  Caller *arg2 = 0 ;
   std_vector *arg3 = 0 ;
   std_vector *arg4 = 0 ;
-  TrainStrat arg5 ;
-  int arg6 ;
-  double arg7 ;
-  int arg8 ;
+  std_vector *arg5 = 0 ;
+  TrainStrat arg6 ;
+  int arg7 ;
+  double arg8 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  int res2 = SWIG_OLDOBJ ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
   int res3 = SWIG_OLDOBJ ;
   int res4 = SWIG_OLDOBJ ;
-  int val5 ;
-  int ecode5 = 0 ;
+  int res5 = SWIG_OLDOBJ ;
   int val6 ;
   int ecode6 = 0 ;
-  double val7 ;
+  int val7 ;
   int ecode7 = 0 ;
-  int val8 ;
+  double val8 ;
   int ecode8 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
@@ -12377,17 +12520,14 @@ SWIGINTERN PyObject *_wrap_Net_train__SWIG_2(PyObject *SWIGUNUSEDPARM(self), PyO
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Net_train" "', argument " "1"" of type '" "Net *""'"); 
   }
   arg1 = reinterpret_cast< Net * >(argp1);
-  {
-    std::vector<double,std::allocator< double > > *ptr = (std::vector<double,std::allocator< double > > *)0;
-    res2 = swig::asptr(obj1, &ptr);
-    if (!SWIG_IsOK(res2)) {
-      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Net_train" "', argument " "2"" of type '" "std_vector const &""'"); 
-    }
-    if (!ptr) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Net_train" "', argument " "2"" of type '" "std_vector const &""'"); 
-    }
-    arg2 = ptr;
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_Caller,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Net_train" "', argument " "2"" of type '" "Caller &""'"); 
   }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Net_train" "', argument " "2"" of type '" "Caller &""'"); 
+  }
+  arg2 = reinterpret_cast< Caller * >(argp2);
   {
     std::vector<double,std::allocator< double > > *ptr = (std::vector<double,std::allocator< double > > *)0;
     res3 = swig::asptr(obj2, &ptr);
@@ -12410,59 +12550,65 @@ SWIGINTERN PyObject *_wrap_Net_train__SWIG_2(PyObject *SWIGUNUSEDPARM(self), PyO
     }
     arg4 = ptr;
   }
-  ecode5 = SWIG_AsVal_int(obj4, &val5);
-  if (!SWIG_IsOK(ecode5)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "Net_train" "', argument " "5"" of type '" "TrainStrat""'");
-  } 
-  arg5 = static_cast< TrainStrat >(val5);
+  {
+    std::vector<double,std::allocator< double > > *ptr = (std::vector<double,std::allocator< double > > *)0;
+    res5 = swig::asptr(obj4, &ptr);
+    if (!SWIG_IsOK(res5)) {
+      SWIG_exception_fail(SWIG_ArgError(res5), "in method '" "Net_train" "', argument " "5"" of type '" "std_vector const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Net_train" "', argument " "5"" of type '" "std_vector const &""'"); 
+    }
+    arg5 = ptr;
+  }
   ecode6 = SWIG_AsVal_int(obj5, &val6);
   if (!SWIG_IsOK(ecode6)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '" "Net_train" "', argument " "6"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '" "Net_train" "', argument " "6"" of type '" "TrainStrat""'");
   } 
-  arg6 = static_cast< int >(val6);
-  ecode7 = SWIG_AsVal_double(obj6, &val7);
+  arg6 = static_cast< TrainStrat >(val6);
+  ecode7 = SWIG_AsVal_int(obj6, &val7);
   if (!SWIG_IsOK(ecode7)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode7), "in method '" "Net_train" "', argument " "7"" of type '" "double""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode7), "in method '" "Net_train" "', argument " "7"" of type '" "int""'");
   } 
-  arg7 = static_cast< double >(val7);
-  ecode8 = SWIG_AsVal_int(obj7, &val8);
+  arg7 = static_cast< int >(val7);
+  ecode8 = SWIG_AsVal_double(obj7, &val8);
   if (!SWIG_IsOK(ecode8)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode8), "in method '" "Net_train" "', argument " "8"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode8), "in method '" "Net_train" "', argument " "8"" of type '" "double""'");
   } 
-  arg8 = static_cast< int >(val8);
-  result = (arg1)->train((std_vector const &)*arg2,(std_vector const &)*arg3,(std_vector const &)*arg4,arg5,arg6,arg7,arg8);
+  arg8 = static_cast< double >(val8);
+  result = (arg1)->train(*arg2,(std_vector const &)*arg3,(std_vector const &)*arg4,(std_vector const &)*arg5,arg6,arg7,arg8);
   resultobj = SWIG_NewPointerObj((new train_res(static_cast< const train_res& >(result))), SWIGTYPE_p_std__mapT_std__string_std__vectorT_param_series_std__allocatorT_param_series_t_t_std__lessT_std__string_t_std__allocatorT_std__pairT_std__string_const_std__vectorT_param_series_std__allocatorT_param_series_t_t_t_t_t, SWIG_POINTER_OWN |  0 );
-  if (SWIG_IsNewObj(res2)) delete arg2;
   if (SWIG_IsNewObj(res3)) delete arg3;
   if (SWIG_IsNewObj(res4)) delete arg4;
+  if (SWIG_IsNewObj(res5)) delete arg5;
   return resultobj;
 fail:
-  if (SWIG_IsNewObj(res2)) delete arg2;
   if (SWIG_IsNewObj(res3)) delete arg3;
   if (SWIG_IsNewObj(res4)) delete arg4;
+  if (SWIG_IsNewObj(res5)) delete arg5;
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_Net_train__SWIG_3(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_Net_train__SWIG_4(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   Net *arg1 = (Net *) 0 ;
-  std_vector *arg2 = 0 ;
+  Caller *arg2 = 0 ;
   std_vector *arg3 = 0 ;
   std_vector *arg4 = 0 ;
-  TrainStrat arg5 ;
-  int arg6 ;
-  double arg7 ;
+  std_vector *arg5 = 0 ;
+  TrainStrat arg6 ;
+  int arg7 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  int res2 = SWIG_OLDOBJ ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
   int res3 = SWIG_OLDOBJ ;
   int res4 = SWIG_OLDOBJ ;
-  int val5 ;
-  int ecode5 = 0 ;
+  int res5 = SWIG_OLDOBJ ;
   int val6 ;
   int ecode6 = 0 ;
-  double val7 ;
+  int val7 ;
   int ecode7 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
@@ -12479,17 +12625,14 @@ SWIGINTERN PyObject *_wrap_Net_train__SWIG_3(PyObject *SWIGUNUSEDPARM(self), PyO
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Net_train" "', argument " "1"" of type '" "Net *""'"); 
   }
   arg1 = reinterpret_cast< Net * >(argp1);
-  {
-    std::vector<double,std::allocator< double > > *ptr = (std::vector<double,std::allocator< double > > *)0;
-    res2 = swig::asptr(obj1, &ptr);
-    if (!SWIG_IsOK(res2)) {
-      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Net_train" "', argument " "2"" of type '" "std_vector const &""'"); 
-    }
-    if (!ptr) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Net_train" "', argument " "2"" of type '" "std_vector const &""'"); 
-    }
-    arg2 = ptr;
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_Caller,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Net_train" "', argument " "2"" of type '" "Caller &""'"); 
   }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Net_train" "', argument " "2"" of type '" "Caller &""'"); 
+  }
+  arg2 = reinterpret_cast< Caller * >(argp2);
   {
     std::vector<double,std::allocator< double > > *ptr = (std::vector<double,std::allocator< double > > *)0;
     res3 = swig::asptr(obj2, &ptr);
@@ -12512,50 +12655,56 @@ SWIGINTERN PyObject *_wrap_Net_train__SWIG_3(PyObject *SWIGUNUSEDPARM(self), PyO
     }
     arg4 = ptr;
   }
-  ecode5 = SWIG_AsVal_int(obj4, &val5);
-  if (!SWIG_IsOK(ecode5)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "Net_train" "', argument " "5"" of type '" "TrainStrat""'");
-  } 
-  arg5 = static_cast< TrainStrat >(val5);
+  {
+    std::vector<double,std::allocator< double > > *ptr = (std::vector<double,std::allocator< double > > *)0;
+    res5 = swig::asptr(obj4, &ptr);
+    if (!SWIG_IsOK(res5)) {
+      SWIG_exception_fail(SWIG_ArgError(res5), "in method '" "Net_train" "', argument " "5"" of type '" "std_vector const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Net_train" "', argument " "5"" of type '" "std_vector const &""'"); 
+    }
+    arg5 = ptr;
+  }
   ecode6 = SWIG_AsVal_int(obj5, &val6);
   if (!SWIG_IsOK(ecode6)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '" "Net_train" "', argument " "6"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '" "Net_train" "', argument " "6"" of type '" "TrainStrat""'");
   } 
-  arg6 = static_cast< int >(val6);
-  ecode7 = SWIG_AsVal_double(obj6, &val7);
+  arg6 = static_cast< TrainStrat >(val6);
+  ecode7 = SWIG_AsVal_int(obj6, &val7);
   if (!SWIG_IsOK(ecode7)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode7), "in method '" "Net_train" "', argument " "7"" of type '" "double""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode7), "in method '" "Net_train" "', argument " "7"" of type '" "int""'");
   } 
-  arg7 = static_cast< double >(val7);
-  result = (arg1)->train((std_vector const &)*arg2,(std_vector const &)*arg3,(std_vector const &)*arg4,arg5,arg6,arg7);
+  arg7 = static_cast< int >(val7);
+  result = (arg1)->train(*arg2,(std_vector const &)*arg3,(std_vector const &)*arg4,(std_vector const &)*arg5,arg6,arg7);
   resultobj = SWIG_NewPointerObj((new train_res(static_cast< const train_res& >(result))), SWIGTYPE_p_std__mapT_std__string_std__vectorT_param_series_std__allocatorT_param_series_t_t_std__lessT_std__string_t_std__allocatorT_std__pairT_std__string_const_std__vectorT_param_series_std__allocatorT_param_series_t_t_t_t_t, SWIG_POINTER_OWN |  0 );
-  if (SWIG_IsNewObj(res2)) delete arg2;
   if (SWIG_IsNewObj(res3)) delete arg3;
   if (SWIG_IsNewObj(res4)) delete arg4;
+  if (SWIG_IsNewObj(res5)) delete arg5;
   return resultobj;
 fail:
-  if (SWIG_IsNewObj(res2)) delete arg2;
   if (SWIG_IsNewObj(res3)) delete arg3;
   if (SWIG_IsNewObj(res4)) delete arg4;
+  if (SWIG_IsNewObj(res5)) delete arg5;
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_Net_train__SWIG_4(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_Net_train__SWIG_5(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   Net *arg1 = (Net *) 0 ;
-  std_vector *arg2 = 0 ;
+  Caller *arg2 = 0 ;
   std_vector *arg3 = 0 ;
   std_vector *arg4 = 0 ;
-  TrainStrat arg5 ;
-  int arg6 ;
+  std_vector *arg5 = 0 ;
+  TrainStrat arg6 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  int res2 = SWIG_OLDOBJ ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
   int res3 = SWIG_OLDOBJ ;
   int res4 = SWIG_OLDOBJ ;
-  int val5 ;
-  int ecode5 = 0 ;
+  int res5 = SWIG_OLDOBJ ;
   int val6 ;
   int ecode6 = 0 ;
   PyObject * obj0 = 0 ;
@@ -12572,17 +12721,14 @@ SWIGINTERN PyObject *_wrap_Net_train__SWIG_4(PyObject *SWIGUNUSEDPARM(self), PyO
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Net_train" "', argument " "1"" of type '" "Net *""'"); 
   }
   arg1 = reinterpret_cast< Net * >(argp1);
-  {
-    std::vector<double,std::allocator< double > > *ptr = (std::vector<double,std::allocator< double > > *)0;
-    res2 = swig::asptr(obj1, &ptr);
-    if (!SWIG_IsOK(res2)) {
-      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Net_train" "', argument " "2"" of type '" "std_vector const &""'"); 
-    }
-    if (!ptr) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Net_train" "', argument " "2"" of type '" "std_vector const &""'"); 
-    }
-    arg2 = ptr;
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_Caller,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Net_train" "', argument " "2"" of type '" "Caller &""'"); 
   }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Net_train" "', argument " "2"" of type '" "Caller &""'"); 
+  }
+  arg2 = reinterpret_cast< Caller * >(argp2);
   {
     std::vector<double,std::allocator< double > > *ptr = (std::vector<double,std::allocator< double > > *)0;
     res3 = swig::asptr(obj2, &ptr);
@@ -12605,44 +12751,50 @@ SWIGINTERN PyObject *_wrap_Net_train__SWIG_4(PyObject *SWIGUNUSEDPARM(self), PyO
     }
     arg4 = ptr;
   }
-  ecode5 = SWIG_AsVal_int(obj4, &val5);
-  if (!SWIG_IsOK(ecode5)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "Net_train" "', argument " "5"" of type '" "TrainStrat""'");
-  } 
-  arg5 = static_cast< TrainStrat >(val5);
+  {
+    std::vector<double,std::allocator< double > > *ptr = (std::vector<double,std::allocator< double > > *)0;
+    res5 = swig::asptr(obj4, &ptr);
+    if (!SWIG_IsOK(res5)) {
+      SWIG_exception_fail(SWIG_ArgError(res5), "in method '" "Net_train" "', argument " "5"" of type '" "std_vector const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Net_train" "', argument " "5"" of type '" "std_vector const &""'"); 
+    }
+    arg5 = ptr;
+  }
   ecode6 = SWIG_AsVal_int(obj5, &val6);
   if (!SWIG_IsOK(ecode6)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '" "Net_train" "', argument " "6"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '" "Net_train" "', argument " "6"" of type '" "TrainStrat""'");
   } 
-  arg6 = static_cast< int >(val6);
-  result = (arg1)->train((std_vector const &)*arg2,(std_vector const &)*arg3,(std_vector const &)*arg4,arg5,arg6);
+  arg6 = static_cast< TrainStrat >(val6);
+  result = (arg1)->train(*arg2,(std_vector const &)*arg3,(std_vector const &)*arg4,(std_vector const &)*arg5,arg6);
   resultobj = SWIG_NewPointerObj((new train_res(static_cast< const train_res& >(result))), SWIGTYPE_p_std__mapT_std__string_std__vectorT_param_series_std__allocatorT_param_series_t_t_std__lessT_std__string_t_std__allocatorT_std__pairT_std__string_const_std__vectorT_param_series_std__allocatorT_param_series_t_t_t_t_t, SWIG_POINTER_OWN |  0 );
-  if (SWIG_IsNewObj(res2)) delete arg2;
   if (SWIG_IsNewObj(res3)) delete arg3;
   if (SWIG_IsNewObj(res4)) delete arg4;
+  if (SWIG_IsNewObj(res5)) delete arg5;
   return resultobj;
 fail:
-  if (SWIG_IsNewObj(res2)) delete arg2;
   if (SWIG_IsNewObj(res3)) delete arg3;
   if (SWIG_IsNewObj(res4)) delete arg4;
+  if (SWIG_IsNewObj(res5)) delete arg5;
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_Net_train__SWIG_5(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_Net_train__SWIG_6(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   Net *arg1 = (Net *) 0 ;
-  std_vector *arg2 = 0 ;
+  Caller *arg2 = 0 ;
   std_vector *arg3 = 0 ;
   std_vector *arg4 = 0 ;
-  TrainStrat arg5 ;
+  std_vector *arg5 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  int res2 = SWIG_OLDOBJ ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
   int res3 = SWIG_OLDOBJ ;
   int res4 = SWIG_OLDOBJ ;
-  int val5 ;
-  int ecode5 = 0 ;
+  int res5 = SWIG_OLDOBJ ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   PyObject * obj2 = 0 ;
@@ -12656,17 +12808,14 @@ SWIGINTERN PyObject *_wrap_Net_train__SWIG_5(PyObject *SWIGUNUSEDPARM(self), PyO
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Net_train" "', argument " "1"" of type '" "Net *""'"); 
   }
   arg1 = reinterpret_cast< Net * >(argp1);
-  {
-    std::vector<double,std::allocator< double > > *ptr = (std::vector<double,std::allocator< double > > *)0;
-    res2 = swig::asptr(obj1, &ptr);
-    if (!SWIG_IsOK(res2)) {
-      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Net_train" "', argument " "2"" of type '" "std_vector const &""'"); 
-    }
-    if (!ptr) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Net_train" "', argument " "2"" of type '" "std_vector const &""'"); 
-    }
-    arg2 = ptr;
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_Caller,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Net_train" "', argument " "2"" of type '" "Caller &""'"); 
   }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Net_train" "', argument " "2"" of type '" "Caller &""'"); 
+  }
+  arg2 = reinterpret_cast< Caller * >(argp2);
   {
     std::vector<double,std::allocator< double > > *ptr = (std::vector<double,std::allocator< double > > *)0;
     res3 = swig::asptr(obj2, &ptr);
@@ -12689,125 +12838,40 @@ SWIGINTERN PyObject *_wrap_Net_train__SWIG_5(PyObject *SWIGUNUSEDPARM(self), PyO
     }
     arg4 = ptr;
   }
-  ecode5 = SWIG_AsVal_int(obj4, &val5);
-  if (!SWIG_IsOK(ecode5)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "Net_train" "', argument " "5"" of type '" "TrainStrat""'");
-  } 
-  arg5 = static_cast< TrainStrat >(val5);
-  result = (arg1)->train((std_vector const &)*arg2,(std_vector const &)*arg3,(std_vector const &)*arg4,arg5);
+  {
+    std::vector<double,std::allocator< double > > *ptr = (std::vector<double,std::allocator< double > > *)0;
+    res5 = swig::asptr(obj4, &ptr);
+    if (!SWIG_IsOK(res5)) {
+      SWIG_exception_fail(SWIG_ArgError(res5), "in method '" "Net_train" "', argument " "5"" of type '" "std_vector const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Net_train" "', argument " "5"" of type '" "std_vector const &""'"); 
+    }
+    arg5 = ptr;
+  }
+  result = (arg1)->train(*arg2,(std_vector const &)*arg3,(std_vector const &)*arg4,(std_vector const &)*arg5);
   resultobj = SWIG_NewPointerObj((new train_res(static_cast< const train_res& >(result))), SWIGTYPE_p_std__mapT_std__string_std__vectorT_param_series_std__allocatorT_param_series_t_t_std__lessT_std__string_t_std__allocatorT_std__pairT_std__string_const_std__vectorT_param_series_std__allocatorT_param_series_t_t_t_t_t, SWIG_POINTER_OWN |  0 );
-  if (SWIG_IsNewObj(res2)) delete arg2;
   if (SWIG_IsNewObj(res3)) delete arg3;
   if (SWIG_IsNewObj(res4)) delete arg4;
+  if (SWIG_IsNewObj(res5)) delete arg5;
   return resultobj;
 fail:
-  if (SWIG_IsNewObj(res2)) delete arg2;
   if (SWIG_IsNewObj(res3)) delete arg3;
   if (SWIG_IsNewObj(res4)) delete arg4;
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Net_train__SWIG_6(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  Net *arg1 = (Net *) 0 ;
-  std_vector *arg2 = 0 ;
-  std_vector *arg3 = 0 ;
-  std_vector *arg4 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int res2 = SWIG_OLDOBJ ;
-  int res3 = SWIG_OLDOBJ ;
-  int res4 = SWIG_OLDOBJ ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  PyObject * obj3 = 0 ;
-  SwigValueWrapper< std::map< std::string,std::vector< std::list< double,std::allocator< double > >,std::allocator< std::list< double,std::allocator< double > > > >,std::less< std::string >,std::allocator< std::pair< std::string const,std::vector< std::list< double,std::allocator< double > >,std::allocator< std::list< double,std::allocator< double > > > > > > > > result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OOOO:Net_train",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_Net, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Net_train" "', argument " "1"" of type '" "Net *""'"); 
-  }
-  arg1 = reinterpret_cast< Net * >(argp1);
-  {
-    std::vector<double,std::allocator< double > > *ptr = (std::vector<double,std::allocator< double > > *)0;
-    res2 = swig::asptr(obj1, &ptr);
-    if (!SWIG_IsOK(res2)) {
-      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Net_train" "', argument " "2"" of type '" "std_vector const &""'"); 
-    }
-    if (!ptr) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Net_train" "', argument " "2"" of type '" "std_vector const &""'"); 
-    }
-    arg2 = ptr;
-  }
-  {
-    std::vector<double,std::allocator< double > > *ptr = (std::vector<double,std::allocator< double > > *)0;
-    res3 = swig::asptr(obj2, &ptr);
-    if (!SWIG_IsOK(res3)) {
-      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "Net_train" "', argument " "3"" of type '" "std_vector const &""'"); 
-    }
-    if (!ptr) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Net_train" "', argument " "3"" of type '" "std_vector const &""'"); 
-    }
-    arg3 = ptr;
-  }
-  {
-    std::vector<double,std::allocator< double > > *ptr = (std::vector<double,std::allocator< double > > *)0;
-    res4 = swig::asptr(obj3, &ptr);
-    if (!SWIG_IsOK(res4)) {
-      SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "Net_train" "', argument " "4"" of type '" "std_vector const &""'"); 
-    }
-    if (!ptr) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Net_train" "', argument " "4"" of type '" "std_vector const &""'"); 
-    }
-    arg4 = ptr;
-  }
-  result = (arg1)->train((std_vector const &)*arg2,(std_vector const &)*arg3,(std_vector const &)*arg4);
-  resultobj = SWIG_NewPointerObj((new train_res(static_cast< const train_res& >(result))), SWIGTYPE_p_std__mapT_std__string_std__vectorT_param_series_std__allocatorT_param_series_t_t_std__lessT_std__string_t_std__allocatorT_std__pairT_std__string_const_std__vectorT_param_series_std__allocatorT_param_series_t_t_t_t_t, SWIG_POINTER_OWN |  0 );
-  if (SWIG_IsNewObj(res2)) delete arg2;
-  if (SWIG_IsNewObj(res3)) delete arg3;
-  if (SWIG_IsNewObj(res4)) delete arg4;
-  return resultobj;
-fail:
-  if (SWIG_IsNewObj(res2)) delete arg2;
-  if (SWIG_IsNewObj(res3)) delete arg3;
-  if (SWIG_IsNewObj(res4)) delete arg4;
+  if (SWIG_IsNewObj(res5)) delete arg5;
   return NULL;
 }
 
 
 SWIGINTERN PyObject *_wrap_Net_train(PyObject *self, PyObject *args) {
   int argc;
-  PyObject *argv[11];
+  PyObject *argv[12];
   int ii;
   
   if (!PyTuple_Check(args)) SWIG_fail;
   argc = args ? (int)PyObject_Length(args) : 0;
-  for (ii = 0; (ii < 10) && (ii < argc); ii++) {
+  for (ii = 0; (ii < 11) && (ii < argc); ii++) {
     argv[ii] = PyTuple_GET_ITEM(args,ii);
-  }
-  if (argc == 4) {
-    int _v;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_Net, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      int res = swig::asptr(argv[1], (std::vector<double,std::allocator< double > >**)(0));
-      _v = SWIG_CheckState(res);
-      if (_v) {
-        int res = swig::asptr(argv[2], (std::vector<double,std::allocator< double > >**)(0));
-        _v = SWIG_CheckState(res);
-        if (_v) {
-          int res = swig::asptr(argv[3], (std::vector<double,std::allocator< double > >**)(0));
-          _v = SWIG_CheckState(res);
-          if (_v) {
-            return _wrap_Net_train__SWIG_6(self, args);
-          }
-        }
-      }
-    }
   }
   if (argc == 5) {
     int _v;
@@ -12815,7 +12879,8 @@ SWIGINTERN PyObject *_wrap_Net_train(PyObject *self, PyObject *args) {
     int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_Net, 0);
     _v = SWIG_CheckState(res);
     if (_v) {
-      int res = swig::asptr(argv[1], (std::vector<double,std::allocator< double > >**)(0));
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_Caller, 0);
       _v = SWIG_CheckState(res);
       if (_v) {
         int res = swig::asptr(argv[2], (std::vector<double,std::allocator< double > >**)(0));
@@ -12824,12 +12889,10 @@ SWIGINTERN PyObject *_wrap_Net_train(PyObject *self, PyObject *args) {
           int res = swig::asptr(argv[3], (std::vector<double,std::allocator< double > >**)(0));
           _v = SWIG_CheckState(res);
           if (_v) {
-            {
-              int res = SWIG_AsVal_int(argv[4], NULL);
-              _v = SWIG_CheckState(res);
-            }
+            int res = swig::asptr(argv[4], (std::vector<double,std::allocator< double > >**)(0));
+            _v = SWIG_CheckState(res);
             if (_v) {
-              return _wrap_Net_train__SWIG_5(self, args);
+              return _wrap_Net_train__SWIG_6(self, args);
             }
           }
         }
@@ -12842,7 +12905,8 @@ SWIGINTERN PyObject *_wrap_Net_train(PyObject *self, PyObject *args) {
     int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_Net, 0);
     _v = SWIG_CheckState(res);
     if (_v) {
-      int res = swig::asptr(argv[1], (std::vector<double,std::allocator< double > >**)(0));
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_Caller, 0);
       _v = SWIG_CheckState(res);
       if (_v) {
         int res = swig::asptr(argv[2], (std::vector<double,std::allocator< double > >**)(0));
@@ -12851,17 +12915,15 @@ SWIGINTERN PyObject *_wrap_Net_train(PyObject *self, PyObject *args) {
           int res = swig::asptr(argv[3], (std::vector<double,std::allocator< double > >**)(0));
           _v = SWIG_CheckState(res);
           if (_v) {
-            {
-              int res = SWIG_AsVal_int(argv[4], NULL);
-              _v = SWIG_CheckState(res);
-            }
+            int res = swig::asptr(argv[4], (std::vector<double,std::allocator< double > >**)(0));
+            _v = SWIG_CheckState(res);
             if (_v) {
               {
                 int res = SWIG_AsVal_int(argv[5], NULL);
                 _v = SWIG_CheckState(res);
               }
               if (_v) {
-                return _wrap_Net_train__SWIG_4(self, args);
+                return _wrap_Net_train__SWIG_5(self, args);
               }
             }
           }
@@ -12875,7 +12937,8 @@ SWIGINTERN PyObject *_wrap_Net_train(PyObject *self, PyObject *args) {
     int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_Net, 0);
     _v = SWIG_CheckState(res);
     if (_v) {
-      int res = swig::asptr(argv[1], (std::vector<double,std::allocator< double > >**)(0));
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_Caller, 0);
       _v = SWIG_CheckState(res);
       if (_v) {
         int res = swig::asptr(argv[2], (std::vector<double,std::allocator< double > >**)(0));
@@ -12884,10 +12947,8 @@ SWIGINTERN PyObject *_wrap_Net_train(PyObject *self, PyObject *args) {
           int res = swig::asptr(argv[3], (std::vector<double,std::allocator< double > >**)(0));
           _v = SWIG_CheckState(res);
           if (_v) {
-            {
-              int res = SWIG_AsVal_int(argv[4], NULL);
-              _v = SWIG_CheckState(res);
-            }
+            int res = swig::asptr(argv[4], (std::vector<double,std::allocator< double > >**)(0));
+            _v = SWIG_CheckState(res);
             if (_v) {
               {
                 int res = SWIG_AsVal_int(argv[5], NULL);
@@ -12895,11 +12956,11 @@ SWIGINTERN PyObject *_wrap_Net_train(PyObject *self, PyObject *args) {
               }
               if (_v) {
                 {
-                  int res = SWIG_AsVal_double(argv[6], NULL);
+                  int res = SWIG_AsVal_int(argv[6], NULL);
                   _v = SWIG_CheckState(res);
                 }
                 if (_v) {
-                  return _wrap_Net_train__SWIG_3(self, args);
+                  return _wrap_Net_train__SWIG_4(self, args);
                 }
               }
             }
@@ -12914,7 +12975,8 @@ SWIGINTERN PyObject *_wrap_Net_train(PyObject *self, PyObject *args) {
     int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_Net, 0);
     _v = SWIG_CheckState(res);
     if (_v) {
-      int res = swig::asptr(argv[1], (std::vector<double,std::allocator< double > >**)(0));
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_Caller, 0);
       _v = SWIG_CheckState(res);
       if (_v) {
         int res = swig::asptr(argv[2], (std::vector<double,std::allocator< double > >**)(0));
@@ -12923,10 +12985,8 @@ SWIGINTERN PyObject *_wrap_Net_train(PyObject *self, PyObject *args) {
           int res = swig::asptr(argv[3], (std::vector<double,std::allocator< double > >**)(0));
           _v = SWIG_CheckState(res);
           if (_v) {
-            {
-              int res = SWIG_AsVal_int(argv[4], NULL);
-              _v = SWIG_CheckState(res);
-            }
+            int res = swig::asptr(argv[4], (std::vector<double,std::allocator< double > >**)(0));
+            _v = SWIG_CheckState(res);
             if (_v) {
               {
                 int res = SWIG_AsVal_int(argv[5], NULL);
@@ -12934,16 +12994,16 @@ SWIGINTERN PyObject *_wrap_Net_train(PyObject *self, PyObject *args) {
               }
               if (_v) {
                 {
-                  int res = SWIG_AsVal_double(argv[6], NULL);
+                  int res = SWIG_AsVal_int(argv[6], NULL);
                   _v = SWIG_CheckState(res);
                 }
                 if (_v) {
                   {
-                    int res = SWIG_AsVal_int(argv[7], NULL);
+                    int res = SWIG_AsVal_double(argv[7], NULL);
                     _v = SWIG_CheckState(res);
                   }
                   if (_v) {
-                    return _wrap_Net_train__SWIG_2(self, args);
+                    return _wrap_Net_train__SWIG_3(self, args);
                   }
                 }
               }
@@ -12959,7 +13019,8 @@ SWIGINTERN PyObject *_wrap_Net_train(PyObject *self, PyObject *args) {
     int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_Net, 0);
     _v = SWIG_CheckState(res);
     if (_v) {
-      int res = swig::asptr(argv[1], (std::vector<double,std::allocator< double > >**)(0));
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_Caller, 0);
       _v = SWIG_CheckState(res);
       if (_v) {
         int res = swig::asptr(argv[2], (std::vector<double,std::allocator< double > >**)(0));
@@ -12968,10 +13029,8 @@ SWIGINTERN PyObject *_wrap_Net_train(PyObject *self, PyObject *args) {
           int res = swig::asptr(argv[3], (std::vector<double,std::allocator< double > >**)(0));
           _v = SWIG_CheckState(res);
           if (_v) {
-            {
-              int res = SWIG_AsVal_int(argv[4], NULL);
-              _v = SWIG_CheckState(res);
-            }
+            int res = swig::asptr(argv[4], (std::vector<double,std::allocator< double > >**)(0));
+            _v = SWIG_CheckState(res);
             if (_v) {
               {
                 int res = SWIG_AsVal_int(argv[5], NULL);
@@ -12979,21 +13038,21 @@ SWIGINTERN PyObject *_wrap_Net_train(PyObject *self, PyObject *args) {
               }
               if (_v) {
                 {
-                  int res = SWIG_AsVal_double(argv[6], NULL);
+                  int res = SWIG_AsVal_int(argv[6], NULL);
                   _v = SWIG_CheckState(res);
                 }
                 if (_v) {
                   {
-                    int res = SWIG_AsVal_int(argv[7], NULL);
+                    int res = SWIG_AsVal_double(argv[7], NULL);
                     _v = SWIG_CheckState(res);
                   }
                   if (_v) {
                     {
-                      int res = SWIG_AsVal_bool(argv[8], NULL);
+                      int res = SWIG_AsVal_int(argv[8], NULL);
                       _v = SWIG_CheckState(res);
                     }
                     if (_v) {
-                      return _wrap_Net_train__SWIG_1(self, args);
+                      return _wrap_Net_train__SWIG_2(self, args);
                     }
                   }
                 }
@@ -13010,7 +13069,8 @@ SWIGINTERN PyObject *_wrap_Net_train(PyObject *self, PyObject *args) {
     int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_Net, 0);
     _v = SWIG_CheckState(res);
     if (_v) {
-      int res = swig::asptr(argv[1], (std::vector<double,std::allocator< double > >**)(0));
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_Caller, 0);
       _v = SWIG_CheckState(res);
       if (_v) {
         int res = swig::asptr(argv[2], (std::vector<double,std::allocator< double > >**)(0));
@@ -13019,10 +13079,8 @@ SWIGINTERN PyObject *_wrap_Net_train(PyObject *self, PyObject *args) {
           int res = swig::asptr(argv[3], (std::vector<double,std::allocator< double > >**)(0));
           _v = SWIG_CheckState(res);
           if (_v) {
-            {
-              int res = SWIG_AsVal_int(argv[4], NULL);
-              _v = SWIG_CheckState(res);
-            }
+            int res = swig::asptr(argv[4], (std::vector<double,std::allocator< double > >**)(0));
+            _v = SWIG_CheckState(res);
             if (_v) {
               {
                 int res = SWIG_AsVal_int(argv[5], NULL);
@@ -13030,17 +13088,17 @@ SWIGINTERN PyObject *_wrap_Net_train(PyObject *self, PyObject *args) {
               }
               if (_v) {
                 {
-                  int res = SWIG_AsVal_double(argv[6], NULL);
+                  int res = SWIG_AsVal_int(argv[6], NULL);
                   _v = SWIG_CheckState(res);
                 }
                 if (_v) {
                   {
-                    int res = SWIG_AsVal_int(argv[7], NULL);
+                    int res = SWIG_AsVal_double(argv[7], NULL);
                     _v = SWIG_CheckState(res);
                   }
                   if (_v) {
                     {
-                      int res = SWIG_AsVal_bool(argv[8], NULL);
+                      int res = SWIG_AsVal_int(argv[8], NULL);
                       _v = SWIG_CheckState(res);
                     }
                     if (_v) {
@@ -13049,7 +13107,69 @@ SWIGINTERN PyObject *_wrap_Net_train(PyObject *self, PyObject *args) {
                         _v = SWIG_CheckState(res);
                       }
                       if (_v) {
-                        return _wrap_Net_train__SWIG_0(self, args);
+                        return _wrap_Net_train__SWIG_1(self, args);
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  if (argc == 11) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_Net, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_Caller, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        int res = swig::asptr(argv[2], (std::vector<double,std::allocator< double > >**)(0));
+        _v = SWIG_CheckState(res);
+        if (_v) {
+          int res = swig::asptr(argv[3], (std::vector<double,std::allocator< double > >**)(0));
+          _v = SWIG_CheckState(res);
+          if (_v) {
+            int res = swig::asptr(argv[4], (std::vector<double,std::allocator< double > >**)(0));
+            _v = SWIG_CheckState(res);
+            if (_v) {
+              {
+                int res = SWIG_AsVal_int(argv[5], NULL);
+                _v = SWIG_CheckState(res);
+              }
+              if (_v) {
+                {
+                  int res = SWIG_AsVal_int(argv[6], NULL);
+                  _v = SWIG_CheckState(res);
+                }
+                if (_v) {
+                  {
+                    int res = SWIG_AsVal_double(argv[7], NULL);
+                    _v = SWIG_CheckState(res);
+                  }
+                  if (_v) {
+                    {
+                      int res = SWIG_AsVal_int(argv[8], NULL);
+                      _v = SWIG_CheckState(res);
+                    }
+                    if (_v) {
+                      {
+                        int res = SWIG_AsVal_bool(argv[9], NULL);
+                        _v = SWIG_CheckState(res);
+                      }
+                      if (_v) {
+                        {
+                          int res = SWIG_AsVal_bool(argv[10], NULL);
+                          _v = SWIG_CheckState(res);
+                        }
+                        if (_v) {
+                          return _wrap_Net_train__SWIG_0(self, args);
+                        }
                       }
                     }
                   }
@@ -13065,13 +13185,13 @@ SWIGINTERN PyObject *_wrap_Net_train(PyObject *self, PyObject *args) {
 fail:
   SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'Net_train'.\n"
     "  Possible C/C++ prototypes are:\n"
-    "    Net::train(std_vector const &,std_vector const &,std_vector const &,TrainStrat,int,double,int,bool,bool)\n"
-    "    Net::train(std_vector const &,std_vector const &,std_vector const &,TrainStrat,int,double,int,bool)\n"
-    "    Net::train(std_vector const &,std_vector const &,std_vector const &,TrainStrat,int,double,int)\n"
-    "    Net::train(std_vector const &,std_vector const &,std_vector const &,TrainStrat,int,double)\n"
-    "    Net::train(std_vector const &,std_vector const &,std_vector const &,TrainStrat,int)\n"
-    "    Net::train(std_vector const &,std_vector const &,std_vector const &,TrainStrat)\n"
-    "    Net::train(std_vector const &,std_vector const &,std_vector const &)\n");
+    "    Net::train(Caller &,std_vector const &,std_vector const &,std_vector const &,TrainStrat,int,double,int,bool,bool)\n"
+    "    Net::train(Caller &,std_vector const &,std_vector const &,std_vector const &,TrainStrat,int,double,int,bool)\n"
+    "    Net::train(Caller &,std_vector const &,std_vector const &,std_vector const &,TrainStrat,int,double,int)\n"
+    "    Net::train(Caller &,std_vector const &,std_vector const &,std_vector const &,TrainStrat,int,double)\n"
+    "    Net::train(Caller &,std_vector const &,std_vector const &,std_vector const &,TrainStrat,int)\n"
+    "    Net::train(Caller &,std_vector const &,std_vector const &,std_vector const &,TrainStrat)\n"
+    "    Net::train(Caller &,std_vector const &,std_vector const &,std_vector const &)\n");
   return 0;
 }
 
@@ -17439,10 +17559,11 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		""},
 	 { (char *)"Net_train", _wrap_Net_train, METH_VARARGS, (char *)"\n"
-		"train(std_vector t, std_vector inp, std_vector target, TrainStrat train_strategy=CG, int epochs=30, \n"
-		"    double goal=0.3, int show=1, bool varc=True, bool varp=True) -> train_res\n"
+		"train(Caller & cb, std_vector t, std_vector inp, std_vector target, TrainStrat train_strategy=CG, \n"
+		"    int epochs=30, double goal=0.3, int show=1, bool varc=True, bool varp=True) -> train_res\n"
 		"\n"
 		"Parameters:\n"
+		"    cb: Caller &\n"
 		"    t: std_vector const &\n"
 		"    inp: std_vector const &\n"
 		"    target: std_vector const &\n"
@@ -17453,10 +17574,11 @@ static PyMethodDef SwigMethods[] = {
 		"    varc: bool\n"
 		"    varp: bool\n"
 		"\n"
-		"train(std_vector t, std_vector inp, std_vector target, TrainStrat train_strategy=CG, int epochs=30, \n"
-		"    double goal=0.3, int show=1, bool varc=True) -> train_res\n"
+		"train(Caller & cb, std_vector t, std_vector inp, std_vector target, TrainStrat train_strategy=CG, \n"
+		"    int epochs=30, double goal=0.3, int show=1, bool varc=True) -> train_res\n"
 		"\n"
 		"Parameters:\n"
+		"    cb: Caller &\n"
 		"    t: std_vector const &\n"
 		"    inp: std_vector const &\n"
 		"    target: std_vector const &\n"
@@ -17466,10 +17588,11 @@ static PyMethodDef SwigMethods[] = {
 		"    show: int\n"
 		"    varc: bool\n"
 		"\n"
-		"train(std_vector t, std_vector inp, std_vector target, TrainStrat train_strategy=CG, int epochs=30, \n"
-		"    double goal=0.3, int show=1) -> train_res\n"
+		"train(Caller & cb, std_vector t, std_vector inp, std_vector target, TrainStrat train_strategy=CG, \n"
+		"    int epochs=30, double goal=0.3, int show=1) -> train_res\n"
 		"\n"
 		"Parameters:\n"
+		"    cb: Caller &\n"
 		"    t: std_vector const &\n"
 		"    inp: std_vector const &\n"
 		"    target: std_vector const &\n"
@@ -17478,10 +17601,11 @@ static PyMethodDef SwigMethods[] = {
 		"    goal: double\n"
 		"    show: int\n"
 		"\n"
-		"train(std_vector t, std_vector inp, std_vector target, TrainStrat train_strategy=CG, int epochs=30, \n"
-		"    double goal=0.3) -> train_res\n"
+		"train(Caller & cb, std_vector t, std_vector inp, std_vector target, TrainStrat train_strategy=CG, \n"
+		"    int epochs=30, double goal=0.3) -> train_res\n"
 		"\n"
 		"Parameters:\n"
+		"    cb: Caller &\n"
 		"    t: std_vector const &\n"
 		"    inp: std_vector const &\n"
 		"    target: std_vector const &\n"
@@ -17489,27 +17613,31 @@ static PyMethodDef SwigMethods[] = {
 		"    epochs: int\n"
 		"    goal: double\n"
 		"\n"
-		"train(std_vector t, std_vector inp, std_vector target, TrainStrat train_strategy=CG, int epochs=30) -> train_res\n"
+		"train(Caller & cb, std_vector t, std_vector inp, std_vector target, TrainStrat train_strategy=CG, \n"
+		"    int epochs=30) -> train_res\n"
 		"\n"
 		"Parameters:\n"
+		"    cb: Caller &\n"
 		"    t: std_vector const &\n"
 		"    inp: std_vector const &\n"
 		"    target: std_vector const &\n"
 		"    train_strategy: enum TrainStrat\n"
 		"    epochs: int\n"
 		"\n"
-		"train(std_vector t, std_vector inp, std_vector target, TrainStrat train_strategy=CG) -> train_res\n"
+		"train(Caller & cb, std_vector t, std_vector inp, std_vector target, TrainStrat train_strategy=CG) -> train_res\n"
 		"\n"
 		"Parameters:\n"
+		"    cb: Caller &\n"
 		"    t: std_vector const &\n"
 		"    inp: std_vector const &\n"
 		"    target: std_vector const &\n"
 		"    train_strategy: enum TrainStrat\n"
 		"\n"
-		"Net_train(Net self, std_vector t, std_vector inp, std_vector target) -> train_res\n"
+		"Net_train(Net self, Caller & cb, std_vector t, std_vector inp, std_vector target) -> train_res\n"
 		"\n"
 		"Parameters:\n"
 		"    self: Net *\n"
+		"    cb: Caller &\n"
 		"    t: std_vector const &\n"
 		"    inp: std_vector const &\n"
 		"    target: std_vector const &\n"
@@ -18145,6 +18273,7 @@ static PyMethodDef SwigMethods[] = {
 
 static swig_type_info _swigt__p_ActivateFunc = {"_p_ActivateFunc", "ActivateFunc *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_ActivateFunc__Func = {"_p_ActivateFunc__Func", "enum ActivateFunc::Func *|ActFunc *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_Caller = {"_p_Caller", "Caller *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_Net = {"_p_Net", "Net *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_NetDer = {"_p_NetDer", "NetDer *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_NetF = {"_p_NetF", "NetF *", 0, 0, (void*)0, 0};
@@ -18177,6 +18306,7 @@ static swig_type_info _swigt__p_wavelon = {"_p_wavelon", "wavelon *", 0, 0, (voi
 static swig_type_info *swig_type_initial[] = {
   &_swigt__p_ActivateFunc,
   &_swigt__p_ActivateFunc__Func,
+  &_swigt__p_Caller,
   &_swigt__p_Net,
   &_swigt__p_NetDer,
   &_swigt__p_NetF,
@@ -18209,6 +18339,7 @@ static swig_type_info *swig_type_initial[] = {
 
 static swig_cast_info _swigc__p_ActivateFunc[] = {  {&_swigt__p_ActivateFunc, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_ActivateFunc__Func[] = {  {&_swigt__p_ActivateFunc__Func, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_Caller[] = {  {&_swigt__p_Caller, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_Net[] = {  {&_swigt__p_Net, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_NetDer[] = {  {&_swigt__p_NetDer, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_NetF[] = {  {&_swigt__p_NetF, 0, 0, 0},{0, 0, 0, 0}};
@@ -18241,6 +18372,7 @@ static swig_cast_info _swigc__p_wavelon[] = {  {&_swigt__p_wavelon, 0, 0, 0},{0,
 static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_ActivateFunc,
   _swigc__p_ActivateFunc__Func,
+  _swigc__p_Caller,
   _swigc__p_Net,
   _swigc__p_NetDer,
   _swigc__p_NetF,

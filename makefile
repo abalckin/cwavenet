@@ -1,7 +1,7 @@
 PYINC = /usr/include/python3.4
 PYLIB = /usr/local/bin
 CFLAGS = -O3 -fopenmp
-all: _wavenet.so wavenet.py _wavelet.so wavelet.py
+all: _wavenet.so wavenet.py _wavelet.so wavelet.py cregister.o
 
 # обертка + действительный класс
 _wavenet.so: wavenet_wrap.o net.o train.o
@@ -36,7 +36,8 @@ wavelet.py: wavelet.i
 wavelet.o:
 	  g++ $(CFLAGS) ../wavenet/wavelet.cpp -c -g -fPIC -Wno-deprecated
 
-
+cregister.o:
+	make -f ../submakefile
 clean:
 	rm -f *.pyc *.o *.so *.py *.cxx
 

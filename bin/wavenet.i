@@ -1,5 +1,6 @@
 %module wavenet
 %feature("autodoc", "3");
+//%feature("director") Callback;
 %import "wavelet.i"
 %include "std_vector.i"
 %include "std_list.i"
@@ -17,4 +18,5 @@ namespace std {
    %template(train_set) vector<param_series>;
    %template(train_res) map<string, train_set>;
 };
+
 
