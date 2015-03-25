@@ -11,6 +11,9 @@ Net::Net(int ncount, double xmin, double xmax, double ymin, double a0, double a1
      case  ActivateFunc::Morlet:
        wt = new Morlet();
        break;
+     case ActivateFunc::POLYWOG:
+       wt= new POLYWOG();
+       break;
      default:
        break;
      }

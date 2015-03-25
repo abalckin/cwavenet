@@ -162,6 +162,25 @@ class Morlet(Wavelet):
 Morlet_swigregister = _wavelet.Morlet_swigregister
 Morlet_swigregister(Morlet)
 
+class POLYWOG(Wavelet):
+    """Proxy of C++ POLYWOG class"""
+    __swig_setmethods__ = {}
+    for _s in [Wavelet]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, POLYWOG, name, value)
+    __swig_getmethods__ = {}
+    for _s in [Wavelet]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, POLYWOG, name)
+    __repr__ = _swig_repr
+    def __init__(self): 
+        """__init__(POLYWOG self) -> POLYWOG"""
+        this = _wavelet.new_POLYWOG()
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _wavelet.delete_POLYWOG
+    __del__ = lambda self : None;
+POLYWOG_swigregister = _wavelet.POLYWOG_swigregister
+POLYWOG_swigregister(POLYWOG)
+
 # This file is compatible with both classic and new-style classes.
 
 

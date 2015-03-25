@@ -1105,7 +1105,6 @@ class ActivateFunc(_object):
     __getattr__ = lambda self, name: _swig_getattr(self, ActivateFunc, name)
     __repr__ = _swig_repr
     Morlet = _wavenet.ActivateFunc_Morlet
-    SLOG = _wavenet.ActivateFunc_SLOG
     POLYWOG = _wavenet.ActivateFunc_POLYWOG
     def __init__(self): 
         """__init__(ActivateFunc self) -> ActivateFunc"""

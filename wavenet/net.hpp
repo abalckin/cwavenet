@@ -33,7 +33,7 @@ struct wavelon
 };
 
 struct ActivateFunc {
-  enum Func {Morlet,SLOG,POLYWOG};
+  enum Func {Morlet,POLYWOG};
 };
 typedef ActivateFunc::Func ActFunc;
 
