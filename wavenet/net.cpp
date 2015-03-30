@@ -14,6 +14,9 @@ Net::Net(int ncount, double xmin, double xmax, double ymin, double a0, double a1
      case ActivateFunc::POLYWOG:
        wt= new POLYWOG();
        break;
+     case ActivateFunc::RASP1:
+       wt = new RASP1();
+       break;
      default:
        break;
      }

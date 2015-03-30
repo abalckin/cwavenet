@@ -12,6 +12,7 @@
 #include <dlib/optimization/optimization_stop_strategies.h>
 #include <dlib/optimization/optimization_line_search.h>
 #include <omp.h>
+#include <time.h>
 #include "cregister.cpp"
 //#include "model.hpp"
 class NetModel;
@@ -33,7 +34,7 @@ struct wavelon
 };
 
 struct ActivateFunc {
-  enum Func {Morlet,POLYWOG};
+  enum Func {Morlet, POLYWOG, RASP1};
 };
 typedef ActivateFunc::Func ActFunc;
 
@@ -76,7 +77,7 @@ private:
   train_res _train(const std_vector& t, const std_vector&  inp, const std_vector& target,
 		   search_strategy_type train_strategy, int epochs, double goal, int show,
 		   Caller& cb);
-  void mem(train_res& tr_res, double f_value);
+  void mem(train_res& tr_res, double f_value, double time);
 };
 
 class NetF

@@ -1,5 +1,6 @@
 #include "net.hpp"
 #include "train.hpp"
+#include <time.h>
 using namespace dlib;
 using namespace std;
 double Net::f (const column_vector& x)
@@ -40,7 +41,7 @@ train_res Net::train(Caller& cb, const std_vector& t, const std_vector&  inp, co
     }
 }
 template <typename search_strategy_type>
-train_res Net::_train(const std_vector& time, const std_vector&  input, const std_vector& target,
+train_res Net::_train(const std_vector& t, const std_vector&  input, const std_vector& target,
 		      search_strategy_type search_strategy,
 		      int epochs, double goal, int show, Caller& cb)
 {
@@ -51,20 +52,21 @@ train_res Net::_train(const std_vector& time, const std_vector&  input, const st
   tr_res[std::string("e")] = train_set(1);
   tr_res[std::string("p")] = train_set(nc);
   tr_res[std::string("w")] = train_set(nc);
+  tr_res[std::string("t")] = train_set(1);
+  this->t = t;
   inp = input;
   targ = target;
-  t = time;
   NetF func(this);
   NetDer deriv(this);
   column_vector g,s;
   double f_value = f(weight);
-  mem(tr_res, f_value);
   g = der(weight);
   if (!is_finite(f_value))
     throw error("The objective function generated non-finite outputs");
   if (!is_finite(g))
     throw error("The objective function generated non-finite outputs");
-
+  clock_t begin_time = clock();
+  mem(tr_res, f_value, 0.);
   for (int iter = 0; (epochs==0 || iter<epochs) && f_value > goal; iter++)
     {
       s = search_strategy.get_next_direction(weight, f_value, g);
@@ -85,7 +87,7 @@ train_res Net::_train(const std_vector& time, const std_vector&  input, const st
 	throw error("The objective function generated non-finite outputs");
       if (iter % show == 0)
 	{
-	  mem(tr_res, f_value);
+	  mem(tr_res, f_value, float( clock () - begin_time ) /  CLOCKS_PER_SEC);
 	  int prg = iter*100/epochs;
 	  if (cb.Handler != NULL)
 		     cb.triggerEvent(prg);
@@ -94,7 +96,7 @@ train_res Net::_train(const std_vector& time, const std_vector&  input, const st
   return  tr_res;
 }
 
-void Net::mem(train_res& tr_res, double f_value)
+void Net::mem(train_res& tr_res, double f_value, double t)
 {
 	  for (int i=0; i<nc; i++)
 	    {
@@ -105,5 +107,6 @@ void Net::mem(train_res& tr_res, double f_value)
 	    }
 	  tr_res["e"][0].push_back(f_value);
 	  tr_res["c"][0].push_back(weight(0));
+	  tr_res["t"][0].push_back(t);
 }
 

@@ -40,3 +40,19 @@ class POLYWOG :public Wavelet
     return tau*exp(-0.5*tau*tau);
   }
 };
+class RASP1 :public Wavelet
+{
+  /**Return wavelet value*/
+  virtual double h(double tau, double p) const 
+  {
+    return tau/(tau*tau+p)/(tau*tau+p);
+  }
+  virtual double db(double tau, double htau, double a, double p) const 
+  {
+    return (3*tau*tau-p)/a/(tau*tau+p)/(tau*tau+p)/(tau*tau+p);
+  }
+  virtual double dp(double tau, double p) const 
+  {
+    return -2*tau/(tau*tau+p)/(tau*tau+p)/(tau*tau+p);
+  }
+};

@@ -2936,10 +2936,11 @@ SWIG_Python_NonDynamicSetAttr(PyObject *obj, PyObject *name, PyObject *value) {
 
 #define SWIGTYPE_p_Morlet swig_types[0]
 #define SWIGTYPE_p_POLYWOG swig_types[1]
-#define SWIGTYPE_p_Wavelet swig_types[2]
-#define SWIGTYPE_p_char swig_types[3]
-static swig_type_info *swig_types[5];
-static swig_module_info swig_module = {swig_types, 4, 0, 0, 0, 0};
+#define SWIGTYPE_p_RASP1 swig_types[2]
+#define SWIGTYPE_p_Wavelet swig_types[3]
+#define SWIGTYPE_p_char swig_types[4]
+static swig_type_info *swig_types[6];
+static swig_module_info swig_module = {swig_types, 5, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -3376,6 +3377,47 @@ SWIGINTERN PyObject *POLYWOG_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObje
   return SWIG_Py_Void();
 }
 
+SWIGINTERN PyObject *_wrap_new_RASP1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  RASP1 *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)":new_RASP1")) SWIG_fail;
+  result = (RASP1 *)new RASP1();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_RASP1, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_RASP1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  RASP1 *arg1 = (RASP1 *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_RASP1",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_RASP1, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_RASP1" "', argument " "1"" of type '" "RASP1 *""'"); 
+  }
+  arg1 = reinterpret_cast< RASP1 * >(argp1);
+  delete arg1;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *RASP1_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!PyArg_ParseTuple(args,(char*)"O:swigregister", &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_RASP1, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
 static PyMethodDef SwigMethods[] = {
 	 { (char *)"SWIG_PyInstanceMethod_New", (PyCFunction)SWIG_PyInstanceMethod_New, METH_O, NULL},
 	 { (char *)"Wavelet_h", _wrap_Wavelet_h, METH_VARARGS, (char *)"\n"
@@ -3442,6 +3484,15 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		""},
 	 { (char *)"POLYWOG_swigregister", POLYWOG_swigregister, METH_VARARGS, NULL},
+	 { (char *)"new_RASP1", _wrap_new_RASP1, METH_VARARGS, (char *)"new_RASP1() -> RASP1"},
+	 { (char *)"delete_RASP1", _wrap_delete_RASP1, METH_VARARGS, (char *)"\n"
+		"delete_RASP1(RASP1 self)\n"
+		"\n"
+		"Parameters:\n"
+		"    self: RASP1 *\n"
+		"\n"
+		""},
+	 { (char *)"RASP1_swigregister", RASP1_swigregister, METH_VARARGS, NULL},
 	 { NULL, NULL, 0, NULL }
 };
 
@@ -3454,26 +3505,33 @@ static void *_p_MorletTo_p_Wavelet(void *x, int *SWIGUNUSEDPARM(newmemory)) {
 static void *_p_POLYWOGTo_p_Wavelet(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((Wavelet *)  ((POLYWOG *) x));
 }
+static void *_p_RASP1To_p_Wavelet(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((Wavelet *)  ((RASP1 *) x));
+}
 static swig_type_info _swigt__p_Morlet = {"_p_Morlet", "Morlet *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_POLYWOG = {"_p_POLYWOG", "POLYWOG *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_RASP1 = {"_p_RASP1", "RASP1 *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_Wavelet = {"_p_Wavelet", "Wavelet *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_char = {"_p_char", "char *", 0, 0, (void*)0, 0};
 
 static swig_type_info *swig_type_initial[] = {
   &_swigt__p_Morlet,
   &_swigt__p_POLYWOG,
+  &_swigt__p_RASP1,
   &_swigt__p_Wavelet,
   &_swigt__p_char,
 };
 
 static swig_cast_info _swigc__p_Morlet[] = {  {&_swigt__p_Morlet, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_POLYWOG[] = {  {&_swigt__p_POLYWOG, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_Wavelet[] = {  {&_swigt__p_Wavelet, 0, 0, 0},  {&_swigt__p_POLYWOG, _p_POLYWOGTo_p_Wavelet, 0, 0},  {&_swigt__p_Morlet, _p_MorletTo_p_Wavelet, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_RASP1[] = {  {&_swigt__p_RASP1, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_Wavelet[] = {  {&_swigt__p_Wavelet, 0, 0, 0},  {&_swigt__p_RASP1, _p_RASP1To_p_Wavelet, 0, 0},  {&_swigt__p_POLYWOG, _p_POLYWOGTo_p_Wavelet, 0, 0},  {&_swigt__p_Morlet, _p_MorletTo_p_Wavelet, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_char[] = {  {&_swigt__p_char, 0, 0, 0},{0, 0, 0, 0}};
 
 static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_Morlet,
   _swigc__p_POLYWOG,
+  _swigc__p_RASP1,
   _swigc__p_Wavelet,
   _swigc__p_char,
 };

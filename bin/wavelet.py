@@ -181,6 +181,25 @@ class POLYWOG(Wavelet):
 POLYWOG_swigregister = _wavelet.POLYWOG_swigregister
 POLYWOG_swigregister(POLYWOG)
 
+class RASP1(Wavelet):
+    """Proxy of C++ RASP1 class"""
+    __swig_setmethods__ = {}
+    for _s in [Wavelet]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, RASP1, name, value)
+    __swig_getmethods__ = {}
+    for _s in [Wavelet]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, RASP1, name)
+    __repr__ = _swig_repr
+    def __init__(self): 
+        """__init__(RASP1 self) -> RASP1"""
+        this = _wavelet.new_RASP1()
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _wavelet.delete_RASP1
+    __del__ = lambda self : None;
+RASP1_swigregister = _wavelet.RASP1_swigregister
+RASP1_swigregister(RASP1)
+
 # This file is compatible with both classic and new-style classes.
 
 
