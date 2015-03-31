@@ -200,6 +200,82 @@ class RASP1(Wavelet):
 RASP1_swigregister = _wavelet.RASP1_swigregister
 RASP1_swigregister(RASP1)
 
+class RASP2(Wavelet):
+    """Proxy of C++ RASP2 class"""
+    __swig_setmethods__ = {}
+    for _s in [Wavelet]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, RASP2, name, value)
+    __swig_getmethods__ = {}
+    for _s in [Wavelet]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, RASP2, name)
+    __repr__ = _swig_repr
+    def __init__(self): 
+        """__init__(RASP2 self) -> RASP2"""
+        this = _wavelet.new_RASP2()
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _wavelet.delete_RASP2
+    __del__ = lambda self : None;
+RASP2_swigregister = _wavelet.RASP2_swigregister
+RASP2_swigregister(RASP2)
+
+class RASP4(Wavelet):
+    """Proxy of C++ RASP4 class"""
+    __swig_setmethods__ = {}
+    for _s in [Wavelet]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, RASP4, name, value)
+    __swig_getmethods__ = {}
+    for _s in [Wavelet]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, RASP4, name)
+    __repr__ = _swig_repr
+    def __init__(self): 
+        """__init__(RASP4 self) -> RASP4"""
+        this = _wavelet.new_RASP4()
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _wavelet.delete_RASP4
+    __del__ = lambda self : None;
+RASP4_swigregister = _wavelet.RASP4_swigregister
+RASP4_swigregister(RASP4)
+
+class RASP3(Wavelet):
+    """Proxy of C++ RASP3 class"""
+    __swig_setmethods__ = {}
+    for _s in [Wavelet]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, RASP3, name, value)
+    __swig_getmethods__ = {}
+    for _s in [Wavelet]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, RASP3, name)
+    __repr__ = _swig_repr
+    def __init__(self): 
+        """__init__(RASP3 self) -> RASP3"""
+        this = _wavelet.new_RASP3()
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _wavelet.delete_RASP3
+    __del__ = lambda self : None;
+RASP3_swigregister = _wavelet.RASP3_swigregister
+RASP3_swigregister(RASP3)
+
+class RASP(Wavelet):
+    """Proxy of C++ RASP class"""
+    __swig_setmethods__ = {}
+    for _s in [Wavelet]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, RASP, name, value)
+    __swig_getmethods__ = {}
+    for _s in [Wavelet]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, RASP, name)
+    __repr__ = _swig_repr
+    def __init__(self): 
+        """__init__(RASP self) -> RASP"""
+        this = _wavelet.new_RASP()
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _wavelet.delete_RASP
+    __del__ = lambda self : None;
+RASP_swigregister = _wavelet.RASP_swigregister
+RASP_swigregister(RASP)
+
 # This file is compatible with both classic and new-style classes.
 
 

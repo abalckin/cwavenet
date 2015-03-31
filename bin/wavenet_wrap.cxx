@@ -19087,7 +19087,10 @@ SWIG_init(void) {
   
   SWIG_Python_SetConstant(d, "ActivateFunc_Morlet",SWIG_From_int(static_cast< int >(ActivateFunc::Morlet)));
   SWIG_Python_SetConstant(d, "ActivateFunc_POLYWOG",SWIG_From_int(static_cast< int >(ActivateFunc::POLYWOG)));
+  SWIG_Python_SetConstant(d, "ActivateFunc_RASP",SWIG_From_int(static_cast< int >(ActivateFunc::RASP)));
   SWIG_Python_SetConstant(d, "ActivateFunc_RASP1",SWIG_From_int(static_cast< int >(ActivateFunc::RASP1)));
+  SWIG_Python_SetConstant(d, "ActivateFunc_RASP2",SWIG_From_int(static_cast< int >(ActivateFunc::RASP2)));
+  SWIG_Python_SetConstant(d, "ActivateFunc_RASP3",SWIG_From_int(static_cast< int >(ActivateFunc::RASP3)));
   SWIG_Python_SetConstant(d, "TrainStrategy_Gradient",SWIG_From_int(static_cast< int >(TrainStrategy::Gradient)));
   SWIG_Python_SetConstant(d, "TrainStrategy_CG",SWIG_From_int(static_cast< int >(TrainStrategy::CG)));
   SWIG_Python_SetConstant(d, "TrainStrategy_BFGS",SWIG_From_int(static_cast< int >(TrainStrategy::BFGS)));

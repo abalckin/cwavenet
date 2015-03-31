@@ -10,9 +10,11 @@ import numpy as np
 import scipy.stats
 import scipy as sp
 import time
+from scipy.integrate import odeint
+import pylab as plb
+import random
 
-inpu = {}
-k2= 0.05
+k2 = 0.1
 
 class Caller(object):
     def __call__(self, prg):
@@ -27,32 +29,42 @@ def mean_confidence_interval(data, confidence=0.95):
     return m, h
 
 # Mодельная система
-def func2(t):
-    return np.cos(2*t)*np.exp(-t) + np.sin(2*t)*np.exp(-t) - np.cos(2*t)*np.exp(-t)*(u(t)/5 - (np.exp(t)*u(t)*(2*np.cos(2*t) - np.sin(2*t)))/10) - np.sin(2*t)*np.exp(-t)*(u(t)/10 - (np.exp(t)*u(t)*(np.cos(2*t) + 2*np.sin(2*t)))/10)
-def func1(t):
-    return 4*np.exp(-2*t) - 3*np.exp(-3*t) + (np.exp(-2*t)*u(t)*(np.exp(2*t) - 1))/2 - (np.exp(-3*t)*u(t)*(np.exp(3*t) - 1))/3
+def ksi1(t):
+    #random.seed(t)
+    #return random.random()*k2
+    #return (np.sin(np.sin(t**2)+5*t))*k2
+    return (np.sin(5*t)+np.sin(7*t))*k2
+
+def ksi2(t):
+    return (np.sin(7*t)+np.sin(9*t))*k2
+    
+def func1(y, t):
+    y1, y2  = y
+    #import pdb; pdb.set_trace()
+    return [y2, -5*y2-(6-np.sin(0.5*t))*y1+u(t)+ksi2(t)]
+
+def func2(y, t):
+    y1, y2  = y
+    return [y2, (-2-np.sin(0.3*t))*y2-5*y1+u(t)+ksi2(t)]
 
 
-def u_(t):
-    return inpu[t]
 
 def u(t):
-    return u_(t)+(np.random.random()-0.5)*k2
+    return 3.+0.2*np.sin(2*t)+ksi1(t)
 
 def main():
     # Инициалиазация
     Exp_list=[]
-    N = 300
+    N = 200
     np.random.seed()
-    test_num = 10
-    c0 = 0.
+    test_num = 30
+    c0 = 0
     a0 = .1
-    a1 = 2.
-    w0 = -0.1
-    w1 = 0.1
-    p0 = 1.1
-    p1 = 1.1
-    nc = 10
+    a1 = 3.
+    w0 = -0.4
+    w1 = 0.4
+    p = 2.
+    nc=10
     #text_file = open("log.txt", "w")
     #text_file.write('\n\t|Morlet\t\t|POLYWOG')
     #text_file.write('# \t|\tS\t|\tn\t|\tM\t||\tn\t|\tM\t|\tdE')
@@ -60,15 +72,10 @@ def main():
     print('\nsys \t|\tn\t|\tE\t|\tT\t|\tn\t|\tE\t|\tT')
     #import pdb; pdb.set_trace()
     t = np.arange(0, 10, 0.1)
-    inp = []
-    for m in t:
-        #import pdb; pdb.set_trace()
-        epsilon = (np.random.random()-0.5)*k2
-        inpu[m] = np.sin(m) + epsilon
-        inp.append(u(m))
-    sysa = np.vectorize(func1)(t)
-    sysb = np.vectorize(func2)(t)
-    plb.plot(sysa)
+    inp = np.vectorize(u)(t)
+    sysa = odeint(func1, [1, 1], t)[:, 0]
+    sysb = odeint(func2, [1, 1], t)[:, 0]
+    #plb.plot(sysa)
     plb.show()
     tarlist = [sysa, sysb]
     tarnum = ['a', 'b']
@@ -84,9 +91,9 @@ def main():
                 T = tar.shape[-1]
                 eps = (np.random.random(T)-0.5)*k2
                 dparam = tar+eps
-                ts = wn.TrainStrategy.BFGS
-                w = wn.Net(nc, np.min(inp), np.max(inp), c0,
-                            a0, a1, w0, w1, p0, p1,  wn.ActivateFunc.Morlet, 4)
+                ts = wn.TrainStrategy.Gradient
+                w = wn.Net(nc, np.min(t), np.max(t), c0,
+                            a0, a1, w0, w1, p, p,  wn.ActivateFunc.RASP1, 4)
                 #import pdb; pdb.set_trace()
                 cb = cr.Caller()
                 cal = Caller()
@@ -97,6 +104,7 @@ def main():
                 S = (Ay/Aeps)**2
                 S_list.append(S)
                 E = track['e']
+                #import pdb; pdb.set_trace()
                 y = np.array(E)[0]
                 T = track['t'][0]
                 try:
@@ -105,7 +113,9 @@ def main():
                     n_list[wavenum].append(x010)
                     T_list[wavenum].append(T[x010])
 
+
                 except:
+                    #import pdb; pdb.set_trace()
                     pass
                 #M = (yinf-err_min)/err_min
                 #ans = w.sim(t, inp)
@@ -119,7 +129,7 @@ def main():
         E1, dE1 = mean_confidence_interval(E_list[1])
         T0, dT0 = mean_confidence_interval(T_list[0])
         T1, dT1 = mean_confidence_interval(T_list[1])
-        str = '\n{tarnum}\t|{n0:.1f}~{dn0:.1f}\t|{E0:.2f}~{dE0:.2f}\t|{T0:.2f}~{dT0:.2f}\t|{n1:.1f}~{dn1:.1f}\t|{E1:.2f}~{dE1:.2f}\t|{T1:.2f}~{dT1:.2f}'.format(
+        str = '\n{tarnum}\t|{n0:.1f}~{dn0:.1f}\t|{E0:.3f}~{dE0:.3f}\t|{T0:.2f}~{dT0:.2f}\t|{n1:.1f}~{dn1:.1f}\t|{E1:.3f}~{dE1:.3f}\t|{T1:.2f}~{dT1:.2f}'.format(
             tarnum=tarn,
             n0=n0,
             dn0=dn0,

@@ -1106,7 +1106,10 @@ class ActivateFunc(_object):
     __repr__ = _swig_repr
     Morlet = _wavenet.ActivateFunc_Morlet
     POLYWOG = _wavenet.ActivateFunc_POLYWOG
+    RASP = _wavenet.ActivateFunc_RASP
     RASP1 = _wavenet.ActivateFunc_RASP1
+    RASP2 = _wavenet.ActivateFunc_RASP2
+    RASP3 = _wavenet.ActivateFunc_RASP3
     def __init__(self): 
         """__init__(ActivateFunc self) -> ActivateFunc"""
         this = _wavenet.new_ActivateFunc()

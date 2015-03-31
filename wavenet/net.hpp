@@ -34,7 +34,7 @@ struct wavelon
 };
 
 struct ActivateFunc {
-  enum Func {Morlet, POLYWOG, RASP1};
+  enum Func {Morlet, POLYWOG, RASP, RASP1, RASP2, RASP3};
 };
 typedef ActivateFunc::Func ActFunc;
 

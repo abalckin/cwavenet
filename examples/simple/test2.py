@@ -61,7 +61,7 @@ def func4_(y, t):
      y1, y2, y3  = y
      return [y2 ,y3, -6*y3-11*y2-6*y1+ u_t(t)]
 
-xmax = 10.
+xmax = 5.
 xmin = 0
 a0 = 1
 a1 = 5
@@ -70,13 +70,14 @@ w1 = 1.5
 p0 =2.6
 p1 =1.4
 p=2
-ncount = 20
-t = np.arange(xmin, xmax, 0.01)
-inp = t*0.+1
+ncount = 10
+t = np.arange(xmin, xmax, 0.1)
+inp = np.sin(t)
+inp = inp+(np.random.random(inp.shape)-0.5)*0.1
 #import pdb; pdb.set_trace()
 #tar = odeint(func3, [1], t)[:, 0]
 #tar = odeint(func2, [1, 1], t)[:, 0]
-tar = odeint(func2, [1, 5], t)[:, 0]
+tar = odeint(func1, [1, 1], t)[:, 0]
 #tar = func4(t)
 d = tar+(np.random.random(tar.shape)-.5)*0.1
 #tar = odeint(func3, [1], t)[:, 0]
@@ -86,8 +87,8 @@ c0 = 0 #np.average(d)
 ##                         a0, a1,  w0, w1, p0, p1, wn.ActivateFunc.POLYWOG, 4)
 ##track = w.train(cb, t, inp, d, wn.TrainStrategy.BFGS, 500, 0., 1)
 w = wn.Net(ncount, xmin, xmax, c0,
-                          a0, a1,  w0, w1, p, p, wn.ActivateFunc.POLYWOG, 4)
-track = w.train(cb, t, inp, d, wn.TrainStrategy.BFGS, 500, 0., 1, False, False)
+                          a0, a1,  w0, w1, p, p, wn.ActivateFunc.Morlet, 4)
+track = w.train(cb, t, inp, d, wn.TrainStrategy.BFGS, 500, 0., 1, True, True)
 tool.plot(t, inp, d, w, track, orig=tar)
 plb.show()
 inp = u_t(t)

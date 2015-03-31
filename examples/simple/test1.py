@@ -7,6 +7,7 @@ import pylab as plb
 import numpy as np
 from scipy.integrate import odeint
 
+k2=0.1
 
 class Caller(object):
     def __call__(self, prg):
@@ -16,70 +17,54 @@ cb = cr.Caller()
 cal = Caller()
 cb.setHandler(cal)
 
-def heaviside(t):
-    return t*0.+1.
+# Mодельная система
+def ksi1(t):
+    #random.seed(t)
+    #return random.random()*k2
+    #return (np.sin(np.sin(t**2)+5*t))*k2
+    return np.sin(5*t)*k2
 
-## def func2(t):
-##     return np.cos(2*t)*np.exp(-t) + np.sin(2*t)*np.exp(-t) - np.cos(2*t)*np.exp(-t)*(heaviside(t)/5 - (np.exp(t)*heaviside(t)*(2*np.cos(2*t) - np.sin(2*t)))/10) - np.sin(2*t)*np.exp(-t)*(heaviside(t)/10 - (np.exp(t)*heaviside(t)*(np.cos(2*t) + 2*np.sin(2*t)))/10)
-## def func1(t):
-##     return 4*np.exp(-2*t) - 3*np.exp(-3*t) + (np.exp(-2*t)*heaviside(t)*(np.exp(2*t) - 1))/2 - (np.exp(-3*t)*heaviside(t)*(np.exp(3*t) - 1))/3
-
-## def func3(t):
-##     return np.exp(-3*t) + (np.exp(-3*t)*heaviside(t)*(np.exp(3*t) - 1))/3
-
-## def func4(t):
-##     return 6*np.exp(-t) - 8*np.exp(-2*t) + 3*np.exp(-3*t) - (np.exp(-2*t)*heaviside(t)*(np.exp(2*t) - 1))/2 + (np.exp(-3*t)*heaviside(t)*(np.exp(3*t) - 1))/6 + (np.exp(-t)*heaviside(t)*(np.exp(t) - 1))/2
-def func1(y, p):
+def ksi2(t):
+    return np.sin(7*t)*k2
+    
+def func1(y, t):
     y1, y2  = y
-    return [y2, -5*y2-6*y1+1]
+    #import pdb; pdb.set_trace()
+    return [y2, -5*y2-(6-np.sin(0.5*t))*y1+u(t)+ksi2(t)]
 
-def func2(y, p):
+def func2(y, t):
     y1, y2  = y
-    return [y2, -2*y2-5*y1+1]
+    return [y2, (-2-np.sin(0.3*t))*y2-5*y1+u(t)+ksi2(t)]
 
-def func3_(y, t):
-    return u_t(t)-3*y
 
-def func3(y, p):
-    return 1-3*y
+def u(t):
+    return 0.8+0.2*np.sin(2*t)+ksi1(t)
 
-def func4(y, par_):
-     #import pdb; pdb.set_trace()
-     print(par_)
-     y1, y2, y3  = y
-     return [y2 ,y3, -6*y3-11*y2-6*y1+ 1]
 
-def u_t(t):
-    return np.sin(t)
-
-def func4_(y, t):
-     #import pdb; pdb.set_trace()
-     y1, y2, y3  = y
-     return [y2 ,y3, -6*y3-11*y2-6*y1+ u_t(t)]
-
-xmax = 10.
-xmin = 0
-a0 = .5
-a1 = .6
-w0 = -0.2
-w1 = 0.4
-p0 = 0.5
-p1 =1.
-ncount = 40
+c0 = 0
+a0 = .1
+a1 = 3.
+w0 = -0.5
+w1 = 0.5
+p = 1.
+xmin=0
+xmax=10 
+ncount = 10
 t = np.arange(xmin, xmax, 0.1)
-inp = u_t(t)
+inp = u(t)
 #import pdb; pdb.set_trace()
 #tar = odeint(func3, [1], t)[:, 0]
 #tar = odeint(func2, [1, 1], t)[:, 0]
-tar = odeint(func3_, [1, 1, 5], t)[:, 0]
+tar = odeint(func1, [1, 1], t)[:, 0]
 #tar = func4(t)
-d = tar+(np.random.random(tar.shape)-.5)*0.0
+d = tar+(np.random.random(tar.shape)-.5)*0.1
 #tar = odeint(func3, [1], t)[:, 0]
-c0 = 0 #np.average(d)
+c0 = 0. #np.average(d)
 #import pdb; pdb.set_trace()
 w = wn.Net(ncount, xmin, xmax, c0,
-                         a0, a1,  w0, w1, p0, p1, wn.ActivateFunc.Morlet, 4)
-track = w.train(cb, t, inp, d, wn.TrainStrategy.BFGS, 100, 0., 1)
+                         a0, a1,  w0, w1, p, p, wn.ActivateFunc.RASP, 4)
+track = w.train(cb, t, inp, d, wn.TrainStrategy.Gradient, 300, 0., 1, False, False)
+#import pdb; pdb.set_trace()
 tool.plot(t, inp, d, w, track, orig=tar)
 plb.show()
 ## inp = np.sin(3*t)
