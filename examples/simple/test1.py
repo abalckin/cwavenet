@@ -30,23 +30,24 @@ def ksi2(t):
 def func1(y, t):
     y1, y2  = y
     #import pdb; pdb.set_trace()
-    return [y2, -5*y2-(6-np.sin(0.5*t))*y1+u(t)+ksi2(t)]
+    return [y2, -5*y2-(6+2*np.sin(0.5*t))*y1+u(t)+ksi2(t)]
 
 def func2(y, t):
     y1, y2  = y
-    return [y2, (-2-np.sin(0.3*t))*y2-5*y1+u(t)+ksi2(t)]
+    return [y2, -(2+1*np.sin(0.5*t))*y2-5*y1+u(t)+ksi2(t)]
 
 
 def u(t):
-    return 0.8+0.2*np.sin(2*t)+ksi1(t)
+    return 1.+0.2*np.sin(2*t)+ksi1(t)
 
 
-c0 = 0
-a0 = .1
-a1 = 3.
-w0 = -0.5
-w1 = 0.5
-p = 1.
+c0 = 0.
+a0 = 1.5
+a1 = 2.5
+w0 = -0.1
+w1 = 0.1
+p0 = 0.9
+p1 = 1.3
 xmin=0
 xmax=10 
 ncount = 10
@@ -57,13 +58,13 @@ inp = u(t)
 #tar = odeint(func2, [1, 1], t)[:, 0]
 tar = odeint(func1, [1, 1], t)[:, 0]
 #tar = func4(t)
-d = tar+(np.random.random(tar.shape)-.5)*0.1
+d = tar+(np.random.random(tar.shape)-.5)*0.05
 #tar = odeint(func3, [1], t)[:, 0]
 c0 = 0. #np.average(d)
 #import pdb; pdb.set_trace()
 w = wn.Net(ncount, xmin, xmax, c0,
-                         a0, a1,  w0, w1, p, p, wn.ActivateFunc.RASP, 4)
-track = w.train(cb, t, inp, d, wn.TrainStrategy.Gradient, 300, 0., 1, False, False)
+                         a0, a1,  w0, w1, p0, p1, wn.ActivateFunc.Morlet, 4)
+track = w.train(cb, t, inp, d, wn.TrainStrategy.Gradient, 300, 0., 1)
 #import pdb; pdb.set_trace()
 tool.plot(t, inp, d, w, track, orig=tar)
 plb.show()
