@@ -37,84 +37,37 @@ def func2(y, p):
     y1, y2  = y
     return [y2, -2*y2-5*y1+1]
 
-def func2_(y, t):
-    y1, y2  = y
-    return [y2, -2*y2-5*y1+u_t(t)]
-
-
-def func3_(y, t):
-    return u_t(t)-3*y
-
-def func3(y, p):
-    return 1-3*y
-
-## def func4(y, par_):
-##      #import pdb; pdb.set_trace()
-##      y1, y2, y3  = y
-##      return [y2 ,y3, -6*y3-11*y2-6*y1+ 1]
-
 def u_t(t):
     return 0.4*np.sin(t+np.pi/4)+1.
 
-## def _func4_(y, t):
-##      #import pdb; pdb.set_trace()
-##      y1, y2, y3  = y
-##      return [y2 ,y3, -6*y3-11*y2-6*y1+ u_t(t)]
-
-def func4(y, t):
-    y1, y2  = y
-    return [y2, (-5-5*np.sin(t))*y2-6*y1+u_t(t)]
-
-def func5(y, tmax):
-#    import pdb; pdb.set_trace()
-    if len(y)==tmax:
-        return y
-    else:
-        t = len(y)
-        y.append(y[-1]*y[-2]/(1+y[-1]**2+y[-2]**2)+0.8*np.sin(2*np.pi*t/50))
-        return  np.array(func5(y, tmax))
-
 xmax = 10.
 xmin = 0
-a0 = 1
-a1 = 5
-w0 = -1.5
-w1 = 1.5
-p0 =1
-p1 =1
-
-ncount = 20
-#t = np.arange(xmin, xmax, 0.01)
-#inp = u_t(t)
-c0 = 0.5
-#import pdb; pdb.set_trace()
-#tar = odeint(func3, [1], t)[:, 0]
-#tar = odeint(func2, [1, 1], t)[:, 0]
-tar = odeint(func4, [1, 1], t)[:, 0]
-#tar = func4(t)
-tar = func5([0., 0.1], 500)
+a0 = 2.2
+a1 = 2.2
+w0 = -.4
+w1 = .4
+p0 = 2.2
+p1 = 2.2
+ncount = 10
+c0 = 0.
+t = np.arange(xmin, xmax, 0.1)
+tar = odeint(func1, [1, 1], t)[:, 0]
 d = tar+(np.random.random(tar.shape)-.5)*0.1
-t=np.arange(tar.shape[-1])*1.
-inp = 0.8*np.sin(2*np.pi*t/50)
-#tar = odeint(func3, [1], t)[:, 0]
-#import pdb; pdb.set_trace()
-##w = wn.Net(ncount, xmin, xmax, c0,
-##                         a0, a1,  w0, w1, p0, p1, wn.ActivateFunc.POLYWOG, 4)
-##track = w.train(cb, t, inp, d, wn.TrainStrategy.BFGS, 500, 0., 1)
+inp = np.vectorize(u_t)(t)
 w = wn.Net(ncount, xmin, xmax, c0,
-                          a0, a1,  w0, w1, p0, p1, wn.ActivateFunc.RASP1, 4)
+                          a0, a1,  w0, w1, p0, p1, wn.ActivateFunc.Morlet, 4)
 track = w.train(cb, t, inp, d, wn.TrainStrategy.BFGS, 1000, 0., 1, True, True)
 tool.plot(t, inp, d, w, track, orig=tar)
 plb.show()
-## inp = u_t(t)
-## tar = odeint(func2_, [1, 5], t)[:, 0]
-## res = w.sim(t, inp)
-## plb.figure()
-## plb.plot(t, inp, '.', label='Вход')
-## plb.plot(t, tar, '-', label='Выход модели')
-## plb.plot(t, res, '--', label='Выход сети')
-## plb.legend(loc=0)
-## plb.show()
+inp = u_t(t)
+tar = odeint(func2_, [1, 5], t)[:, 0]
+res = w.sim(t, inp)
+plb.figure()
+plb.plot(t, inp, '.', label='Вход')
+plb.plot(t, tar, '-', label='Выход модели')
+plb.plot(t, res, '--', label='Выход сети')
+plb.legend(loc=0)
+plb.show()
 sys.exit()
 
 
