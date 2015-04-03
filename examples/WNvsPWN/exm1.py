@@ -44,13 +44,13 @@ def uc(t):
 
 
 def ug(t):
-    return 1+0.2*np.sin(2*t)
+    return 1+0.2*np.cos(2*t)
 
 cb = cr.Caller()
 cal = Caller()
 cb.setHandler(cal)
 k2 = 0.05
-N = 140
+N = 100
 np.random.seed()
 c0 = 0.1
 a0 = 0.5
@@ -73,10 +73,9 @@ sysbg = odeint(func2g, [1, 1], t)[:, 0]
 sysbc = odeint(func2c, [1, 1], t)[:, 0]
 ulist = [inpg, inpc, inpg, inpc]
 tarlist = [sysag, sysac, sysbg, sysbc]
-eps = np.random.normal(0., np.sqrt(0.5), sysac.shape)*k2
+eps = np.random.normal(0., np.sqrt(0.5), sysbg.shape)*k2
 d = sysbc+eps*np.abs(sysbc)
-f = 0.
-w = wn.Net(nc, 0.+f, 10.+f, c0,
+w = wn.Net(nc, 0., 10., c0,
                           a0, a1,  w0, w1, p0, p1, wn.ActivateFunc.Morlet, 1)
 track = w.train(cb, t, inpc, d, wn.TrainStrategy.Gradient, N, 0., 1, True, True)
 tool.plot(t, inpc, w, track, orig=sysbc, target=d)
