@@ -122,7 +122,10 @@ def main():
                 except:
                     pass
                 #M = (yinf-err_min)/err_min
-                #ans = w.sim(t, inp)
+                ans = w.sim(t, inp)
+                plb.plot(t, ans)
+                plb.plot(t, dparam)
+                plb.show()
                 E = w.energy(t, inp, tar)
                 #import pdb; pdb.set_trace()
                 E_list[wavenum].append(E)

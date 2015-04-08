@@ -7,6 +7,7 @@ import pylab as plb
 import numpy as np
 from scipy.integrate import odeint
 import cregister as cr
+from scipy import signal
 
 class Caller(object):
     def __call__(self, prg):

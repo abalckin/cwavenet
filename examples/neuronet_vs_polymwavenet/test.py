@@ -8,6 +8,13 @@ import numpy as np
 import scipy.stats
 import scipy as sp
 import neurolab as nl
+import cregister as cr
+#from scipy import signal
+
+class Caller(object):
+    def __call__(self, prg):
+        pass
+
 #доверительный интервал
 def mean_confidence_interval(data, confidence=0.95):
     a = 1.0*np.array(data)
@@ -18,10 +25,7 @@ def mean_confidence_interval(data, confidence=0.95):
 
 # Mодельная функция
 def func1(x):
-    if x < 0:
-        return 10*np.exp(-.03*x*40 - 0.3)*np.sin((0.6*x*40-0.1))+40*x+.5
-    if x >= 0:
-        return 10*np.exp(-.03*x*40 - 0.3)*np.sin((0.3*x*40-0.1))+40*x+.5
+        return (10+x*2)*np.exp(-.03*x*40 - 0.3)+0.5
 
 def main():
     # Инициалиазация
@@ -29,6 +33,9 @@ def main():
     N = 200
     np.random.seed()
     test_num = 15
+    cb = cr.Caller()
+    cal = Caller()
+    cb.setHandler(cal)
 
     p0=.0345
     p1=.0345
@@ -40,7 +47,7 @@ def main():
     print('\n\t\t\t|Полиморфная вейвсеть\t\t\t\t|Нейронная сеть')
     print('\nk2\t|\tS\t|\tn\t|\tM\t|\tdE\t|\tn\t|\tM\t|\tdE')
     #import pdb; pdb.set_trace()
-    klist = [1.*1.5**i/30. for i in range(-1, 10)]
+    klist = [1.*1.5**i/30. for i in range(0, 10)]
     for k2 in klist:
         S_list = []
         n_list = [[], []]
@@ -68,8 +75,8 @@ def main():
                 else:
                     ts = wn.TrainStrategy.Gradient
                     w = wn.Net(nc, np.min(inp), np.max(inp), -0.01,
-                            a0, a1, w0, w1, p0, p1, wn.ActivateFunc.Morlet, 9)
-                    track = w.train(inp, inp*40, d, ts, N, 0.0, 1, True, True)
+                            a0, a1, w0, w1, p0, p1, wn.ActivateFunc.POLYWOG, 4)
+                    track = w.train(cb, inp, inp*40, d, ts, N, 0.0, 1, True, True)
                     ans = w.sim(inp, inp*40)
                     E = track['e']
                     y = np.array(E)[0]
