@@ -13,10 +13,22 @@ column_vector Net::der (const column_vector& x)
   return _gradient(t, inp, targ, x, varc, varp);
 }
 
-train_res Net::train(Caller& cb, const std_vector& t, const std_vector&  inp, const std_vector& target,
+train_res Net::train(const std_vector& t, const std_vector&  inp, const std_vector& target,
 		     TrainStrat train_strategy,
-		     int epochs, double goal, int show, bool varc, bool varp)
+		     int epochs, double goal, int show, bool varc, bool varp, Caller cb)
 {
+  double max = std::max_element(t.begin(), t.end())[0];
+  double min = std::min_element(t.begin(),t.end())[0];
+  double delta = (max - min)/nc;
+  max += delta;
+  min -= delta;
+  delta =(max-min)/nc;
+  wn =(wavelon *) (&weight(0) + 1 + fc);
+  for (int i=0; i<nc; i++)
+    {
+      wn[i].b = min+i*delta+delta/2.;
+    }
+
   this->varc = varc;
   this->varp = varp;
   switch (train_strategy)

@@ -9,7 +9,10 @@ import scipy.stats
 import scipy as sp
 import neurolab as nl
 import cregister as cr
+import pylab as plb
+import time
 #from scipy import signal
+import tool
 
 class Caller(object):
     def __call__(self, prg):
@@ -25,29 +28,30 @@ def mean_confidence_interval(data, confidence=0.95):
 
 # Mодельная функция
 def func1(x):
-        return (10+x*2)*np.exp(-.03*x*40 - 0.3)+0.5
-
+        return (0.7+2*x)*np.exp(-.3*x*40 - 0.3)
 def main():
     # Инициалиазация
     Exp_list = []
     N = 200
     np.random.seed()
-    test_num = 15
+    test_num = 10
     cb = cr.Caller()
     cal = Caller()
     cb.setHandler(cal)
+    c0 = .5
+    p0 = 1.
+    p1 = 1.
+    a0 = .8
+    a1 = .8
+    nc = 10
+    w0 = -.1
+    w1 = -0.1
 
-    p0=.0345
-    p1=.0345
-    a0=0.03
-    a1=0.03
-    nc=16
-    w0=-.01
-    w1=0.01
     print('\n\t\t\t|Полиморфная вейвсеть\t\t\t\t|Нейронная сеть')
     print('\nk2\t|\tS\t|\tn\t|\tM\t|\tdE\t|\tn\t|\tM\t|\tdE')
     #import pdb; pdb.set_trace()
-    klist = [1.*1.5**i/30. for i in range(0, 10)]
+    klist = [1.*1.5**i/50. for i in range(0, 10)]
+    T_list = [[], []]
     for k2 in klist:
         S_list = []
         n_list = [[], []]
@@ -55,36 +59,43 @@ def main():
         ME_list = [[], []]
         for ff in [True, False]:
             for i in range(test_num):
-                inp = np.arange(-0.5, 0.5, 0.5/40.)
-                tar = np.vectorize(func1)(inp)/30
+                inp = np.arange(0., 0.5, 0.01)
+                tar = np.vectorize(func1)(inp)
                 T = tar.shape[-1]
                 eps = (np.random.random(T)-0.5)*k2
                 d = tar+eps
-                #err_min = 0.5*np.sum(((d-tar)**2))
+                start=0.
+                end=0.
                 if ff == True:
                     inp_ff = inp.reshape(T, 1)
                     tar_ff = d.reshape(T, 1)
-                    n = nl.net.newff([[-1., 1.]], [35, 1])
+                    n = nl.net.newff([[-1., 1.]], [60, 1])
                     n.trainf = nl.train.train_gd
                     #import pdb; pdb.set_trace()
+                    start= time.clock()
                     E = n.train(inp_ff, tar_ff, epochs=N, goal=0.0, show=0, adapt=True)
+                    end= time.clock()
+                    total = (end-start)/N
                     y = np.array(E)
                     ans = n.sim(inp_ff).reshape(T)
                     #import pdb; pdb.set_trace()
                     #import pdb; pdb.set_trace()
                 else:
                     ts = wn.TrainStrategy.Gradient
-                    w = wn.Net(nc, np.min(inp), np.max(inp), -0.01,
+                    w = wn.Net(nc, np.min(inp)-0.01, np.max(inp)+0.01, c0,
                             a0, a1, w0, w1, p0, p1, wn.ActivateFunc.POLYWOG, 4)
-                    track = w.train(cb, inp, inp*40, d, ts, N, 0.0, 1, True, True)
-                    ans = w.sim(inp, inp*40)
+                    start = time.clock()
+                    track = w.train(cb, inp, inp, d, ts, N, 0.0, 1, False, True)
+                    end= time.clock()
+                    ans = w.sim(inp, inp)
+                    tool.plot(inp, inp, w, track, orig=tar, target=d)
+                    #plb.show()
                     E = track['e']
                     y = np.array(E)[0]
                 Ay = (np.sum(tar**2)/T)**0.5
                 Aeps = (np.sum((d-tar)**2)/T)**0.5
                 S = (Ay/Aeps)**2
                 S_list.append(S)
-
                 try:
                     y010 = np.extract(y < y[0]*0.1, y)[0]
                     x010 = np.nonzero(y == y010)[0][0]
@@ -99,6 +110,8 @@ def main():
                 #import pdb; pdb.set_trace()
                 dEinf = (y[-2]-y[-1])
                 ME_list[ff].append(dEinf)
+                total += end-start
+                T_list[ff].append(total)
         S, dS = mean_confidence_interval(S_list)
         n0, dn0 = mean_confidence_interval(n_list[0])
         M0, dM0 = mean_confidence_interval(M_list[0])
@@ -127,6 +140,10 @@ def main():
         Exp_list.append([k2, S, dS, n0, dn0, M0, dM0, ME0, dME0, n1, dn1, M1,
                         dM1, ME1, dME1])
         np.savetxt('result.txt', np.array(Exp_list), delimiter=', ')
+    T0, dT0 = mean_confidence_interval(T_list[0])
+    print("Время ПВС - {0}=+-{1}".format(T0, dT0))
+    T1, dT1 = mean_confidence_interval(T_list[1])
+    print("Время НС - {0}=+-{1}".format(T1, dT1))
 
 if __name__ == '__main__':
     main()

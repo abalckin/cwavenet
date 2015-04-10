@@ -6,6 +6,7 @@
 %include "std_list.i"
 %include "std_string.i"
 %include "std_map.i"
+%feature ("kwargs") Net;
 namespace std {
    %template(std_vector) vector<double>;
    %template(param_series) list<double>;

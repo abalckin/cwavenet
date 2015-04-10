@@ -1167,16 +1167,14 @@ class Net(_object):
         """
         return _wavenet.Net_der(self, *args)
 
-    def __init__(self, *args): 
+    def __init__(self, *args, **kwargs): 
         """
-        __init__(Net self, int ncount, double tmin, double tmax, double ymin, double a0=10., double a1=10., 
-            double w0=0.1, double w1=0.1, double p0=1.0, double p1=1.0, ActFunc f=Morlet, 
+        __init__(Net self, int ncount, double ymin, double a0=10., double a1=10., double w0=0.1, double w1=0.1, 
+            double p0=1.0, double p1=1.0, int fcount=0, double fbcoef=0.01, ActFunc f=Morlet, 
             int numberOfThreads=2) -> Net
 
         Parameters:
             ncount: int
-            tmin: double
-            tmax: double
             ymin: double
             a0: double
             a1: double
@@ -1184,108 +1182,13 @@ class Net(_object):
             w1: double
             p0: double
             p1: double
+            fcount: int
+            fbcoef: double
             f: enum ActFunc
             numberOfThreads: int
 
-        __init__(Net self, int ncount, double tmin, double tmax, double ymin, double a0=10., double a1=10., 
-            double w0=0.1, double w1=0.1, double p0=1.0, double p1=1.0, ActFunc f=Morlet) -> Net
-
-        Parameters:
-            ncount: int
-            tmin: double
-            tmax: double
-            ymin: double
-            a0: double
-            a1: double
-            w0: double
-            w1: double
-            p0: double
-            p1: double
-            f: enum ActFunc
-
-        __init__(Net self, int ncount, double tmin, double tmax, double ymin, double a0=10., double a1=10., 
-            double w0=0.1, double w1=0.1, double p0=1.0, double p1=1.0) -> Net
-
-        Parameters:
-            ncount: int
-            tmin: double
-            tmax: double
-            ymin: double
-            a0: double
-            a1: double
-            w0: double
-            w1: double
-            p0: double
-            p1: double
-
-        __init__(Net self, int ncount, double tmin, double tmax, double ymin, double a0=10., double a1=10., 
-            double w0=0.1, double w1=0.1, double p0=1.0) -> Net
-
-        Parameters:
-            ncount: int
-            tmin: double
-            tmax: double
-            ymin: double
-            a0: double
-            a1: double
-            w0: double
-            w1: double
-            p0: double
-
-        __init__(Net self, int ncount, double tmin, double tmax, double ymin, double a0=10., double a1=10., 
-            double w0=0.1, double w1=0.1) -> Net
-
-        Parameters:
-            ncount: int
-            tmin: double
-            tmax: double
-            ymin: double
-            a0: double
-            a1: double
-            w0: double
-            w1: double
-
-        __init__(Net self, int ncount, double tmin, double tmax, double ymin, double a0=10., double a1=10., 
-            double w0=0.1) -> Net
-
-        Parameters:
-            ncount: int
-            tmin: double
-            tmax: double
-            ymin: double
-            a0: double
-            a1: double
-            w0: double
-
-        __init__(Net self, int ncount, double tmin, double tmax, double ymin, double a0=10., double a1=10.) -> Net
-
-        Parameters:
-            ncount: int
-            tmin: double
-            tmax: double
-            ymin: double
-            a0: double
-            a1: double
-
-        __init__(Net self, int ncount, double tmin, double tmax, double ymin, double a0=10.) -> Net
-
-        Parameters:
-            ncount: int
-            tmin: double
-            tmax: double
-            ymin: double
-            a0: double
-
-        __init__(Net self, int ncount, double tmin, double tmax, double ymin) -> Net
-
-        Parameters:
-            ncount: int
-            tmin: double
-            tmax: double
-            ymin: double
-
         """
-        this = _wavenet.new_Net(*args)
+        this = _wavenet.new_Net(*args, **kwargs)
         try: self.this.append(this)
         except: self.this = this
     __swig_destroy__ = _wavenet.delete_Net
@@ -1327,11 +1230,25 @@ class Net(_object):
 
     def train(self, *args):
         """
-        train(Net self, Caller & cb, std_vector t, std_vector inp, std_vector target, TrainStrat train_strategy=CG, 
-            int epochs=30, double goal=0.3, int show=1, bool varc=True, bool varp=True) -> train_res
+        train(Net self, std_vector t, std_vector inp, std_vector target, TrainStrat train_strategy=CG, int epochs=30, 
+            double goal=0.3, int show=1, bool varc=True, bool varp=True, Caller callback=Caller()) -> train_res
 
         Parameters:
-            cb: Caller &
+            t: std_vector const &
+            inp: std_vector const &
+            target: std_vector const &
+            train_strategy: enum TrainStrat
+            epochs: int
+            goal: double
+            show: int
+            varc: bool
+            varp: bool
+            callback: Caller
+
+        train(Net self, std_vector t, std_vector inp, std_vector target, TrainStrat train_strategy=CG, int epochs=30, 
+            double goal=0.3, int show=1, bool varc=True, bool varp=True) -> train_res
+
+        Parameters:
             t: std_vector const &
             inp: std_vector const &
             target: std_vector const &
@@ -1342,11 +1259,10 @@ class Net(_object):
             varc: bool
             varp: bool
 
-        train(Net self, Caller & cb, std_vector t, std_vector inp, std_vector target, TrainStrat train_strategy=CG, 
-            int epochs=30, double goal=0.3, int show=1, bool varc=True) -> train_res
+        train(Net self, std_vector t, std_vector inp, std_vector target, TrainStrat train_strategy=CG, int epochs=30, 
+            double goal=0.3, int show=1, bool varc=True) -> train_res
 
         Parameters:
-            cb: Caller &
             t: std_vector const &
             inp: std_vector const &
             target: std_vector const &
@@ -1356,11 +1272,10 @@ class Net(_object):
             show: int
             varc: bool
 
-        train(Net self, Caller & cb, std_vector t, std_vector inp, std_vector target, TrainStrat train_strategy=CG, 
-            int epochs=30, double goal=0.3, int show=1) -> train_res
+        train(Net self, std_vector t, std_vector inp, std_vector target, TrainStrat train_strategy=CG, int epochs=30, 
+            double goal=0.3, int show=1) -> train_res
 
         Parameters:
-            cb: Caller &
             t: std_vector const &
             inp: std_vector const &
             target: std_vector const &
@@ -1369,11 +1284,10 @@ class Net(_object):
             goal: double
             show: int
 
-        train(Net self, Caller & cb, std_vector t, std_vector inp, std_vector target, TrainStrat train_strategy=CG, 
-            int epochs=30, double goal=0.3) -> train_res
+        train(Net self, std_vector t, std_vector inp, std_vector target, TrainStrat train_strategy=CG, int epochs=30, 
+            double goal=0.3) -> train_res
 
         Parameters:
-            cb: Caller &
             t: std_vector const &
             inp: std_vector const &
             target: std_vector const &
@@ -1381,30 +1295,26 @@ class Net(_object):
             epochs: int
             goal: double
 
-        train(Net self, Caller & cb, std_vector t, std_vector inp, std_vector target, TrainStrat train_strategy=CG, 
-            int epochs=30) -> train_res
+        train(Net self, std_vector t, std_vector inp, std_vector target, TrainStrat train_strategy=CG, int epochs=30) -> train_res
 
         Parameters:
-            cb: Caller &
             t: std_vector const &
             inp: std_vector const &
             target: std_vector const &
             train_strategy: enum TrainStrat
             epochs: int
 
-        train(Net self, Caller & cb, std_vector t, std_vector inp, std_vector target, TrainStrat train_strategy=CG) -> train_res
+        train(Net self, std_vector t, std_vector inp, std_vector target, TrainStrat train_strategy=CG) -> train_res
 
         Parameters:
-            cb: Caller &
             t: std_vector const &
             inp: std_vector const &
             target: std_vector const &
             train_strategy: enum TrainStrat
 
-        train(Net self, Caller & cb, std_vector t, std_vector inp, std_vector target) -> train_res
+        train(Net self, std_vector t, std_vector inp, std_vector target) -> train_res
 
         Parameters:
-            cb: Caller &
             t: std_vector const &
             inp: std_vector const &
             target: std_vector const &

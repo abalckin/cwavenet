@@ -48,19 +48,22 @@ class Net
 public:
   double f (const column_vector& x);
   column_vector der (const column_vector& x);
-  Net(int ncount, double tmin, double tmax, double ymin, double a0=10., double a1=10.,
-      double w0=0.1, double w1=0.1, double p0=1.0, double p1=1.0, ActFunc f = ActivateFunc::Morlet, int numberOfThreads=2);
+  Net(int ncount, double ymin, double a0=10., double a1=10.,
+      double w0=0.1, double w1=0.1, double p0=1.0, double p1=1.0,
+      int fcount=0, double fbcoef=0.01, ActFunc f = ActivateFunc::Morlet, int numberOfThreads=2);
   ~Net();
   std_vector sim(const std_vector&  t, const std_vector&  inp);
   std_vector gradient(const std_vector& t, const std_vector& target, const std_vector&  inp);
   double energy(const std_vector& t, const std_vector&  inp, const std_vector& target);
-  train_res train(Caller& cb, const std_vector& t,const std_vector&  inp, const std_vector& target,
+  train_res train(const std_vector& t,const std_vector&  inp, const std_vector& target,
 		     TrainStrat train_strategy=TrainStrategy::CG,
-		  int epochs=30, double goal = 0.3, int show=1, bool varc=true, bool varp=true);
+		  int epochs=30, double goal = 0.3, int show=1, bool varc=true,
+		  bool varp=true, Caller callback = Caller());
   friend NetModel;
  
 private:
   int nc;
+  int fc;
   int wcount;
   column_vector weight;
   std_vector t;

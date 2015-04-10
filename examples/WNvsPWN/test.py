@@ -110,7 +110,7 @@ def main():
                         y010 = np.extract(y < y[0]*0.1, y)[0]
                         x010 = np.nonzero(y == y010)[0][0]
                         n_list[wavenum].append(x010)
-                        T_list[wavenum].append(T[x010])
+                        T_list[wavenum].append(T[x010])   
                     except:
                         pass
                     E = w.energy(t, uin, tar)
