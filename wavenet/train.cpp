@@ -20,8 +20,8 @@ train_res Net::train(const std_vector& t, const std_vector&  inp, const std_vect
   double max = std::max_element(t.begin(), t.end())[0];
   double min = std::min_element(t.begin(),t.end())[0];
   double delta = (max - min)/nc;
-  max += delta;
-  min -= delta;
+  max += 2*delta;
+  min -= 2*delta;
   delta =(max-min)/nc;
   wn =(wavelon *) (&weight(0) + 1 + fc);
   for (int i=0; i<nc; i++)
@@ -64,6 +64,7 @@ train_res Net::_train(const std_vector& t, const std_vector&  input, const std_v
   tr_res[std::string("e")] = train_set(1);
   tr_res[std::string("p")] = train_set(nc);
   tr_res[std::string("w")] = train_set(nc);
+  tr_res[std::string("f")] = train_set(fc);
   tr_res[std::string("t")] = train_set(1);
   this->t = t;
   inp = input;
@@ -120,5 +121,9 @@ void Net::mem(train_res& tr_res, double f_value, double t)
 	  tr_res["e"][0].push_back(f_value);
 	  tr_res["c"][0].push_back(weight(0));
 	  tr_res["t"][0].push_back(t);
+	  for (int i=0; i<fc; i++)
+	    {
+	      tr_res["f"][i].push_back(weight(i+1));
+	    }
 }
 

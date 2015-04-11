@@ -18,7 +18,7 @@ ncount = 9
 inp = range(xmin, xmax, 1)
 tar = [math.sin(x/144*3.14*2.) for x in inp]
 w = wn.Net(ncount,y0,
-                         a0, a1,  w0, w1, p0, p1, 0, 0., wn.ActivateFunc.Morlet, 2)
+                         a0, a1,  w0, w1, p0, p1, 2, 0.01, 0.01, wn.ActivateFunc.Morlet, 2)
 track = w.train(inp, inp, tar, wn.TrainStrategy.BFGS, 50, 0.2, 1)
 tool.plot(inp, inp, tar, w, track)
 plb.show()

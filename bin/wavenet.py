@@ -1170,8 +1170,8 @@ class Net(_object):
     def __init__(self, *args, **kwargs): 
         """
         __init__(Net self, int ncount, double ymin, double a0=10., double a1=10., double w0=0.1, double w1=0.1, 
-            double p0=1.0, double p1=1.0, int fcount=0, double fbcoef=0.01, ActFunc f=Morlet, 
-            int numberOfThreads=2) -> Net
+            double p0=1.0, double p1=1.0, int fcount=0, double f0=0.1, double fbcoef=0.01, 
+            ActFunc f=Morlet, int numberOfThreads=2) -> Net
 
         Parameters:
             ncount: int
@@ -1183,6 +1183,7 @@ class Net(_object):
             p0: double
             p1: double
             fcount: int
+            f0: double
             fbcoef: double
             f: enum ActFunc
             numberOfThreads: int

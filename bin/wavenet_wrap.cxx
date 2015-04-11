@@ -10636,9 +10636,10 @@ SWIGINTERN PyObject *_wrap_new_Net(PyObject *SWIGUNUSEDPARM(self), PyObject *arg
   double arg7 = (double) 1.0 ;
   double arg8 = (double) 1.0 ;
   int arg9 = (int) 0 ;
-  double arg10 = (double) 0.01 ;
-  ActFunc arg11 = (ActFunc) ActivateFunc::Morlet ;
-  int arg12 = (int) 2 ;
+  double arg10 = (double) 0.1 ;
+  double arg11 = (double) 0.01 ;
+  ActFunc arg12 = (ActFunc) ActivateFunc::Morlet ;
+  int arg13 = (int) 2 ;
   int val1 ;
   int ecode1 = 0 ;
   double val2 ;
@@ -10659,10 +10660,12 @@ SWIGINTERN PyObject *_wrap_new_Net(PyObject *SWIGUNUSEDPARM(self), PyObject *arg
   int ecode9 = 0 ;
   double val10 ;
   int ecode10 = 0 ;
-  int val11 ;
+  double val11 ;
   int ecode11 = 0 ;
   int val12 ;
   int ecode12 = 0 ;
+  int val13 ;
+  int ecode13 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   PyObject * obj2 = 0 ;
@@ -10675,12 +10678,13 @@ SWIGINTERN PyObject *_wrap_new_Net(PyObject *SWIGUNUSEDPARM(self), PyObject *arg
   PyObject * obj9 = 0 ;
   PyObject * obj10 = 0 ;
   PyObject * obj11 = 0 ;
+  PyObject * obj12 = 0 ;
   char *  kwnames[] = {
-    (char *) "ncount",(char *) "ymin",(char *) "a0",(char *) "a1",(char *) "w0",(char *) "w1",(char *) "p0",(char *) "p1",(char *) "fcount",(char *) "fbcoef",(char *) "f",(char *) "numberOfThreads", NULL 
+    (char *) "ncount",(char *) "ymin",(char *) "a0",(char *) "a1",(char *) "w0",(char *) "w1",(char *) "p0",(char *) "p1",(char *) "fcount",(char *) "f0",(char *) "fbcoef",(char *) "f",(char *) "numberOfThreads", NULL 
   };
   Net *result = 0 ;
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO|OOOOOOOOOO:new_Net",kwnames,&obj0,&obj1,&obj2,&obj3,&obj4,&obj5,&obj6,&obj7,&obj8,&obj9,&obj10,&obj11)) SWIG_fail;
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO|OOOOOOOOOOO:new_Net",kwnames,&obj0,&obj1,&obj2,&obj3,&obj4,&obj5,&obj6,&obj7,&obj8,&obj9,&obj10,&obj11,&obj12)) SWIG_fail;
   ecode1 = SWIG_AsVal_int(obj0, &val1);
   if (!SWIG_IsOK(ecode1)) {
     SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "new_Net" "', argument " "1"" of type '" "int""'");
@@ -10748,20 +10752,27 @@ SWIGINTERN PyObject *_wrap_new_Net(PyObject *SWIGUNUSEDPARM(self), PyObject *arg
     arg10 = static_cast< double >(val10);
   }
   if (obj10) {
-    ecode11 = SWIG_AsVal_int(obj10, &val11);
+    ecode11 = SWIG_AsVal_double(obj10, &val11);
     if (!SWIG_IsOK(ecode11)) {
-      SWIG_exception_fail(SWIG_ArgError(ecode11), "in method '" "new_Net" "', argument " "11"" of type '" "ActFunc""'");
+      SWIG_exception_fail(SWIG_ArgError(ecode11), "in method '" "new_Net" "', argument " "11"" of type '" "double""'");
     } 
-    arg11 = static_cast< ActFunc >(val11);
+    arg11 = static_cast< double >(val11);
   }
   if (obj11) {
     ecode12 = SWIG_AsVal_int(obj11, &val12);
     if (!SWIG_IsOK(ecode12)) {
-      SWIG_exception_fail(SWIG_ArgError(ecode12), "in method '" "new_Net" "', argument " "12"" of type '" "int""'");
+      SWIG_exception_fail(SWIG_ArgError(ecode12), "in method '" "new_Net" "', argument " "12"" of type '" "ActFunc""'");
     } 
-    arg12 = static_cast< int >(val12);
+    arg12 = static_cast< ActFunc >(val12);
   }
-  result = (Net *)new Net(arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9,arg10,arg11,arg12);
+  if (obj12) {
+    ecode13 = SWIG_AsVal_int(obj12, &val13);
+    if (!SWIG_IsOK(ecode13)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode13), "in method '" "new_Net" "', argument " "13"" of type '" "int""'");
+    } 
+    arg13 = static_cast< int >(val13);
+  }
+  result = (Net *)new Net(arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9,arg10,arg11,arg12,arg13);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_Net, SWIG_POINTER_NEW |  0 );
   return resultobj;
 fail:
@@ -16375,8 +16386,8 @@ static PyMethodDef SwigMethods[] = {
 		""},
 	 { (char *)"new_Net", (PyCFunction) _wrap_new_Net, METH_VARARGS | METH_KEYWORDS, (char *)"\n"
 		"new_Net(int ncount, double ymin, double a0=10., double a1=10., double w0=0.1, double w1=0.1, \n"
-		"    double p0=1.0, double p1=1.0, int fcount=0, double fbcoef=0.01, ActFunc f=Morlet, \n"
-		"    int numberOfThreads=2) -> Net\n"
+		"    double p0=1.0, double p1=1.0, int fcount=0, double f0=0.1, double fbcoef=0.01, \n"
+		"    ActFunc f=Morlet, int numberOfThreads=2) -> Net\n"
 		"\n"
 		"Parameters:\n"
 		"    ncount: int\n"
@@ -16388,6 +16399,7 @@ static PyMethodDef SwigMethods[] = {
 		"    p0: double\n"
 		"    p1: double\n"
 		"    fcount: int\n"
+		"    f0: double\n"
 		"    fbcoef: double\n"
 		"    f: enum ActFunc\n"
 		"    numberOfThreads: int\n"

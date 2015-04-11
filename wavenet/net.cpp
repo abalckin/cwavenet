@@ -5,9 +5,9 @@
 using namespace std;
 Net::Net(int ncount, double c0,
  double a0, double a1, double w0, double w1, double p0, double p1,
-	 int fcount, double fbcoef, ActFunc f, int numberOfThreads)
+	 int fcount, double f0, double fbcoef, ActFunc f, int numberOfThreads)
   {
-  wcount = ncount*4+1;
+  wcount = ncount*4+1+fcount;
   switch (f)
      {
      case  ActivateFunc::Morlet:
@@ -34,9 +34,10 @@ Net::Net(int ncount, double c0,
      }
   nc = ncount;
   fc = fcount;
+  fb = fbcoef;
   weight.set_size(wcount);
   weight(0) = c0;
-  wn =(wavelon *) (&weight(0) + 1);
+  wn =(wavelon *) (&weight(0) + 1 + fc);
   srand (time(NULL));
   omp_set_num_threads(numberOfThreads);
   float dw = w1-w0;
@@ -51,6 +52,9 @@ Net::Net(int ncount, double c0,
       r = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
       wn[i].p = (r*dp)+p0;
     }
+  double *fcoef = (&weight(0) + 1);
+  for (int i=0; i<fc; i++)
+      fcoef[i]=f0;
   }
 
 std_vector Net::sim(const std_vector& t, const std_vector&  inp)
@@ -60,8 +64,10 @@ std_vector Net::sim(const std_vector& t, const std_vector&  inp)
 
 std_vector Net::_sim(const std_vector& t,const std_vector&  inp, const column_vector& weight)
 {
-  wavelon *wn =(wavelon *) (&weight(0) + 1);   
+  wavelon *wn =(wavelon *) (&weight(0) + 1+fc);
+  const double *f = &weight(0) + 1;
   std_vector out(t.size());
+  std_vector ans(t.size());
   #pragma omp parallel for
   for (uint i=0; i<t.size();i++)
     {
@@ -73,6 +79,18 @@ std_vector Net::_sim(const std_vector& t,const std_vector&  inp, const column_ve
 	  nans+=wt->h(tau, wn[j].p)*wn[j].w;
 	}
       out[i]=nans*inp[i]+ weight(0);
+    }
+  for(uint i=0; i<t.size(); i++)
+    {
+      ans[i]=0.;
+      for (int j=0; j<fc; j++)
+	{
+	  double fval = 0.;
+	  int inx = i-j;
+	  if (inx>=0)
+	    fval=out[inx];
+	  ans[i]+=f[j]*fval*fb;
+	}
     }
   return out;
 }
@@ -88,12 +106,13 @@ std_vector Net::gradient(const std_vector& t, const std_vector&  inp, const std_
 
 column_vector Net::_gradient(const std_vector& t, const std_vector&  inp, const std_vector& target, const column_vector& weight, bool varc, bool varp)
  {
-   wavelon *wn =(wavelon *) (&weight(0) + 1);   
+   wavelon *wn =(wavelon *) (&weight(0) + 1 + fc);   
    column_vector gd;
    gd.set_size(wcount);
    for(int k=0; k<wcount; k++ ) gd(k)=0.;
    std_vector ans = sim(t, inp);
-   wavelon* gdw =(wavelon *) (&gd(0) + 1);
+   wavelon* gdw =(wavelon *) (&gd(0) + 1 + fc);
+   double* gf = (&gd(0) + 1);
    #pragma omp parallel for
    for (uint j=0; j<t.size(); j++)
    {
@@ -112,6 +131,19 @@ column_vector Net::_gradient(const std_vector& t, const std_vector&  inp, const 
 	   gdw[i].p += -e*inp[j]*wn[i].w*wt->dp(tau, wn[i].p);
        }
    }
+   for(int j=0; j<fc; j++)
+     {
+       for(uint i=0; i<t.size(); i++)
+	 {
+	   double e = target[i]-ans[i];
+	   double a = 0.;
+	   int inx = i-j;
+	   if (inx>=0)
+	     a=ans[inx];
+	   gf[j]-=e*a;
+
+	 }
+     }
    return gd; 
  }
 

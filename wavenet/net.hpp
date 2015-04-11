@@ -50,7 +50,7 @@ public:
   column_vector der (const column_vector& x);
   Net(int ncount, double ymin, double a0=10., double a1=10.,
       double w0=0.1, double w1=0.1, double p0=1.0, double p1=1.0,
-      int fcount=0, double fbcoef=0.01, ActFunc f = ActivateFunc::Morlet, int numberOfThreads=2);
+      int fcount=0, double f0=0.1, double fbcoef=0.01, ActFunc f = ActivateFunc::Morlet, int numberOfThreads=2);
   ~Net();
   std_vector sim(const std_vector&  t, const std_vector&  inp);
   std_vector gradient(const std_vector& t, const std_vector& target, const std_vector&  inp);
@@ -64,6 +64,7 @@ public:
 private:
   int nc;
   int fc;
+  double fb;
   int wcount;
   column_vector weight;
   std_vector t;

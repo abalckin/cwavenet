@@ -29,13 +29,19 @@ def plot(t, inp, target, wavenet, param, orig=None, xlabel='', ylabel=''):
     plb.subplot(133)
     plb.title('Веса, w')
     plb.plot(np.transpose(param['w']))
+    
     plb.figure("Расширенные веса")
-    plb.subplot(121)
+    plb.subplot(131)
     plb.title('Параметры, p')
     plb.plot(np.transpose(param['p']))
-    plb.subplot(122)
+    plb.subplot(132)
     plb.title('Смещение, c')
     plb.plot(param['c'][0])
+    plb.subplot(133)
+    plb.title('Обратные связи, f')
+    plb.plot(np.transpose(param['f']))
+    #import pdb; pdb.set_trace()
+  
     #plb.show()
 
 
