@@ -9,7 +9,7 @@ rc('text.latex', preamble=r'\usepackage[russian]{babel}')
 #rc('text.latex', preamble=r'\usepackage[lmodern]')
 #rc('font',**{'family':'sans-serif','sans-serif':['Times']})
 rc('font', **{'size':'22'})
-res = np.loadtxt('result.txt', delimiter=', ')[0:10]
+res = np.loadtxt('result.txt', delimiter=', ')[0:8]
 #import pdb; pdb.set_trace()
 #plb.barh(y_pos, performance, xerr=error, align='center', alpha=0.4)
 #plb.yscale('linear')

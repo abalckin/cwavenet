@@ -20,8 +20,8 @@ train_res Net::train(const std_vector& t, const std_vector&  inp, const std_vect
   double max = std::max_element(t.begin(), t.end())[0];
   double min = std::min_element(t.begin(),t.end())[0];
   double delta = (max - min)/nc;
-  max += 2*delta;
-  min -= 2*delta;
+  max += delta*2;
+  min -= delta*2;
   delta =(max-min)/nc;
   wn =(wavelon *) (&weight(0) + 1 + fc);
   for (int i=0; i<nc; i++)
