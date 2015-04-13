@@ -34,7 +34,7 @@ def main():
     Exp_list = []
     N = 200
     np.random.seed()
-    test_num = 10
+    test_num = 5
     cb = cr.Caller()
     cal = Caller()
     cb.setHandler(cal)
@@ -82,10 +82,10 @@ def main():
                     #import pdb; pdb.set_trace()
                 else:
                     ts = wn.TrainStrategy.Gradient
-                    w = wn.Net(nc, np.min(inp)-0.01, np.max(inp)+0.01, c0,
+                    w = wn.Net(nc, c0,
                             a0, a1, w0, w1, p0, p1, wn.ActivateFunc.POLYWOG, 4)
                     start = time.clock()
-                    track = w.train(cb, inp, inp, d, ts, N, 0.0, 1, False, True)
+                    track = w.train(inp, inp, d, ts, N, 0.0, 1, False, True)
                     end= time.clock()
                     ans = w.sim(inp, inp)
                     tool.plot(inp, inp, w, track, orig=tar, target=d)

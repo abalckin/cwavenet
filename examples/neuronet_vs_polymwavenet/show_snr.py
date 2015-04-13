@@ -25,10 +25,10 @@ plb.gca().set_xticks(res[:, 1])
 #plb.gca().xaxis.set_major_locator(plb.LogLocator(numticks=50))
 plb.gca().xaxis.set_major_formatter(plb.ScalarFormatter())
 plb.ylabel('Отношение сигнал/шум на выходе сети, M')
-plb.xlabel('Отношение сигнал/шум на входе системы, S')
+plb.xlabel('Отношение сигнал/шум на входе сети, S')
 plb.annotate('Область применимости нейронных сетей', [13, 700])
 plb.show()
-a = 4
+a = 3
 b = -3
 neur_avg = res[a:b, 11]
 poly_avg = res[a:b, 5]

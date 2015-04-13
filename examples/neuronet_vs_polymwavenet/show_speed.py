@@ -26,11 +26,11 @@ plb.gca().set_xticks(res[:, 1])
 #plb.gca().xaxis.set_major_locator(plb.LogLocator(numticks=50))
 plb.gca().xaxis.set_major_formatter(plb.ScalarFormatter())
 plb.ylabel(u'Продолжительность сходимости вейвлет-сети, $\hat{n}$')
-plb.xlabel('Отношение сигнал/шум на входе системы, S')
+plb.xlabel('Отношение сигнал/шум на входе сети, S')
 plb.annotate('Область применимости вейвлет-сетей', [15, 175])
 plb.show()
 
-a = 4
+a = 3
 b = -3
 neur_avg = res[a:b, 9]
 poly_avg = res[a:b, 3]
@@ -38,13 +38,12 @@ neur_min = res[a:b, 9]-res[a:b, 10]
 neur_max = res[a:b, 9]+res[a:b, 10]
 poly_min = res[a:b, 3]-res[a:b, 4]
 poly_max = res[a:b, 3]+res[a:b, 4]
-#import pdb; pdb.set_trace()
+import pdb; pdb.set_trace()
 print('Улучшение в среднем на {}%'.format(np.average((neur_avg-poly_avg)/neur_avg*100)))
 print('Улучшение по диапазону на {0}-{1}%'.format((np.average((neur_min-poly_min)/neur_min*100)),
       np.average((neur_max-poly_max)/neur_max*100)))
 print('Улучшение по диапазону на {0}-{1}'.format((np.average((neur_min-poly_min))),
       np.average((neur_max-poly_max))))
-
 
 
 
