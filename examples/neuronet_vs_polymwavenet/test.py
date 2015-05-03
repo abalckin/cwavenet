@@ -44,13 +44,13 @@ def main():
     a0 = .8
     a1 = .8
     nc = 10
-    w0 = -.1
-    w1 = -0.1
+    w0 = -.0
+    w1 = -0.
 
     print('\n\t\t\t|Полиморфная вейвсеть\t\t\t\t|Нейронная сеть')
     print('\nk2\t|\tS\t|\tn\t|\tM\t|\tdE\t|\tn\t|\tM\t|\tdE')
     #import pdb; pdb.set_trace()
-    klist = [1.*1.5**i/50. for i in range(0, 10)]
+    klist = [1.*1.5**i/50. for i in range(9, 10)]
     T_list = [[], []]
     for k2 in klist:
         S_list = []
@@ -89,7 +89,7 @@ def main():
                     end= time.clock()
                     ans = w.sim(inp, inp)
                     tool.plot(inp, inp, w, track, orig=tar, target=d)
-                    #plb.show()
+                    plb.show()
                     E = track['e']
                     y = np.array(E)[0]
                 Ay = (np.sum(tar**2)/T)**0.5
