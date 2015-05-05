@@ -34,23 +34,23 @@ def main():
     Exp_list = []
     N = 200
     np.random.seed()
-    test_num = 5
+    test_num = 30
     cb = cr.Caller()
     cal = Caller()
     cb.setHandler(cal)
     c0 = .5
     p0 = 1.
     p1 = 1.
-    a0 = .8
-    a1 = .8
+    a0 = .4
+    a1 = .4
     nc = 10
-    w0 = -.0
-    w1 = -0.
+    w0 = 0.00001
+    w1 = -0.00001
 
     print('\n\t\t\t|Полиморфная вейвсеть\t\t\t\t|Нейронная сеть')
     print('\nk2\t|\tS\t|\tn\t|\tM\t|\tdE\t|\tn\t|\tM\t|\tdE')
     #import pdb; pdb.set_trace()
-    klist = [1.*1.5**i/50. for i in range(9, 10)]
+    klist = [1.*1.5**i/50. for i in range(-1, 10)]
     T_list = [[], []]
     for k2 in klist:
         S_list = []
@@ -69,7 +69,7 @@ def main():
                 if ff == True:
                     inp_ff = inp.reshape(T, 1)
                     tar_ff = d.reshape(T, 1)
-                    n = nl.net.newff([[-1., 1.]], [60, 1])
+                    n = nl.net.newff([[-1., 1.]], [50, 1])
                     n.trainf = nl.train.train_gd
                     #import pdb; pdb.set_trace()
                     start= time.clock()
@@ -88,8 +88,8 @@ def main():
                     track = w.train(inp, inp, d, ts, N, 0.0, 1, False, True)
                     end= time.clock()
                     ans = w.sim(inp, inp)
-                    tool.plot(inp, inp, w, track, orig=tar, target=d)
-                    plb.show()
+                    #tool.plot(inp, inp, w, track, orig=tar, target=d)
+                    #plb.show()
                     E = track['e']
                     y = np.array(E)[0]
                 Ay = (np.sum(tar**2)/T)**0.5
