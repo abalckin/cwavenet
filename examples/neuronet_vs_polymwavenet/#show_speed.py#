@@ -40,6 +40,7 @@ poly_min = res[a:b, 3]-res[a:b, 4]
 poly_max = res[a:b, 3]+res[a:b, 4]
 #import pdb; pdb.set_trace()
 print('Улучшение в среднем на {}%'.format(np.average((neur_avg/poly_avg))))
+print('Улучшение в среднем на {}%'.format(np.average((neur_min/poly_max))))
 
 #print('Улучшение в среднем на {}%'.format(np.average((neur_avg-poly_avg)/neur_avg*100)))
 #print('Улучшение по диапазону на {0}-{1}%'.format((np.average((neur_min-poly_min)/neur_min*100)),
