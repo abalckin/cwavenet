@@ -14,7 +14,7 @@ res = np.loadtxt('result.txt', delimiter=', ')[0:10]
 #plb.yscale('linear')
 plb.errorbar(res[:, 1], res[:, 5], yerr=res[:, 6], label='Полиморфная вейвлет-сеть', linestyle='--', marker='*', color='black')
 plb.errorbar(res[:, 1], res[:, 11], yerr=res[:, 12], label='Многослойная нейронная сеть', marker='o', color='green')
-plb.errorbar(res[:, 1], res[:, 1],  yerr=res[:, 2], label='Отношение сигнал/шум на входе сети, S', color='blue')
+plb.errorbar(res[:, 1], res[:, 1],  yerr=res[:, 2], label='M=S', color='blue')
 #import pdb; pdb.set_trace()
 plb.fill_between(res[:, 1], res[:, 1], res[:, 1]-np.max(res[:, 1]), res[:, 1], alpha=0.1, color='blue')
 plb.xscale('log')

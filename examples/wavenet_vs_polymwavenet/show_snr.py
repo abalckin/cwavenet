@@ -14,7 +14,7 @@ res = np.loadtxt('result.txt', delimiter=', ')[0:7]
 #plb.yscale('linear')
 plb.errorbar(res[:, 1], res[:, 5], yerr=res[:, 6], label='Традиционная вейвлет-сеть', linestyle='--', marker='*', color='black')
 plb.errorbar(res[:, 1], res[:, 11], yerr=res[:, 12], label='Полиморфная вейвлет-сеть', marker='o', color='green')
-plb.errorbar(res[:, 1], res[:, 1],  yerr=res[:, 2], label='Отношение сигнал/шум для временного ряда $d(t), S$', color='blue')
+plb.errorbar(res[:, 1], res[:, 1],  yerr=res[:, 2], label='M=S', color='blue')
 #import pdb; pdb.set_trace()
 plb.fill_between(res[:, 1], res[:, 1], res[:, 1]-np.max(res[:, 1]), res[:, 1], alpha=0.1, color='blue')
 plb.xscale('log')
