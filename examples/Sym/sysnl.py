@@ -36,10 +36,10 @@ def func3(y, t):
         return(y)
 
 def u1(t):
-    return 0.5*np.sin(np.pi*2*t/50)+1
+    return 0.7*np.sin(np.pi*1.95*t/50+0.1)+1
 
 def u2(t):
-    return 1.5*np.sin(np.pi*2*t/50)+1
+    return 1.2*np.sin(np.pi*2.05*t/50-0.1)+1
 
 def u3(t):
     return np.sin(np.pi*2*t/50)+1
@@ -48,8 +48,8 @@ cpu_count = multiprocessing.cpu_count()
 N = 50
 np.random.seed()
 c0 = 0.0
-a0 = 20
-a1 = 20
+a0 = 148.5
+a1 = 151.5
 w0 = -0.001
 w1 = 0.001
 p0 = 1.
@@ -59,7 +59,7 @@ fcount = 2
 f0 = 0.
 fb = 1.
 T=100
-k=0.05
+k=0.1
 t = np.arange(0, T, 1.)
 eps = np.random.normal(0., k, t.shape[-1])
 inp1 = np.vectorize(u1)(t)
@@ -96,7 +96,7 @@ time = np.ma.concatenate([t, t])
 inputs = np.ma.concatenate([inp1, inp2])
 targets = np.ma.concatenate([tar1, tar2])
 
-track = w.train(time, inputs, targets, wn.TrainStrategy.Gradient, N, 0., 1, True, True)
+track = w.train(time, inputs, targets, wn.TrainStrategy.Gradient, N, 0., 1, True, False)
 
 #ans = w.sim(t, inpc)
 #import pdb; pdb.set_trace()
