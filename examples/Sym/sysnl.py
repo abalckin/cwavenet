@@ -22,13 +22,13 @@ def u1(t):
     return 1.
 
 def u2(t):
-    return 0.3*np.sin(np.pi*3*t/50)+1.
+    return 0.3*np.sin(np.pi*3*t/50+1)+1.
 
 def u3(t):
-    return 0.2*np.sin(np.pi*2*t/50)+1
+    return 0.2*np.sin(np.pi*2.6*t/50+1)+1
 
 def u4(t):
-    return 2. if t == 50 else 1.
+    return 1.5 if t == 50 else 1.
 
 cpu_count = multiprocessing.cpu_count()
 N = 5000
@@ -39,8 +39,8 @@ a1 = 30.5
 w0 = w1 = 0.
 p0 = p1 = 1.
 nc = 20
-fcount = 4
-f0 = 10.
+fcount = 2
+f0 = 1.1
 fb = 1.
 T=100
 ky=5.e-1
@@ -86,8 +86,8 @@ time = np.ma.concatenate([t, t])
 inputs = np.ma.concatenate([inp1, inp2])
 targets = np.ma.concatenate([tar1, tar2])
 
-track = w.train(time, inputs, targets, wn.TrainStrategy.Gradient, N, 0., 1, True, True)
-#track = w.train(t, inp2, tar2, wn.TrainStrategy.Gradient, N, 0., 1, True, True)
+#track = w.train(time, inputs, targets, wn.TrainStrategy.BFGS, N, 0., 1, True, True)
+track = w.train(t, inp1, tar1, wn.TrainStrategy.BFGS, N, 0., 1, True, True)
 #ans = w.sim(t, inpc)
 #import pdb; pdb.set_trace()
 tool.plot(t, inp1, w, track, orig=sys1, target=tar1)
