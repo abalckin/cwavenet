@@ -89,10 +89,12 @@ std_vector Net::_sim(const std_vector& t,const std_vector&  inp, const column_ve
 	  int inx = i-j;
 	  if (inx>=0)
 	    fval=out[inx];
+	  else
+	    fval=out[0];
 	  ans[i]+=f[j]*fval*fb;
 	}
     }
-  return out;
+  return ans;
 }
 
 std_vector Net::gradient(const std_vector& t, const std_vector&  inp, const std_vector& target)
