@@ -12,7 +12,7 @@ import multiprocessing
 def func1(y, t, u):
     n = len(y)
     if n<t:
-        y.append(1.1*y[-1]/(y[-2]**2+1)**0.08+u(n)-np.random.normal(0., ks))
+        y.append(1.2*y[-1]/(y[-2]**2+1)**2+u(n)-np.random.normal(0., ks))
         print(y[-1])
         return func1(y, t, u)
     else:
@@ -22,30 +22,34 @@ def u1(t):
     return 1.
 
 def u2(t):
-    return 0.3*np.sin(np.pi*3*t/50+1)+1.
+    tau= (t-20)/4
+    return 0.5*np.cos(3.*tau)*np.exp(-0.5*tau**2)+1
 
 def u3(t):
-    return 0.2*np.sin(np.pi*2.6*t/50+1)+1
-
+    tau= (t-30)/3.5
+    return 0.7*np.cos(2.5*tau)*np.exp(-0.5*tau**2)+1
+    
 def u4(t):
-    return 1.5 if t == 50 else 1.
+    return 2. if t == 22 else 1.
 
 cpu_count = multiprocessing.cpu_count()
 N = 5000
 np.random.seed()
 c0 = 0.0
-a0 = 30.
-a1 = 30.5
-w0 = w1 = 0.
+a0 = 3.5
+a1 = 8.
+w0 = -0.001
+w1 = 0.001
 p0 = p1 = 1.
-nc = 20
+nc = 40
 fcount = 2
-f0 = 1.1
+f0 = .5
 fb = 1.
-T=100
-ky=5.e-1
-ks=5.e-2
-ku=2.e-3
+T=50
+ks=ku=1.e-2
+ky=5.e-2
+#ks=5.e-2
+#ku=2.e-3
 t = np.arange(0, T, 1.)
 inp1 = np.vectorize(u1)(t)
 inp2 = np.vectorize(u2)(t)
@@ -86,12 +90,15 @@ time = np.ma.concatenate([t, t])
 inputs = np.ma.concatenate([inp1, inp2])
 targets = np.ma.concatenate([tar1, tar2])
 
-#track = w.train(time, inputs, targets, wn.TrainStrategy.BFGS, N, 0., 1, True, True)
-track = w.train(t, inp1, tar1, wn.TrainStrategy.BFGS, N, 0., 1, True, True)
+track = w.train(time, inputs, targets, wn.TrainStrategy.BFGS, N, 0., 1, True, True)
+
+#track = w.train(t, inp1, tar1, wn.TrainStrategy.BFGS, N, 0., 1, True, True)
 #ans = w.sim(t, inpc)
 #import pdb; pdb.set_trace()
+#
 tool.plot(t, inp1, w, track, orig=sys1, target=tar1)
 plb.show()
+
 tool.plot(t, inp2, w, track, orig=sys2, target=tar2)
 plb.show()
 
