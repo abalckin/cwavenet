@@ -6,11 +6,11 @@
 #include <list>
 #include <map>
 #include <string>
-#include <dlib/optimization/optimization_search_strategies_abstract.h>
-#include <dlib/optimization.h>
-#include <dlib/optimization/optimization_search_strategies.h>
-#include <dlib/optimization/optimization_stop_strategies.h>
-#include <dlib/optimization/optimization_line_search.h>
+#include "dlib/optimization/optimization_search_strategies_abstract.h"
+#include "dlib/optimization.h"
+#include "dlib/optimization/optimization_search_strategies.h"
+#include "dlib/optimization/optimization_stop_strategies.h"
+#include "dlib/optimization/optimization_line_search.h"
 #include <omp.h>
 #include <time.h>
 #include "cregister.cpp"
