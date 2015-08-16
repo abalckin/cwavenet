@@ -25,7 +25,7 @@ def func2c(y, t):
 
 def func1g(y, t):
     y1, y2 = y
-    return [y2, -5*y2-(6+4*np.sin(3*t))*y1+ug(t)+ksi2(t)]
+    return [y2, -5*y2-(6+20*np.sin(3*t))*y1+ug(t)+ksi2(t)]
 
 
 def func2g(y, t):
@@ -95,9 +95,9 @@ w = wn.Net(nc, c0,
            fbcoef=fb)
 #import pdb; pdb.set_trace()
 
-#track = w.train(t, inpg, sysag, wn.TrainStrategy.Gradient, N, 0.005, 1, True, True)
-#track = w.train(t, inpg, sysag, wn.TrainStrategy.CG, N, 0.005, 1, True, True)
-track = w.train(t, inpg, sysag, wn.TrainStrategy.BFGS, N, 0.005, 1, True, True)
+##track = w.train(t, inpg, sysag, wn.TrainStrategy.Gradient, N, 0.015, 1, True, True)
+##track = w.train(t, inpg, sysag, wn.TrainStrategy.CG, N, 0.015, 1, True, True)
+track = w.train(t, inpg, sysag, wn.TrainStrategy.BFGS, N, 0.015, 1, True, True)
 print(len(track["e"][0]))
 ans = w.sim(t, inpg)
 #import pdb; pdb.set_trace()
