@@ -1,7 +1,9 @@
 PYINC = /usr/include/python3.4
 PYLIB = /usr/local/bin
 CFLAGS = -O3 -fopenmp
-all: _wavenet.so wavenet.py _wavelet.so wavelet.py cregister.o
+CMODS = _cregister.so
+
+all: _wavenet.so  _wavelet.so cregister.o $(CMODS)
 
 # обертка + действительный класс
 _wavenet.so: wavenet_wrap.o net.o train.o
@@ -9,10 +11,8 @@ _wavenet.so: wavenet_wrap.o net.o train.o
 # генерирует модуль обертки класса
 wavenet_wrap.o: wavenet_wrap.cxx
 		g++ $(CFLAGS) wavenet_wrap.cxx -c -g -fPIC -I $(PYINC)
-wavenet_wrap.cxx: wavenet.i
-		  swig -c++ -python wavenet.i
-wavenet.py: wavenet.i
-	    swig -c++ -python wavenet.i
+wavenet_wrap.cxx: ../interfaces/wavenet.i
+		swig -outdir . -o ./wavenet_wrap.cxx -c++ -python ../interfaces/wavenet.i
 
 # программный код обертки класса C++
 net.o:
@@ -27,17 +27,26 @@ _wavelet.so: wavelet_wrap.o  wavelet.o
 # генерирует модуль обертки класса
 wavelet_wrap.o: wavelet_wrap.cxx
 		g++ $(CFLAGS) wavelet_wrap.cxx -c -g -fPIC -I $(PYINC)
-wavelet_wrap.cxx: wavelet.i
-		  swig -c++ -python wavelet.i
-wavelet.py: wavelet.i
-	    swig -c++ -python wavelet.i
+wavelet_wrap.cxx: ../interfaces/wavelet.i
+		swig -outdir . -o ./wavelet_wrap.cxx -c++ -python  ../interfaces/wavelet.i
 
 # программный код обертки класса C++
 wavelet.o:
 	  g++ $(CFLAGS) ../wavenet/wavelet.cpp -c -g -fPIC -Wno-deprecated
 
+# обертка + действительный класс
+$(CMODS): cregister_wrap.o cregister.o
+	      g++ $(CFLAGS) -shared cregister_wrap.o cregister.o  -L $(PYLIB) -o $@
+# генерирует модуль обертки класса
+cregister_wrap.o: cregister_wrap.cxx
+		g++ $(CFLAGS) cregister_wrap.cxx -c -g -fPIC -I $(PYINC) 
+cregister_wrap.cxx: ../interfaces/cregister.i
+		  swig -c++ -python -outdir . -o ./cregister_wrap.cxx ../interfaces/cregister.i
+
+# программный код обертки класса C++
 cregister.o:
-	make -f ../submakefile
+	  g++ $(CFLAGS) ../wavenet/cregister.cpp -c -g -fPIC -Wno-deprecated
+
 clean:
 	rm -f *.pyc *.o *.so *.py *.cxx
 
