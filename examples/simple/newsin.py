@@ -1,7 +1,7 @@
 #! /usr/bin/python3
 import sys
 import tool
-sys.path.append('/home/serg/workspace/cbwavenet/Release/')
+sys.path.append('../../Release/')
 import wavenet as wn
 import numpy as np
 import pylab as plb
