@@ -82,17 +82,19 @@ std_vector Net::_sim(const std_vector& t,const std_vector&  inp, const column_ve
     }
   for(uint i=0; i<t.size(); i++)
     {
-      ans[i]=0.;
+      ans[i]=out[i];
       for (int j=0; j<fc; j++)
-	{
-	  double fval = 0.;
-	  int inx = i-j;
-	  if (inx>=0)
-	    fval=out[inx];
-	  ans[i]+=f[j]*fval*fb;
-	}
+    {
+      double fval = 0.;
+      int inx = i-j-1;
+      if (inx>=0)
+        fval=out[inx];
+      else
+        fval=out[0];
+      ans[i]+=f[j]*fval*fb;
     }
-  return out;
+    }
+  return ans;
 }
 
 std_vector Net::gradient(const std_vector& t, const std_vector&  inp, const std_vector& target)
@@ -137,10 +139,10 @@ column_vector Net::_gradient(const std_vector& t, const std_vector&  inp, const 
 	 {
 	   double e = target[i]-ans[i];
 	   double a = 0.;
-	   int inx = i-j;
+       int inx = i-j-1;
 	   if (inx>=0)
 	     a=ans[inx];
-	   gf[j]-=e*a;
+	   gf[j]-=e*a*fb;
 
 	 }
      }

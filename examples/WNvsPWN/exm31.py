@@ -41,27 +41,26 @@ def func2g(y, t):
 
 
 def uc(t):
-    return 0.
+    return 1.
 
 
 def ug(t):
-    return 0.
+    return 1+0.2*np.cos(2*t)
 
 cb = cr.Caller()
 cal = Caller()
 cb.setHandler(cal)
 k2 = 0.05
-N = 200
+N = 500
 np.random.seed()
-c0 = 1.0
-a0 = 1.
-a1 = 1.
+c0 = .0
+a0 = .7
+a1 = .7
 w0 = -0.
 w1 = 0.
 p0 = 1. 
 p1 = 1.
-nc = 10
-znum = 2
+nc = 15
 t = np.arange(0, 10, 0.1)
 eps = np.random.normal(0., k2, t.shape[-1])
 inpc = np.vectorize(uc)(t)
@@ -69,19 +68,19 @@ inpc = inpc+eps*np.abs(inpc)
 eps = np.random.normal(0., k2, t.shape[-1])
 inpg = np.vectorize(ug)(t)
 inpg = inpg+eps*np.abs(inpg)
-sysag = odeint(func1g, [6., 5.], t)[:, 0]
-sysac = odeint(func1c, [6., 5.], t)[:, 0]
-sysbg = odeint(func2g, [6., 5.], t)[:, 0]
-sysbc = odeint(func2c, [6., 5.], t)[:, 0]
+sysag = odeint(func1g, [0.2, 0.2], t)[:, 0]
+sysac = odeint(func1c, [0.2, 0.2], t)[:, 0]
+sysbg = odeint(func2g, [0.2, 0.2], t)[:, 0]
+sysbc = odeint(func2c, [0.2, 0.2], t)[:, 0]
 ulist = [inpg, inpc, inpg, inpc]
 tarlist = [sysag, sysac, sysbg, sysbc]
 eps = np.random.normal(0., k2, sysbg.shape)
-dg2 = sysbg+eps
+dc1 = sysac+eps*np.abs(sysac)
 #dg = sysag+eps*np.abs(sysag)
-w = wn.Net(nc,c0,a0, a1,  w0, w1, p0, p1,znum,0.5,1., wn.ActivateFunc.Morlet, 4)
-track = w.train(t, t, dg2, wn.TrainStrategy.BFGS, N, 0., 1, True, True)
-#track = w.train(t, t, dg, wn.TrainStrategy.BFGS, N, 0., 1, False, False)
-tool.plot(t, t, w, track, orig=sysbg, target=dg2)
+w = wn.Net(nc,c0,a0, a1,  w0, w1, p0, p1,2,0.,1., wn.ActivateFunc.POLYWOG, 4)
+#track = w.train(t, t, dc1, wn.TrainStrategy.BFGS, N, 0., 1, True, True)
+track = w.train(t, t, dc1, wn.TrainStrategy.BFGS, N, 0., 1, False, False)
+tool.plot(t, t, w, track, orig=sysac, target=dc1)
 plb.show()
 
 #tool.plot(t, inpg, w, track, orig=sysbg)
